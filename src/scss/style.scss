@@ -1,0 +1,132 @@
+
+/*-------------------------- C O N T A I N E R S------------------------------*/
+
+.inner {
+	max-width: 1280px;
+}
+
+/*---------------------------- @ M I X I N S --------------------------------*/
+
+@mixin flex($jc, $ai) {
+  display: flex;
+  @if $jc == c {
+    justify-content: center;
+  } @else if $jc == sa {
+    justify-content: space-around;
+  } @else if $jc == sb {
+    justify-content: space-between;
+  } @else if $jc == fs {
+    justify-content: flex-start;
+  } @else if $jc == fe {
+    justify-content: flex-end;
+  }
+
+  @if $ai == c {
+    align-items: center;
+  } @else if $ai == sa {
+    align-items: space-around;
+  } @else if $ai == sb {
+    align-items: space-between;
+  } @else if $ai == fs {
+    align-items: flex-start;
+  } @else if $ai == fe {
+    align-items: flex-end;
+  }
+}
+@mixin comboflex($jc1, $ai1, $jc2, $ai2) {
+  display: flex;
+  @if $jc1 == c {
+    justify-content: center;
+  } @else if $jc1 == sa {
+    justify-content: space-around;
+  } @else if $jc1 == sb {
+    justify-content: space-between;
+  } @else if $jc1 == fs {
+    justify-content: flex-start;
+  } @else if $jc1 == fe {
+    justify-content: flex-end;
+  }
+
+  @if $ai1 == c {
+    align-items: center;
+  } @else if $ai1 == sa {
+    align-items: space-around;
+  } @else if $ai1 == sb {
+    align-items: space-between;
+  } @else if $ai1 == fs {
+    align-items: flex-start;
+  } @else if $ai1 == fe {
+    align-items: flex-end;
+  }
+
+  &__item {
+    display: flex;
+    @if $jc2 == c {
+      justify-content: center;
+    } @else if $jc2 == sa {
+      justify-content: space-around;
+    } @else if $jc2 == sb {
+      justify-content: space-between;
+    } @else if $jc2 == fs {
+      justify-content: flex-start;
+    } @else if $jc2 == fe {
+      justify-content: flex-end;
+    }
+
+    @if $ai2 == c {
+      align-items: center;
+    } @else if $ai2 == sa {
+      align-items: space-around;
+    } @else if $ai2 == sb {
+      align-items: space-between;
+    } @else if $ai2 == fs {
+      align-items: flex-start;
+    } @else if $ai2 == fe {
+      align-items: flex-end;
+    }
+  }
+}
+@mixin text($ff, $co, $fs, $fw, $ta, $tt) {
+	font-family: $ff, sans-serif;
+	color: $co;
+	font-size: $fs;
+	font-weight: $fw;
+	text-align: $ta;
+	text-transform: $tt;
+}
+@mixin btn($w, $h) {
+	width: $w;
+	height: $h;
+	border-radius: 50px;
+	box-sizing: border-box;
+	background: linear-gradient(to right, #49007c 0%, #e70088 100%);
+}
+
+
+/*---------------------------- @ E X T E N D --------------------------------*/
+
+.link {
+	text-decoration: none;
+}
+
+/*------------------ R E P E T I T I V E      S E L E C T O R S --------------*/
+
+.btn-price {
+	margin-top: 64px;
+	@include flex(c, c);
+	@include btn(205px, 50px);
+	@include text(ProximaNova, #ffffff, 14px, 400, center, none);
+	@extend .link;
+	background: linear-gradient(to right, #49007c 0%, #e70088 100%);
+}
+
+.btn-price:hover {
+	background: linear-gradient(to left, #49007c 0%, #e70088 100%);
+}
+
+
+/*---------------------------- @ I M P O R T --------------------------------*/
+
+@import "fonts.scss";
+@import "header.scss";
+@import "description.scss";

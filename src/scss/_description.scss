@@ -1,0 +1,66 @@
+.main-description {
+	background-image: url(../img/description.png);
+	background-position: left, right;
+	background-size: 50% 100%;
+	background-repeat: repeat-x;
+}
+
+.main-container {
+	margin: 0 auto;
+	background-color: rgba(0, 0, 0, 0.65);
+	@include flex(sa, c);
+}
+
+.column-design {
+	padding: 149px 90px 60px 60px;
+
+	&__header {
+
+	}
+
+	&__header-normal {
+		@include text(ProximaNova, #ffffff, 48px, 300, center, none);
+		margin-right: -5px;
+	}
+
+	&__header-bold {
+		@include text(ProximaNova, #ffffff, 48px, 700, center, none);
+	}
+
+	&__text {
+		@include text(ProximaNova, #ffffff, 16px, 300, left, none);
+		margin-top: 28px;
+		line-height: 2;
+	}
+
+	.btn-price {
+    	margin-top: 30px;
+	}
+}
+
+.column-code {
+	padding: 149px 90px 60px 90px;
+
+	&__header {
+
+	}
+
+	&__header-normal {
+		@include text(ProximaNova, #ffffff, 48px, 300, center, none);
+		margin-right: -5px;
+	}
+
+	&__header-bold {
+		@include text(ProximaNova, #ffffff, 48px, 700, center, none);
+	}
+
+	&__text {
+		@include text(ProximaNova, #ffffff, 16px, 300, left, none);
+		margin-top: 28px;
+		line-height: 2;
+	}
+
+	.btn-price {
+    	margin-top: 30px;
+	}
+}
