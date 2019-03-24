@@ -10,4 +10,5 @@
 # production
 /dist
 
+# package-lock
 package-lock.json
