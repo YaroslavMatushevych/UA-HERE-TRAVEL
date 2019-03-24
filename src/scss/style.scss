@@ -128,5 +128,5 @@
 /*---------------------------- @ I M P O R T --------------------------------*/
 
 @import "fonts.scss";
-@import "header.scss";
-@import "description.scss";
+@import "../sections/1_header/scss/header.scss";
+@import "../sections/2_trip-process/scss/description.scss";

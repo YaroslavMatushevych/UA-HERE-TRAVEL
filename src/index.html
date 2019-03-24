@@ -4,17 +4,22 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Agency 2</title>
-    <link rel="stylesheet" href="./css/reset.min.css">
+	<link rel="stylesheet" href="./css/reset.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
 <body>
-	<div>Inside1</div>
-	<div>outsider</div>
 <!----- S E C T I O N     H E A D E R ------->
-	{% include 'templates/header.html' %}
-<!----- S E C T I O N     D E S C R I P T I O N ------->
-	{% include 'templates/section.html' %}
+	{% include 'sections/1_header/header.html' %}
+<!----- S E C T I O N     T R I P   P R O C E S S ------->
+	{% include 'sections/2_trip-process/trip-process.html' %}
+<!----- S E C T I O N     G A L L E R Y   R E V I E W S ------->
+	{% include 'sections/3_gallery-reviews/gallery-reviews.html' %}
+<!----- S E C T I O N     F O R M    A N D   F O O T E R ------->
+	{% include 'sections/4_form-and-footer/form-and-footer.html' %}
+	<script src="js/jquery-min-3.3.1.js"></script>
+    <script src="js/jquery-mobile-1.4.5.js"></script>
 	<script src="js/all.min.js"></script>
 </body>
 </html>
