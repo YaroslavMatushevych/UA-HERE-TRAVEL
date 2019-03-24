@@ -80,8 +80,7 @@ function watch() {
 	browserSync.init({											// инструмент для live reload
 		server: {
 			baseDir: "./dist"
-		},
-		tunnel: true
+		}
 	});
 
 	gulp.watch('./src/scss/**/*.scss', forSass);				// ставим watcher для слежения за изменениями в файлах
