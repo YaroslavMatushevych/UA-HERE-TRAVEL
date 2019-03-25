@@ -94,7 +94,7 @@ function watch() {
 
 	gulp.watch('./src/**/*.scss', forSass);				// ставим watcher для слежения за изменениями в файлах
 	gulp.watch('./src/**/*.js', scripts);
-	gulp.watch('./src/*.html', buildhtml);
+	gulp.watch('./src/**/*.html', buildhtml);
 }
 
 gulp.task('cleandev', cleandev);
