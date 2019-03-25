@@ -1,0 +1,7 @@
+.test1 {
+    color: green;
+}
+
+.btn-top {
+    @include btn;
+}
