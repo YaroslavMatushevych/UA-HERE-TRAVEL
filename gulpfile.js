@@ -18,13 +18,18 @@ const fontsFiles = [										//составляем массив перемен
 	'./src/fonts/**.otf'
 ];
 
+const imgFiles = [
+    './src/img/**/**.jpg',
+    './src/img/**/**.png'
+];
+
 function cleandev() {										//модуль отчистки папки перед каждой расспаковкой
     return gulp.src('./dist', {read: false})
         .pipe(clean())
 }
 
 function img() {											//модуль переноса картинок
-    return gulp.src('./src/img/*.png')
+    return gulp.src(imgFiles)
         .pipe(gulp.dest('./dist/img'))
 }
 

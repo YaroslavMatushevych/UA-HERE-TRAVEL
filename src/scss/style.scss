@@ -1,8 +1,43 @@
 
+/*-------------------------- V A R I A B L E S ------------------------------*/
+
+$white: #ffffff;
+$blue: #0366a2;
+$yellow: #f6d671;
+$font: Montserrat, sans-serif;
+
 /*-------------------------- C O N T A I N E R S------------------------------*/
 
-.inner {
-	max-width: 1280px;
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (max-width: 993px) {
+  .container {
+    max-width: 728px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media screen and (max-width: 578px) {
+
+  .main-container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
 }
 
 /*---------------------------- @ M I X I N S --------------------------------*/
@@ -94,39 +129,38 @@
 	text-align: $ta;
 	text-transform: $tt;
 }
-@mixin btn($w, $h) {
-	width: $w;
-	height: $h;
-	border-radius: 50px;
-	box-sizing: border-box;
-	background: linear-gradient(to right, #49007c 0%, #e70088 100%);
+
+@mixin btn {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 33px;
+  padding: 27px 88px 25px 85px; 
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #0366a2;
+  color: white;
+  outline: none;
+  text-transform: uppercase;
 }
 
+@mixin header ($fz) {
+  font-family: Montserrat, sans-serif;
+  font-size: $fz + px;
+  font-weight: 700;
+  text-align: center;
+  color: #3c4458;
+}
 
 /*---------------------------- @ E X T E N D --------------------------------*/
 
-.link {
-	text-decoration: none;
-}
-
 /*------------------ R E P E T I T I V E      S E L E C T O R S --------------*/
-
-.btn-price {
-	margin-top: 64px;
-	@include flex(c, c);
-	@include btn(205px, 50px);
-	@include text(ProximaNova, #ffffff, 14px, 400, center, none);
-	@extend .link;
-	background: linear-gradient(to right, #49007c 0%, #e70088 100%);
-}
-
-.btn-price:hover {
-	background: linear-gradient(to left, #49007c 0%, #e70088 100%);
-}
-
 
 /*---------------------------- @ I M P O R T --------------------------------*/
 
 @import "fonts.scss";
 @import "../sections/1_header/scss/header.scss";
-@import "../sections/2_trip-process/scss/description.scss";
+@import "../sections/2_trip-process/scss/trip-process.scss";
+@import "../sections/3_gallery-reviews/scss/gallery-reviews.scss";
+@import "../sections/4_form-and-footer/scss/form-and-footer.scss";
