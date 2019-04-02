@@ -1,3 +1,179 @@
-.test5 {
-    color: blue;
+.base-form{
+    padding: 0 6.25%;
 }
+.main-form{
+    max-width: 1400px;
+    padding: 77px 100px 55px 100px;
+    min-height: 750px;
+    box-sizing: border-box;
+    margin:0 auto;
+    box-shadow: 6.772px 8.668px 38px rgba(107,108,108,0.19);
+    background-color: #ffffff;
+    border: 1px solid #acacac;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.form-slide-container{
+    display: flex;
+    position: relative;
+    transition: 0.4s;
+}
+.form-slide-content{
+    @include flex(sb,sb);
+    flex-direction: column;
+    box-sizing: border-box;
+    height: max-content;
+}
+.form-slide{
+    @include flex(sb,sb);
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: 543px;
+    min-width: 100%;
+    transition: 0.4s;
+    box-suppress: hide;
+    position: absolute;
+    transform: translateX(150%);
+}
+.active-form-slide{
+    transform: translateX(0);
+}
+.left-form-slide{
+    transform: translateX(-150%);
+}
+.form-btn{
+    @include btn;
+}
+//.form-btn:hover{
+//    @include btn-hover;
+//}
+.form-slide-footer{
+    @include flex(sb,c);
+}
+.header-txt{
+    @include header(48);
+    text-align: center;
+    margin-bottom: 25px;
+}
+.sub-txt{
+    @include text(Montserrat,#3c4458,28,500,center,none);
+}
+.pagination{
+    @include text(Montserrat,#0082d1,26,700,center,none);
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    letter-spacing: 1px;
+}
+.disabled-btn{
+    background-color: #acacac;
+    cursor: auto;
+}
+.form-quest{
+    margin-bottom: 46px;
+}
+#arrive-date-picker{
+    margin-bottom: 66px;
+}
+.form-column{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.quest-header-txt{
+    @include header(26);
+    margin-bottom: 25px;
+    text-align: left;
+}
+.flex-form-container{
+    @include flex(sb,fs);
+    margin-top: 60px;
+}
+.form-calendar{
+    @include  flex(c,fs);
+    box-sizing: border-box;
+    width: 220px;
+    padding-bottom: 21px;
+    border-bottom: 1px solid #34353a;
+}
+
+#arrive-date{
+    @include text(Montserrat,#34353a,20,400,left,uppercase);
+    border: none;
+    outline: 0;
+    outline-offset: 0;
+}
+::-webkit-inner-spin-button {
+    display: none;
+}
+::-webkit-clear-button{
+    display: none;
+}
+::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+.fa-calendar-alt:hover {
+    color: #f6d671;
+}
+.form-calendar i{
+    position: relative;
+    left: -30px;
+    font-size: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    color: #a3a2a2;
+    z-index: 0;
+}
+.form-tab-picker{
+    @include text(Montserrat,#a3a2a2,18,400,left,uppercase);
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    width: max-content;
+}
+.form-tab-picker li{
+    padding: 20px 30px;
+    cursor: pointer;
+    border-right: 1px solid #dedede;
+}
+.form-tab-picker li:last-child{
+    border-right: none;
+}
+.form-tab-picker li:hover{
+    background-color: #f6d671;
+    border-color: transparent;
+    color: #303030;
+}
+.active-from-tab{
+    background-color: #f6d671;
+    border-color: transparent;
+}
+#budget{
+    width: 100%;
+    text-align: center;
+}
+#budget li{
+    width: 100%;
+    padding: 20px 0;
+}
+@media screen and (max-width: 1200px) {
+    .flex-form-container {
+        flex-direction: column;
+    }
+    .main-form{
+        min-height: 1120px;
+    }
+    .form-slide{
+        min-height: 913px;
+    }
+    .form-column{
+        width: 100%;
+    }
+}
+
+
