@@ -47,7 +47,7 @@ function fonts () {											//Copy fonts to dir "dev"
         .pipe(gulp.dest('./dist/fonts'))
 }
 
-function jq () {											//Copy fonts to dir "dev"
+function jq () {											
     return gulp.src('./src/js/*.js')
         .pipe(gulp.dest('./dist/js'))
 }
@@ -94,7 +94,7 @@ function watch() {
 
 	gulp.watch('./src/**/*.scss', forSass);				// ставим watcher для слежения за изменениями в файлах
 	gulp.watch('./src/**/*.js', scripts);
-	gulp.watch('./src/*.html', buildhtml);
+	gulp.watch('./src/**/*.html', buildhtml);
 }
 
 gulp.task('cleandev', cleandev);
