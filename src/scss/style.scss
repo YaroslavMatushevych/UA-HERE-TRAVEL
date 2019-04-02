@@ -121,15 +121,16 @@ $font: Montserrat, sans-serif;
     }
   }
 }
+///ADDED PX IN FONT-SIZE///
 @mixin text($ff, $co, $fs, $fw, $ta, $tt) {
 	font-family: $ff, sans-serif;
 	color: $co;
-	font-size: $fs;
+	font-size: $fs+px;
 	font-weight: $fw;
 	text-align: $ta;
 	text-transform: $tt;
 }
-
+///ADDED CURSOR-POINTER///
 @mixin btn {
   box-sizing: border-box;
   border: none;
@@ -139,10 +140,15 @@ $font: Montserrat, sans-serif;
   font-size: 20px;
   font-weight: 700;
   text-align: center;
-  background-color: #0366a2;
+  background-color: #0082d1;
   color: white;
   outline: none;
   text-transform: uppercase;
+  cursor: pointer;
+}
+///ADDED HOVER-STATE MIXIN ON BTN///
+@mixin btn-hover{
+  background-color: #0366a2;
 }
 
 @mixin header ($fz) {
