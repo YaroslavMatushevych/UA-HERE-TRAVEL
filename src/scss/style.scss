@@ -161,6 +161,12 @@ $font: Montserrat, sans-serif;
 
 @import "fonts.scss";
 @import "../sections/1_header/scss/header.scss";
-@import "../sections/2_trip-process/scss/trip-process.scss";
-@import "../sections/3_gallery-reviews/scss/gallery-reviews.scss";
-@import "../sections/4_form-and-footer/scss/form-and-footer.scss";
+@import "../sections/2_thats_what_you_get/scss/what-you-get.scss";
+@import "../sections/3_about_us/scss/_about-us.scss";
+@import "../sections/4_center_guide/scss/_center-guide.scss";
+@import "../sections/5_tell_us_about/scss/_tell-us-about.scss";
+@import "../sections/6_request_route/scss/_request-route.scss";
+@import "../sections/7_what_others_say/scss/what-others-say.scss";
+@import "../sections/8_get_inspired/scss/get-inspired.scss";
+@import "../sections/9_get_in_touch/scss/get-in-touch.scss";
+@import "../sections/10_footer/scss/footer.scss";
