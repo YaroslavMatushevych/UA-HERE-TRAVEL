@@ -47,7 +47,7 @@ function fonts () {											//Copy fonts to dir "dev"
         .pipe(gulp.dest('./dist/fonts'))
 }
 
-function jq () {											//Copy fonts to dir "dev"
+function jq () {											
     return gulp.src('./src/js/*.js')
         .pipe(gulp.dest('./dist/js'))
 }
