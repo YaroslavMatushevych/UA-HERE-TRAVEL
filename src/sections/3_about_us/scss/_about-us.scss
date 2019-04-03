@@ -33,8 +33,13 @@
         box-sizing: border-box;
         margin-left: 10px;
         box-shadow: -35px 35px 0px 0px rgba(233,233,233,1);
-        display: flex;
-        justify-content: center;
+
+        .person-container {
+            display: none;
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+        }
     }
 }
 
@@ -59,7 +64,7 @@
 }
 
 .pers-description {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     flex-basis: 50%;
