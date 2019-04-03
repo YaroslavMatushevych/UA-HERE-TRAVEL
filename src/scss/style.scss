@@ -3,13 +3,13 @@
 
 $white: #ffffff;
 $blue: #0366a2;
-$yellow: #f6d671;
-$font: Montserrat, sans-serif;
+$yellow: #f0d456;
+$font: "Muli", sans-serif;
 
 /*-------------------------- C O N T A I N E R S------------------------------*/
 
 .container {
-  max-width: 1360px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -134,29 +134,38 @@ $font: Montserrat, sans-serif;
 @mixin btn {
   box-sizing: border-box;
   border: none;
-  border-radius: 33px;
-  padding: 27px 88px 25px 85px; 
-  font-family: Montserrat, sans-serif;
-  font-size: 20px;
+  border-radius: 25px;
+  padding: 0 25px;
+  height: 60px;
+  min-width: 180px;
+  font-family: "Muli", sans-serif;
+  font-size: 21px;
   font-weight: 700;
   text-align: center;
-  background-color: #0082d1;
+  background-image: linear-gradient(0deg, #3da3bf 0%, #90dbed 100%);
+  box-shadow: inset 0px -3px 0px 0px rgba(60,160,188,1);
   color: white;
   outline: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
   cursor: pointer;
 }
 ///ADDED HOVER-STATE MIXIN ON BTN///
+@mixin btn-active{
+  background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
+  box-shadow: inset 0px -2px 0px 0px rgba(60,160,188,1);
+}
+///ADDED ONCLICK-STATE MIXIN ON BTN///
 @mixin btn-hover{
-  background-color: #0366a2;
+  background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
+  box-shadow: inset 0px -6px 0px 0px rgba(60,160,188,1);
 }
 
 @mixin header ($fz) {
-  font-family: Montserrat, sans-serif;
+  font-family: "Muli", sans-serif;
   font-size: $fz + px;
   font-weight: 700;
   text-align: center;
-  color: #3c4458;
+  color: #34353a;
 }
 
 /*---------------------------- @ E X T E N D --------------------------------*/
