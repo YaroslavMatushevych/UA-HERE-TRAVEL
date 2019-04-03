@@ -1,3 +1,129 @@
-.test3 {
-    color: blue;
+.about-us .line {
+  background-color: #838486;
+  width: 100px;
+  height: 3px;
+  margin-bottom: 50px;
+}
+
+.inner-container {
+  margin: 60px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+
+  .sidebar {
+    flex-basis: 20%;
+    padding-right: 40px;
+    background-color: #fff;
+  }
+
+  .person {
+    flex-basis: 80%;
+    max-height: 500px;
+    border: 20px solid #f0d456;
+    box-sizing: border-box;
+    margin-left: 10px;
+    z-index: 3;
+
+    .person-container {
+      display: none;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      position: relative;
+    }
+
+  }
+}
+
+.person-container:before{
+  content: '';
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  box-shadow: -30px 0px 0px 0px rgba(233, 233, 233, 1);
+}
+.person-container:after{
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -30px;
+  width: 100%;
+  height: 35px;
+  box-shadow: 0px 35px 0px 0px rgba(233, 233, 233, 1);
+}
+
+.about-us .heading {
+  font-family: "Muli Black", sans-serif;
+  font-size: 30px;
+  color: #34353a;
+  font-weight: 700;
+}
+
+#sidebar-nav {
+  margin-top: 150px;
+  color: #939393;
+  text-transform: capitalize;
+  font-size: 22px;
+
+  .sidebar-nav-item {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+}
+
+.pers-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-basis: 50%;
+  padding: 0 30px;
+  box-sizing: border-box;
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+  color: #34353a;
+}
+
+.pers-photo {
+  width: 110%;
+  height: 110%;
+  position: relative;
+  z-index: 2;
+  top: -46px;
+  right: 42px;
+}
+
+.pers-name {
+  font-family: "Muli Black", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  color: #34353a;
+}
+
+.pers-expert, .pers-speech {
+  line-height: 30px;
+}
+
+.yellow-back {
+  background-color: #f0d456;
+  padding: 1.5px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.active-color {
+  color: #00b6cc;
+}
+
+.christ {
+  display: none;
+  width: 10px;
+  color: #f0d456;
+  font-size: 25px;
+  margin-right: 10px;
+  line-height: 15px;
 }
