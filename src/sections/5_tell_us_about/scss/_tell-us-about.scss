@@ -1,34 +1,26 @@
-.base-form{
-    padding: 0 6.25%;
+.tell-us-about{
+    max-width: 100%;
+    background-color: #efefef;
+    position: relative;
+    top: -40px;
 }
 .main-form{
-    max-width: 1400px;
-    padding: 77px 100px 55px 100px;
-    min-height: 750px;
+    max-width: 1200px;
+    padding: 116px 96px 111px 96px;
+    min-height: 814px;
     box-sizing: border-box;
     margin:0 auto;
-    box-shadow: 6.772px 8.668px 38px rgba(107,108,108,0.19);
-    background-color: #ffffff;
-    border: 1px solid #acacac;
-    border-radius: 20px;
     overflow: hidden;
 }
-.form-slide-container{
+.form-slider{
     display: flex;
     position: relative;
     transition: 0.4s;
 }
-.form-slide-content{
-    @include flex(sb,sb);
-    flex-direction: column;
-    box-sizing: border-box;
-    height: max-content;
-}
 .form-slide{
     @include flex(sb,sb);
-    flex-direction: column;
     box-sizing: border-box;
-    min-height: 543px;
+    min-height: 607px;
     min-width: 100%;
     transition: 0.4s;
     box-suppress: hide;
@@ -44,11 +36,29 @@
 .form-btn{
     @include btn;
 }
-//.form-btn:hover{
-//    @include btn-hover;
-//}
+.form-btn:hover{
+    @include btn-hover;
+}
+.form-btn:active{
+    @include btn-active;
+}
+.prev-btn{
+    @include text("Muli",#a3a2a2,22,700,center,capitalize);
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-300%,50%);
+    margin-right: 47px;
+    line-height: 60px;
+}
+.prev-btn:hover{
+    transition: 0.4s;
+    text-decoration: underline;
+}
 .form-slide-footer{
     @include flex(sb,c);
+    align-self: flex-end;
+    width: max-content;
+    flex-direction: column;
 }
 .header-txt{
     @include header(48);
@@ -56,18 +66,13 @@
     margin-bottom: 25px;
 }
 .sub-txt{
-    @include text(Montserrat,#3c4458,28,500,center,none);
+    @include text("Muli",#34353a,28,500,center,none);
 }
 .pagination{
-    @include text(Montserrat,#0082d1,26,700,center,none);
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    letter-spacing: 1px;
-}
-.disabled-btn{
-    background-color: #acacac;
-    cursor: auto;
+    @include text("Muli",#34353a,20,700,center,none);
+    margin-bottom: 11px;
+    color: #34353a;
+    position: relative;
 }
 .form-quest{
     margin-bottom: 46px;
@@ -76,21 +81,27 @@
     margin-bottom: 66px;
 }
 .form-column{
-    width: 50%;
-    height: 100%;
+    min-width: 50%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
+.quest-container:first-child{
+  margin-left: 114px;
+}
+.form-card{
+  min-width: 50%;
+  background-color: $yellow;
+}
+
+
+//////////////////QUEST/////////////////////////
 .quest-header-txt{
     @include header(26);
     margin-bottom: 25px;
     text-align: left;
-}
-.flex-form-container{
-    @include flex(sb,fs);
-    margin-top: 60px;
 }
 .form-calendar{
     @include  flex(c,fs);
@@ -99,9 +110,8 @@
     padding-bottom: 21px;
     border-bottom: 1px solid #34353a;
 }
-
 #arrive-date{
-    @include text(Montserrat,#34353a,20,400,left,uppercase);
+    @include text("Muli",#34353a,20,400,left,uppercase);
     border: none;
     outline: 0;
     outline-offset: 0;
@@ -130,7 +140,7 @@
     z-index: 0;
 }
 .form-tab-picker{
-    @include text(Montserrat,#a3a2a2,18,400,left,uppercase);
+    @include text("Muli",#a3a2a2,18,400,left,uppercase);
     display: flex;
     border-radius: 5px;
     border: 1px solid #dedede;
@@ -140,6 +150,7 @@
     padding: 20px 30px;
     cursor: pointer;
     border-right: 1px solid #dedede;
+    background-color: $white;
 }
 .form-tab-picker li:last-child{
     border-right: none;
@@ -149,7 +160,7 @@
     border-color: transparent;
     color: #303030;
 }
-.active-from-tab{
+.active-form-tab{
     background-color: #f6d671;
     border-color: transparent;
 }
@@ -162,9 +173,6 @@
     padding: 20px 0;
 }
 @media screen and (max-width: 1200px) {
-    .flex-form-container {
-        flex-direction: column;
-    }
     .main-form{
         min-height: 1120px;
     }
