@@ -57,9 +57,7 @@ function scripts () {
 		.pipe(babel({											//babel
             presets: ['@babel/env']
         }))
-        .pipe(terser({											//terser
-			toplevel: true
-		}))														//minify js
+        .pipe(terser())														//minify js
         .pipe(concat('all.js'))									//concat all js files
 		.pipe(rename(function (path) {							// function of rename extname for .css
             path.extname = ".min.js";
