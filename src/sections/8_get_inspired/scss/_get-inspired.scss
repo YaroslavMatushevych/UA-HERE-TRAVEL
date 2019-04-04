@@ -1,3 +1,133 @@
-.test8 {
-    color: red;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header {
+    @include text("Muli",rgb(52, 53, 58),30,400,left,none);
+    position: relative;
+    padding: 74px 0 60px 80px;
+}
+.header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 107px;
+    height: 3px;
+    background-color: rgb(131, 132, 134);
+}
+.wrapper {
+    position: relative;
+    height: 360px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    font-size: 0;
+}
+.slider {
+    @include flex(cb,c);
+    position: absolute;
+    transition: all 1s linear;
+}
+.gallery-image {
+    position: relative;
+    @include flex(cb,c);
+    width: 360px;
+    height: 360px;
+    left: 0;
+    margin-right: 60px;
+}
+.gallery-image.active {
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+}
+.gallery-image-photo {
+    width: 360px;
+}
+.gallery-image-photo:hover {
+    cursor: pointer;
+}
+.arrow {
+    position: absolute;
+    z-index: 9;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    padding:  25px 0;
+    border: none;
+    outline: unset;
+    background-color: transparent ;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+    transition: all 0.4s linear;
+}
+.arrow.left {
+    left: 0;
+    padding-left: 50px;
+    background-image: url("../img/get-inspired/arrow-left.png");
+    background-position: center right;
+}
+.arrow.right {
+    right: 0;
+    padding-right: 50px;
+    background-image: url("../img/get-inspired/arrow-right.png");
+    background-position: center left;
+}
+.arrow:hover {
+    cursor: pointer;
+}
+.light-box {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    opacity: 0;
+}
+.overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.6);
+    transition: all .4s linear;
+}
+.overlay.fadeInOut, .light-box.fadeInOut {
+    opacity: 1;
+    visibility: visible;
+    transition: all .4s linear;
+}
+.arrow.big-image {
+    z-index: 999;
+}
+.light-box-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    height: 100vh;
+    transform: translateX(-50%);
+    z-index: 200;
+}
+.gallery-dots {
+    text-align: center;
+    padding: 40px 0 70px;
+}
+.gallery-dots-dot {
+    padding: 8px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 1px solid rgb(255, 208, 8);
+    font-size: 0;
+}
+.gallery-dots-dot.active {
+    background-color: rgb(255, 208, 8);
+}
+.gallery-dots-dot:hover {
+    cursor: pointer;
 }
