@@ -1,3 +1,4 @@
+///////////////////////BASIC SLIDER PROP/////////////////////////
 .tell-us-about{
     max-width: 100%;
     background-color: #efefef;
@@ -6,8 +7,8 @@
 }
 .main-form{
     max-width: 1200px;
-    padding: 116px 96px 111px 96px;
-    min-height: 814px;
+    padding: 85px 50px;
+    min-height: 802px;
     box-sizing: border-box;
     margin:0 auto;
     overflow: hidden;
@@ -20,8 +21,8 @@
 .form-slide{
     @include flex(sb,sb);
     box-sizing: border-box;
-    min-height: 607px;
-    min-width: 100%;
+    min-height: 634px;
+    width: 100%;
     transition: 0.4s;
     box-suppress: hide;
     position: absolute;
@@ -50,6 +51,10 @@
     margin-right: 47px;
     line-height: 60px;
 }
+#prev-3{
+    position: absolute;
+    transform: translate(-430%,50%);
+}
 .prev-btn:hover{
     transition: 0.4s;
     text-decoration: underline;
@@ -74,9 +79,6 @@
     color: #34353a;
     position: relative;
 }
-.form-quest{
-    margin-bottom: 46px;
-}
 #arrive-date-picker{
     margin-bottom: 66px;
 }
@@ -88,33 +90,133 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.quest-container:first-child{
-  margin-left: 114px;
+.form-card-container{
+    min-width: 50%;
 }
 .form-card{
-  min-width: 50%;
-  background-color: $yellow;
+    @include flex(fs,fs);
+    padding: 35px;
+    background-color: $white;
+    min-height: 541px;
+    flex-direction: column;
+    border: 26px solid #f0d456;
+    box-sizing: border-box;
+    box-shadow: -14px 46px 0px 0px rgba(183,183,183,1);
+}
+.form-card-header{
+    @include text("Muli",#34353a,60,900,left,none);
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+}
+.form-card-sub-header{
+    @include text("Muli",#34353a,30,400,left,none);
+    line-height: 45px;
+}
+.form-quest{
+    @include flex(fs,fs);
+    flex-direction: column;
+    margin-bottom: 55px;
 }
 
+///////////////////////COMMON QUEST PROP/////////////////////////
 
-//////////////////QUEST/////////////////////////
 .quest-header-txt{
-    @include header(26);
-    margin-bottom: 25px;
+    margin-bottom: 13px;
     text-align: left;
+    font-size: 20px;
+    color: #34353a;
+    font-family: "Muli";
+    font-weight: 700;
 }
+.form-tab-picker{
+    @include text("Muli",#a3a2a2,18,400,left,capitalize);
+    @include flex(fs,fs);
+    line-height: 55px;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+}
+.form-tab-picker li{
+    height: 54px;
+    padding: 0 30px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: $white;
+    border-top: 1px solid #a3a2a2;
+    border-bottom: 1px solid #a3a2a2;
+    border-right: 1px solid #a3a2a2;
+}
+.form-tab-picker li:first-child{
+    border-left: 1px solid #a3a2a2;
+    border-radius: 5px 0 0 5px;
+}
+.form-tab-picker li:last-child{
+    border-right: 1px solid #a3a2a2;
+    border-radius:  0 5px 5px 0;
+}
+.form-tab-picker li:hover{
+    background-color: $yellow;
+    border-color: transparent;
+    color: #303030;
+}
+.form-multi-picker{
+    @include text("Muli",#a3a2a2,20,400,left,none);
+    @include flex(fs,sb);
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    letter-spacing: 0px;
+    height: 100%;
+}
+.form-multi-picker li{
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid #a3a2a2;
+    height: 54px;
+    line-height: 54px;
+    padding: 0 10px;
+    margin-right:10px;
+    margin-bottom:15px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.form-multi-picker li:hover{
+    background-color: $yellow;
+    border-color: transparent;
+    color: #303030;
+}
+.active-form-tab{
+    background-color: $yellow;
+    border-color: transparent;
+    color: #303030;
+}
+.multi-quest{
+  margin-bottom: 0;
+}
+.left-moved-quest{
+  margin-left: 114px;
+}
+.left-moved-quest-2{
+  margin-left: 30px;
+}
+.downed-quest{
+  margin-top: 150px;
+}
+
+///////////////////UNIQ QUEST PROP/////////////////////////
+
 .form-calendar{
     @include  flex(c,fs);
     box-sizing: border-box;
+    margin-top: 20px;
     width: 220px;
     padding-bottom: 21px;
     border-bottom: 1px solid #34353a;
 }
 #arrive-date{
-    @include text("Muli",#34353a,20,400,left,uppercase);
+    @include text("Muli",#34353a,18,400,left,uppercase);
     border: none;
     outline: 0;
     outline-offset: 0;
+    background-color: #efefef;
 }
 ::-webkit-inner-spin-button {
     display: none;
@@ -127,61 +229,50 @@
     cursor: pointer;
     z-index: 1;
 }
-.fa-calendar-alt:hover {
-    color: #f6d671;
-}
-.form-calendar i{
+.fa-calendar-alt{
     position: relative;
     left: -30px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 400;
     cursor: pointer;
     color: #a3a2a2;
     z-index: 0;
 }
-.form-tab-picker{
-    @include text("Muli",#a3a2a2,18,400,left,uppercase);
-    display: flex;
-    border-radius: 5px;
-    border: 1px solid #dedede;
-    width: max-content;
-}
-.form-tab-picker li{
-    padding: 20px 30px;
-    cursor: pointer;
-    border-right: 1px solid #dedede;
-    background-color: $white;
-}
-.form-tab-picker li:last-child{
-    border-right: none;
-}
-.form-tab-picker li:hover{
-    background-color: #f6d671;
-    border-color: transparent;
-    color: #303030;
-}
-.active-form-tab{
-    background-color: #f6d671;
-    border-color: transparent;
+.fa-calendar-alt:hover {
+  color: #f6d671;
 }
 #budget{
+    @include flex(sa,fs);
+    width: 100%;
+}
+#budget li{
+    padding: 0;
     width: 100%;
     text-align: center;
 }
-#budget li{
+#comment-form{
+    @include text("Muli",#34353a,20,400,left,none);
     width: 100%;
-    padding: 20px 0;
+    height: 250px;
+    outline-style: none;
+    padding: 25px;
+    border-radius: 5px;
+    border: 1px solid #a3a2a2;
+    box-sizing: border-box;
 }
-@media screen and (max-width: 1200px) {
-    .main-form{
-        min-height: 1120px;
-    }
-    .form-slide{
-        min-height: 913px;
-    }
-    .form-column{
-        width: 100%;
-    }
+.form-contact-info{
+  @include flex(fs,fs);
+  flex-direction: column;
+  margin: 320px 0 0 195px;
 }
-
-
+.form-contact-info input{
+  padding: 0 0 23px 14px;
+  border: none;
+  border-bottom: 1px solid #34353a;
+  margin-bottom: 27px;
+  @include text("Muli",#34353a,20,400,left,none);
+  background-color: inherit;
+  box-sizing: border-box;
+  outline-style: none;
+  width: 100%;
+}

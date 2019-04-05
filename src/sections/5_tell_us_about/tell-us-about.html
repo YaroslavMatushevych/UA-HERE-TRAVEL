@@ -2,26 +2,30 @@
     <div class="main-form container">
         <div id="form-container" class="form-slider">
             <div class="form-slide active-form-slide">
-                        <div class="form-card">
+                        <div class="form-card-container">
+                            <div class="form-card">
+                                <h2 class="form-card-header">Tell us about your travel plans</h2>
+                                <p class="form-card-sub-header">and get an individual plan for your trip to Kiev for €35 in 8 business hours</p>
+                            </div>
                         </div>
                         <div class="form-column">
-                            <div class="quest-container">
-                                <div id="kyiv-been-picker" class="form-quest">
-                                    <p class="quest-header-txt">1. Have you ever been to Kyiv</p>
+                            <div class="quest-container left-moved-quest">
+                                <div class="form-quest">
+                                    <p class="quest-header-txt">1. Have you been to Kyiv before?</p>
                                     <ul id="kyiv-been" class="form-tab-picker">
                                         <li>Yes</li>
                                         <li>No</li>
                                     </ul>
                                 </div>
-                                <div id="arrive-date-picker" class="form-quest">
+                                <div class="form-quest">
                                     <p class="quest-header-txt">2. When will you arrive?</p>
                                     <div class="form-calendar">
                                         <input id="arrive-date" type="date">
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                 </div>
-                                <div id="days-picker" class="form-quest">
-                                    <p class="quest-header-txt">3. How many days will you have?</p>
+                                <div class="form-quest">
+                                    <p class="quest-header-txt">3. For how many days do you come?</p>
                                     <ul id="days-visit" class="form-tab-picker">
                                         <li>1</li>
                                         <li>2</li>
@@ -38,129 +42,115 @@
                         </div>
             </div>
             <div class="form-slide">
-                <div class="form-slide-content">
-                    <div class="flex-form-container">
+                <div class="form-column">
+                    <div class="quest-container">
+                        <div class="form-quest">
+                            <p class="quest-header-txt">4. Will you come with children?</p>
+                            <ul id="children-visit" class="form-tab-picker">
+                                <li>Yes</li>
+                                <li>No</li>
+                            </ul>
+                        </div>
+                        <div class="form-quest multi-quest">
+                            <p class="quest-header-txt">5. Choose your preferences</p>
+                            <ul id="preferences-choose" class="form-multi-picker">
+                                <li>Top 10 sights <i class="fas fa-plus"></i></li>
+                                <li>Museums <i class="fas fa-plus"></i></li>
+                                <li>Culture events <i class="fas fa-plus"></i></li>
+                                <li>Non-touristic places <i class="fas fa-plus"></i></li>
+                                <li>Art places <i class="fas fa-plus"></i></li>
+                                <li>Churches <i class="fas fa-plus"></i></li>
+                                <li>Viewing platforms <i class="fas fa-plus"></i></li>
+                                <li>Nature & Parks <i class="fas fa-plus"></i></li>
+                                <li>Bars <i class="fas fa-plus"></i></li>
+                                <li>Shopping <i class="fas fa-plus"></i></li>
+                                <li>Nightlife <i class="fas fa-plus"></i></li>
+                                <li>Concerts <i class="fas fa-plus"></i></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+                <div class="form-column">
+                    <div class="quest-container left-moved-quest-2">
+                        <div class="form-quest">
+                            <p class="quest-header-txt">6. What is your daily budget per person?</p>
+                            <ul id="budget" class="form-tab-picker">
+                                <li>< €50</li>
+                                <li>€50-€100</li>
+                                <li>€100-€200</li>
+                                <li>> €200</li>
+                            </ul>
+                        </div>
+                        <div class="form-quest multi-quest">
+                            <p class="quest-header-txt">7. What do you want to taste?</p>
+                            <ul id="taste" class="form-multi-picker">
+                                <li>Local food <i class="fas fa-plus"></i></li>
+                                <li>Local craft beer <i class="fas fa-plus"></i></li>
+                                <li>Local wines <i class="fas fa-plus"></i></li>
+                                <li>Coffee <i class="fas fa-plus"></i></li>
+                                <li>Desserts <i class="fas fa-plus"></i></li>
+                                <li>Meat <i class="fas fa-plus"></i></li>
+                                <li>Fish <i class="fas fa-plus"></i></li>
+                                <li>Vegetarian cusine <i class="fas fa-plus"></i></li>
+                                <li>Georgian cusine <i class="fas fa-plus"></i></li>
+                                <li>Japenese cusine <i class="fas fa-plus"></i></li>
+                                <li>Italian cusine <i class="fas fa-plus"></i></li>
+                            </ul>
+                        </div>
+                </div>
                 <div class="form-slide-footer">
-                    <button id="prev-1" class="prev-btn">back</button>
-                    <p class="pagination">Step 2/4</p>
-                    <button id="next-2" class="next-btn form-btn unactive-btn">next</button>
+                        <button id="prev-1" class="prev-btn">back</button>
+                        <p class="pagination">Step 2/4</p>
+                        <button id="next-2" class="next-btn form-btn unactive-btn">next</button>
+                </div>
+            </div>
+        </div>
+            <div class="form-slide">
+                <div class="form-column">
+                    <div class="quest-container downed-quest">
+                        <div class="form-quest multi-quest">
+                            <p class="quest-header-txt">8. Do you need our help with:</p>
+                            <ul id="service-form" class="form-multi-picker">
+                                <li>Rent a car <i class="fas fa-plus"></i></li>
+                                <li>Airport transfer <i class="fas fa-plus"></i></li>
+                                <li>Find accomodation <i class="fas fa-plus"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-column">
+                    <div class="quest-container left-moved-quest-2 downed-quest">
+                        <div class="form-quest multi-quest">
+                            <p class="quest-header-txt">9. If you want something special tell us</p>
+                            <textarea id="comment-form" cols="40" placeholder="I want..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-slide-footer">
+                        <button id="prev-2" class="prev-btn">back</button>
+                        <p class="pagination">Step 3/4</p>
+                        <button id="next-3" class="next-btn form-btn unactive-btn">next</button>
+                    </div>
                 </div>
             </div>
             <div class="form-slide">
-                <div class="form-slide-content">
-                    <form class="flex-form-container">
-                    </form>
-                </div>
-                <div class="form-slide-footer">
-                    <button id="prev-2" class="prev-btn">back</button>
-                    <p class="pagination">Step 3/4</p>
-                    <button id="next-3" class="next-btn form-btn unactive-btn">next</button>
-                </div>
-            </div>
-            <div class="form-slide">
-                <div class="form-slide-content">
-                    <div class="flex-form-container">
+                <div class="form-card-container">
+                    <div class="form-card">
+                        <h2 class="form-card-header">We will send an individual route in 8 business hours</h2>
+                        <p class="form-card-sub-header">or pay the money back</p>
                     </div>
                 </div>
-                <div class="form-slide-footer">
-                    <button id="prev-3" class="prev-btn">back</button>
-                    <p class="pagination">Step 4/4</p>
-                    <button id="finish-btn" class="apply-btn form-btn unactive-btn">finish</button>
+                <div class="form-column">
+                    <div class="form-contact-info">
+                        <input type="text" id="customer-name" placeholder="Your Name">
+                        <input type="email" id="customer-email" placeholder="your@mail.com">
+                    </div>
+                    <div class="form-slide-footer">
+                        <button id="prev-3" class="prev-btn">back</button>
+                        <p class="pagination">Step 4/4</p>
+                        <input type="submit" id="finish-btn" class="form-btn" value="Continue to payment €35">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<!--<section class="container base-form">-->
-    <!--<div class="main-form">-->
-        <!--<h2 class="header-txt">Tell us about your travel plans</h2>-->
-        <!--<div id="form-container" class="form-slide-container">-->
-            <!--<div class="form-slide active-form-slide">-->
-                <!--<div class="form-slide-content">-->
-                    <!--<p class="sub-txt">And we will make your individual travel plan for &euro;35 </p>-->
-                    <!--<form class="flex-form-container">-->
-                        <!--<div class="form-column">-->
-                            <!--<div id="arrive-date-picker" class="form-quest">-->
-                                <!--<p class="quest-header-txt">1. When will you arrive?</p>-->
-                                <!--<div class="form-calendar">-->
-                                    <!--<input id="arrive-date" type="date">-->
-                                    <!--<i class="fas fa-calendar-alt"></i>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div id="days-picker" class="form-quest">-->
-                                <!--<p class="quest-header-txt">2. How many days will you have?</p>-->
-                                <!--<ul id="days-visit" class="form-tab-picker">-->
-                                    <!--<li>1</li>-->
-                                    <!--<li>2</li>-->
-                                    <!--<li>3</li>-->
-                                    <!--<li>4</li>-->
-                                    <!--<li>5</li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="form-column">-->
-                            <!--<div id="kyiv-been-picker" class="form-quest">-->
-                                <!--<p class="quest-header-txt">3. Have you ever been to Kyiv</p>-->
-                                <!--<ul id="kyiv-been" class="form-tab-picker">-->
-                                    <!--<li>Yes</li>-->
-                                    <!--<li>No</li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                            <!--<div id="budgetpicker" class="form-quest">-->
-                                <!--<p class="quest-header-txt">4. What is your daily budget per person?</p>-->
-                                <!--<ul id="budget" class="form-tab-picker">-->
-                                    <!--<li>< &euro;50</li>-->
-                                    <!--<li>&euro;50-&euro;100</li>-->
-                                    <!--<li>&euro;100-&euro;200</li>-->
-                                    <!--<li>> &euro;200</li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</form>-->
-                <!--</div>-->
-                <!--<div class="form-slide-footer">-->
-                    <!--<div>-->
-                    <!--</div>-->
-                    <!--<p class="pagination">Step 1/4</p>-->
-                    <!--<button id="next-1" class="next-btn form-btn">next</button>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="form-slide">-->
-                <!--<div class="form-slide-content">-->
-                    <!--<div class="flex-form-container">-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="form-slide-footer">-->
-                    <!--<button id="prev-1" class="prev-btn form-btn">previous</button>-->
-                    <!--<p class="pagination">Step 2/4</p>-->
-                    <!--<button id="next-2" class="next-btn form-btn unactive-btn">next</button>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="form-slide">-->
-                <!--<div class="form-slide-content">-->
-                    <!--<form class="flex-form-container">-->
-                    <!--</form>-->
-                <!--</div>-->
-                <!--<div class="form-slide-footer">-->
-                    <!--<button id="prev-2" class="prev-btn form-btn">previous</button>-->
-                    <!--<p class="pagination">Step 3/4</p>-->
-                    <!--<button id="next-3" class="next-btn form-btn unactive-btn">next</button>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="form-slide">-->
-                <!--<div class="form-slide-content">-->
-                    <!--<div class="flex-form-container">-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="form-slide-footer">-->
-                    <!--<button id="prev-3" class="prev-btn form-btn">previous</button>-->
-                    <!--<p class="pagination">Step 4/4</p>-->
-                    <!--<button id="finish-btn" class="apply-btn form-btn unactive-btn">finish</button>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</section>-->

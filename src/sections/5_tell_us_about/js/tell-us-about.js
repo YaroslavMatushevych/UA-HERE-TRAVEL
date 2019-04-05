@@ -1,5 +1,4 @@
 const formContainer = document.getElementById('form-container');
-const calendarInput = document.getElementById('arrive-date');
 
 document.addEventListener('click',(e)=>{
     if(e.target.classList.contains('next-btn')){
@@ -15,7 +14,3 @@ document.addEventListener('click',(e)=>{
         document.getElementsByClassName('form-slide')[numBtn-1].classList.add('active-form-slide');
     };
 });
-
-if(!calendarInput.value){
-    document.getElementById('arrive-date').style.color="#a3a2a2";
-}
