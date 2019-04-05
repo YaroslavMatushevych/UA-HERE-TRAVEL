@@ -1,3 +1,114 @@
-.test7 {
-    color: blue;
+.in-section{
+    max-width: 1200px;
+    min-height: 700px;
+    margin: 0 auto;
+}
+.header-say{
+    @include header(30);
+    position: relative;
+    margin: 67px 0;
+    text-align: left;
+}
+.header-say:before {
+    content: '';
+    position: absolute;
+    bottom: 100px;
+    width: 107px;
+    height: 2px;
+    background-color: rgb(131, 132, 134);
+}
+.in-section-container{
+    display: flex;
+    min-height: 332px;
+}
+.rectangle{
+    width: 400px;
+    height: 250px;
+    position: absolute;
+    top: 82px;
+    left: 0;
+    z-index: -99;
+    background-color: $yellow;
+}
+.photo{
+    width: 40%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.photo-item{
+    width: 400px;
+    height: 300px;
+}
+.speach{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 60%;
+}
+.people-speach{
+    width: 70%;
+}
+.full-name{
+    @include text(Muli, #34353a, 26, 700, left, uppercase);
+    margin-bottom: 60px;
+}
+.country{
+    text-transform: capitalize;
+}
+.people-speach-item{
+    @include text(Muli, #34353a, 20, 400, left, none);
+    line-height: 39px;
+}
+.arrow-icon{
+    margin: 0 32px;
+    color: #ffd008;
+    font-size: 42px;
+    line-height: 332px;
+    cursor: pointer;
+}
+.whatsapp-btn{
+    @include text(Muli, #00b6cc, 16, 700, left, uppercase);
+    margin-left: 49%;
+    outline: none;
+    background-color: #fff;
+    border: none;
+}
+.overlay{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+}
+.whatsapp-block{
+    margin: 0 auto;
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.whatsapp-block-flex{
+    @include flex(c, c);
+}
+.whatsapp-block-item{
+    width: 400px;
+    height: 700px;
+}
+.arrow-icon-screen{
+    margin: 0 32px;
+    color: #fff;
+    font-size: 42px;
+    cursor: pointer;
+}
+.close-icon{
+    position: relative;
+    bottom: 380px;
+    left: 530px;
+    font-size: 42px;
+    color: #fff;
+    cursor: pointer;
 }
