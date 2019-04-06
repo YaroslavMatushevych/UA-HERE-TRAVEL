@@ -1,6 +1,7 @@
 .in-section{
-    @include container;
-    min-height: 675px;
+    margin: 0 auto;
+    width: 1200px;
+    min-height: 600px;
 }
 .header-section{
     @include header(30);
@@ -13,7 +14,7 @@
     position: absolute;
     bottom: 100px;
     width: 107px;
-    height: 2px;
+    height: 3px;
     background-color: rgb(131, 132, 134);
 }
 .photo-speach-container{
@@ -21,16 +22,17 @@
     min-height: 350px;
 }
 .photo{
-    width: 40%;
+    width: 45%;
     display: flex;
-    justify-content: center;
 }
 .photo-item{
+    margin-left: 40px;
     width: 400px;
     height: 300px;
     box-shadow: -40px 32px 0px 0px #f0d456;
 }
 .speach-flex-row{
+    width: 55%;
     display: flex;
     justify-content: center;
 }
@@ -51,10 +53,16 @@
     line-height: 39px;
 }
 .arrow-icon{
-    margin: 154px 32px;
+    margin: 154px 0;
     font-size: 42px;
     cursor: pointer;
     color: #ffd008;
+}
+.arrow-icon.fa-chevron-left{
+    margin-right: 32px;
+}
+.arrow-icon.fa-chevron-right{
+    margin-left: 32px;
 }
 .whatsapp-btn{
     @include text(Muli, #00b6cc, 16, 700, left, uppercase);
