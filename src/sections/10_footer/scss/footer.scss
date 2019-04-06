@@ -1,3 +1,20 @@
-.test10 {
-    color: red;
+.footer{
+    max-width: 100%;
+    background-color: #505050;
+    position: relative;
+    min-height: 338px;
+}
+.footer-menu{
+    padding: 68px 207px 39px 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-list li{
+    @include text("Muli Regular",#F5F5F5,16,700,left,none);
+    margin-bottom: 21px;
+    cursor: pointer;
+}
+.footer-copy{
+    padding: 0 50px 47px 601px;
+    @include text("Muli Regular",#7E7F81,12,700,left,none);
 }
