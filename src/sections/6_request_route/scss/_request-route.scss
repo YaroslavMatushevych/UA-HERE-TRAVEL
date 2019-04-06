@@ -1,3 +1,64 @@
-.test6 {
-    color: red;
+.request-route{
+    margin: 130px auto 100px;
+}
+.in-section{
+    margin: 0 auto;
+    width: 1200px;
+    min-height: 1010px;
+}
+.header-section{
+    @include header(30);
+    position: relative;
+    margin: 75px 0 67px;
+    text-align: left;
+}
+.header-section:before {
+    content: '';
+    position: absolute;
+    bottom: 100px;
+    width: 107px;
+    height: 3px;
+    background-color: rgb(131, 132, 134);
+}
+.route{
+    display: flex;
+    justify-content: space-between;
+    min-height: 725px;
+}
+.route-item{
+    margin-bottom: 85px;
+    width: 380px;
+    height: 725px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.route-item-photo{
+    width: 380px;
+    height: 380px;
+    margin-bottom: 50px;
+}
+.route-name{
+    @include text(Muli, #34353a, 22, 700, left, none);
+    margin-bottom: 38px ;
+}
+.route-description{
+    @include text(Muli, #34353a, 20, 400, left, none);
+    width: 90%;
+    height: 140px;
+    overflow: hidden;
+    line-height: 24px;
+}
+.route-price-button{
+    margin-top: 47px;
+    @include flex(sa, c);
+}
+.route-price{
+    @include text(Muli, #7b7b7c, 30, 400, center, none);
+}
+.route-button{
+    @include btn;
+}
+.route-button:hover{
+    @include btn-hover;
 }
