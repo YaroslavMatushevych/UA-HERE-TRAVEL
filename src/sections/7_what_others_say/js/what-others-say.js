@@ -28,11 +28,11 @@ document.addEventListener('click', function(e){
             movePhotoBlock(activeBlock, activeBlock + 1);
         }
     }
-    if(e.target.id === "whatsapp-btn"){
+    if(e.target.className === "whatsapp-btn"){
         whatsappBlock.hidden = false;
         overlayScreen.hidden = false;
     }
-    if(e.target.id === "close" || e.target.id === "overlay"){
+    if(e.target.id === "close-icon" || e.target.id === "overlay"){
         whatsappBlock.hidden = true;
         overlayScreen.hidden = true;
     }
