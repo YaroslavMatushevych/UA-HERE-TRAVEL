@@ -1,3 +1,58 @@
-.test9 {
-    color: blue;
+.get-in-touch__title{
+    @include text("Muli Black",#34353a,30,700,left,none);
+    margin: 45px 0;
+    padding-top: 10px;
+}
+.get-in-touch{
+    input{
+        @include text("Muli Regular",#A2A2A2,16.3,300,left,none);
+        border: 0;
+        border-bottom: 1px solid #34353a;
+        padding: 15px;
+    }
+    textarea{
+        @include text("Muli Regular",#A2A2A2,16.3,300,left,none);
+        width: 402px;
+        height: 107px;
+        resize: none;
+        padding: 19px 15px;
+        margin: 62px 0 52px;
+        border: 1px solid #303030;
+        border-radius: 5px;
+    }
+}
+.get-in-touch{
+    position: relative;
+}
+.get-in-touch__btn{
+    @include btn;
+    margin-bottom: 152px;
+    text-transform: none;
+}
+.get-in-touch__btn:hover{
+    @include btn-hover;
+}
+.get-in-touch__btn:active{
+    @include btn-active;
+}
+.get-in-touch__square{
+    width: 587px;
+    height: 540px;
+    border:26px solid #f0d456;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: calc(50% + 14px);
+    line-height: 80px;
+    @include flex(c,c);
+    @include text("Muli Black",#34353a,60,700,left,none);
+    &:before{
+        content: ' ';
+        position: absolute;
+        width: 557px;
+        height: 540px;
+        box-shadow: -14px 46px 0 0 #b7b7b7;
+        right: 4px;
+        top: -26px;
+    }
 }
