@@ -19,11 +19,9 @@ $(document).ready(function () {
         if (kyivVisit.hasClass('filled-quest')) {
             kyivVisit.parent().find('.form-error').css({'opacity': '0'});
         }
-        ;
         if (arriveDate.val()) {
             arriveDate.siblings('.form-error').css({'opacity': '0'});
         }
-        ;
         if (daysVisit.hasClass('filled-quest')) {
             daysVisit.parent().find('.form-error').css({'opacity': '0'});
         }
@@ -90,7 +88,7 @@ $(document).ready(function () {
     };
 
     let checkFilledForm = () => {
-        if ((kyivVisit.hasClass('filled-quest')) && (daysVisit.hasClass('filled-quest')) && ($('#arrive-date').val())) {
+        if ((kyivVisit.hasClass('filled-quest')) && (daysVisit.hasClass('filled-quest')) && (arriveDate.val())) {
             $('#next-1').addClass('active-next-btn');
         } else {
             $('#next-1').removeClass('active-next-btn');
@@ -139,7 +137,7 @@ $(document).ready(function () {
 
     ///////////CURRENT DATE CALENDAR SETTINGS/////////////////
 
-    $('#arrive-date').attr('min', `${today}`);
+    arriveDate.attr('min', `${today}`);
 
     ///////////CLICK EVENTS/////////////////
 
