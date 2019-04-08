@@ -1,165 +1,163 @@
 <section class="tell-us-about">
     <div class="main-form container">
-        <div class="form-slider">
-            <div class="form-slide active-form-slide">
-                <div class="form-card-container">
-                    <div class="form-card">
-                        <h2 class="form-card-header">Tell us about your travel plans</h2>
-                        <p class="form-card-sub-header">and get an individual plan for your trip to Kiev for €35 in 8
-                            business hours</p>
+        <div class="form-slide active-form-slide">
+            <div class="form-card-container">
+                <div class="form-card">
+                    <h2 class="form-card-header">Tell us about your travel plans</h2>
+                    <p class="form-card-sub-header">and get an individual plan for your trip to Kiev for €35 in 8
+                        business hours</p>
+                </div>
+            </div>
+            <div class="form-column">
+                <div class="quest-container left-moved-quest">
+                    <div class="form-quest">
+                        <p class="quest-header-txt">1. Have you been to Kyiv before?</p>
+                        <ul id="kyiv-been" class="form-picker">
+                            <li class="form-tab">Yes</li>
+                            <li class="form-tab">No</li>
+                        </ul>
+                        <p class="form-error">Please make your choice</p>
+                    </div>
+                    <div class="form-quest">
+                        <p class="quest-header-txt">2. When will you arrive?</p>
+                        <div class="form-calendar">
+                            <input id="arrive-date" type="date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <p id="date-error" class="form-error">Please select the date</p>
+                        </div>
+                    </div>
+                    <div class="form-quest">
+                        <p class="quest-header-txt">3. For how many days do you come?</p>
+                        <ul id="days-visit" class="form-picker">
+                            <li class="form-tab">1</li>
+                            <li class="form-tab">2</li>
+                            <li class="form-tab">3</li>
+                            <li class="form-tab">4</li>
+                            <li class="form-tab">5</li>
+                        </ul>
+                        <p class="form-error">Please choose the number of days</p>
                     </div>
                 </div>
-                <div class="form-column">
-                    <div class="quest-container left-moved-quest">
-                        <div class="form-quest">
-                            <p class="quest-header-txt">1. Have you been to Kyiv before?</p>
-                            <ul id="kyiv-been" class="form-picker">
-                                <li class="form-tab">Yes</li>
-                                <li class="form-tab">No</li>
-                            </ul>
-                            <p class="form-error">Please make your choice</p>
-                        </div>
-                        <div class="form-quest">
-                            <p class="quest-header-txt">2. When will you arrive?</p>
-                            <div class="form-calendar">
-                                <input id="arrive-date" type="date">
-                                <i class="fas fa-calendar-alt"></i>
-                                <p id="date-error" class="form-error">Please select the date</p>
-                            </div>
-                        </div>
-                        <div class="form-quest">
-                            <p class="quest-header-txt">3. For how many days do you come?</p>
-                            <ul id="days-visit" class="form-picker">
-                                <li class="form-tab">1</li>
-                                <li class="form-tab">2</li>
-                                <li class="form-tab">3</li>
-                                <li class="form-tab">4</li>
-                                <li class="form-tab">5</li>
-                            </ul>
-                            <p class="form-error">Please choose the number of days</p>
-                        </div>
+                <div class="form-slide-footer">
+                    <p class="pagination">Step 1/4</p>
+                    <button id="next-1" class="next-btn form-btn">next</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-slide">
+            <div class="form-column">
+                <div class="quest-container">
+                    <div class="form-quest">
+                        <p class="quest-header-txt">4. Will you come with children?</p>
+                        <ul id="children-visit" class="form-picker">
+                            <li class="form-tab">Yes</li>
+                            <li class="form-tab">No</li>
+                        </ul>
+                        <p class="form-error">Please make your choice</p>
                     </div>
-                    <div class="form-slide-footer">
-                        <p class="pagination">Step 1/4</p>
-                        <button id="next-1" class="next-btn form-btn">next</button>
+                    <div class="form-quest multi-quest">
+                        <p class="quest-header-txt">5. Choose your preferences</p>
+                        <ul id="preferences-choose" class="form-multi-picker">
+                            <li class="form-multi-tab">Top 10 sights <span class="fas fa-plus"></span></li>
+                            <li class="form-multi-tab">Museums <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Culture events <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Non-touristic places <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Art places <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Churches <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Viewing platforms <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Nature & Parks <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Bars <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Shopping <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Nightlife <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Concerts <i class="fas fa-plus"></i></li>
+                            <li class="form-error">Please make your choice</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="form-slide">
-                <div class="form-column">
-                    <div class="quest-container">
-                        <div class="form-quest">
-                            <p class="quest-header-txt">4. Will you come with children?</p>
-                            <ul id="children-visit" class="form-picker">
-                                <li class="form-tab">Yes</li>
-                                <li class="form-tab">No</li>
-                            </ul>
-                            <p class="form-error">Please make your choice</p>
-                        </div>
-                        <div class="form-quest multi-quest">
-                            <p class="quest-header-txt">5. Choose your preferences</p>
-                            <ul id="preferences-choose" class="form-multi-picker">
-                                <li class="form-multi-tab">Top 10 sights <span class="fas fa-plus"></span></li>
-                                <li class="form-multi-tab">Museums <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Culture events <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Non-touristic places <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Art places <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Churches <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Viewing platforms <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Nature & Parks <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Bars <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Shopping <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Nightlife <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Concerts <i class="fas fa-plus"></i></li>
-                                <li class="form-error">Please make your choice</li>
-                            </ul>
-                        </div>
+            <div class="form-column">
+                <div class="quest-container left-moved-quest-2">
+                    <div class="form-quest">
+                        <p class="quest-header-txt">6. What is your daily budget per person?</p>
+                        <ul id="budget" class="form-picker">
+                            <li class="form-tab">< €50</li>
+                            <li class="form-tab">€50-€100</li>
+                            <li class="form-tab">€100-€200</li>
+                            <li class="form-tab">> €200</li>
+                        </ul>
+                        <p class="form-error">Please make your choice</p>
+                    </div>
+                    <div class="form-quest multi-quest">
+                        <p class="quest-header-txt">7. What do you want to taste?</p>
+                        <ul id="taste" class="form-multi-picker">
+                            <li class="form-multi-tab">Local food <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Local craft beer <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Local wines <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Coffee <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Desserts <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Meat <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Fish <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Vegetarian cusine <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Georgian cusine <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Japenese cusine <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Italian cusine <i class="fas fa-plus"></i></li>
+                            <li class="form-error">Please make your choice</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="form-column">
-                    <div class="quest-container left-moved-quest-2">
-                        <div class="form-quest">
-                            <p class="quest-header-txt">6. What is your daily budget per person?</p>
-                            <ul id="budget" class="form-picker">
-                                <li class="form-tab">< €50</li>
-                                <li class="form-tab">€50-€100</li>
-                                <li class="form-tab">€100-€200</li>
-                                <li class="form-tab">> €200</li>
-                            </ul>
-                            <p class="form-error">Please make your choice</p>
-                        </div>
-                        <div class="form-quest multi-quest">
-                            <p class="quest-header-txt">7. What do you want to taste?</p>
-                            <ul id="taste" class="form-multi-picker">
-                                <li class="form-multi-tab">Local food <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Local craft beer <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Local wines <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Coffee <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Desserts <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Meat <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Fish <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Vegetarian cusine <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Georgian cusine <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Japenese cusine <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Italian cusine <i class="fas fa-plus"></i></li>
-                                <li class="form-error">Please make your choice</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="form-slide-footer">
-                        <button id="prev-1" class="prev-btn">back</button>
-                        <p class="pagination">Step 2/4</p>
-                        <button id="next-2" class="next-btn form-btn unactive-btn">next</button>
+                <div class="form-slide-footer">
+                    <button id="prev-1" class="prev-btn">back</button>
+                    <p class="pagination">Step 2/4</p>
+                    <button id="next-2" class="next-btn form-btn unactive-btn">next</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-slide">
+            <div class="form-column">
+                <div class="quest-container downed-quest">
+                    <div class="form-quest multi-quest">
+                        <p class="quest-header-txt">8. Do you need our help with:</p>
+                        <ul id="service-form" class="form-multi-picker">
+                            <li class="form-multi-tab">Rent a car <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Airport transfer <i class="fas fa-plus"></i></li>
+                            <li class="form-multi-tab">Find accomodation <i class="fas fa-plus"></i></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="form-slide">
-                <div class="form-column">
-                    <div class="quest-container downed-quest">
-                        <div class="form-quest multi-quest">
-                            <p class="quest-header-txt">8. Do you need our help with:</p>
-                            <ul id="service-form" class="form-multi-picker">
-                                <li class="form-multi-tab">Rent a car <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Airport transfer <i class="fas fa-plus"></i></li>
-                                <li class="form-multi-tab">Find accomodation <i class="fas fa-plus"></i></li>
-                            </ul>
-                        </div>
+            <div class="form-column">
+                <div class="quest-container left-moved-quest-2 downed-quest">
+                    <div class="form-quest multi-quest">
+                        <p class="quest-header-txt">9. If you want something special tell us</p>
+                        <textarea id="comment-form" cols="40" placeholder="I want..."></textarea>
                     </div>
                 </div>
-                <div class="form-column">
-                    <div class="quest-container left-moved-quest-2 downed-quest">
-                        <div class="form-quest multi-quest">
-                            <p class="quest-header-txt">9. If you want something special tell us</p>
-                            <textarea id="comment-form" cols="40" placeholder="I want..."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-slide-footer">
-                        <button id="prev-2" class="prev-btn">back</button>
-                        <p class="pagination">Step 3/4</p>
-                        <button id="next-3" class="next-btn form-btn active-next-btn">next</button>
-                    </div>
+                <div class="form-slide-footer">
+                    <button id="prev-2" class="prev-btn">back</button>
+                    <p class="pagination">Step 3/4</p>
+                    <button id="next-3" class="next-btn form-btn active-next-btn">next</button>
                 </div>
             </div>
-            <div class="form-slide">
-                <div class="form-card-container">
-                    <div class="form-card">
-                        <h2 class="form-card-header">We will send an individual route in 8 business hours</h2>
-                        <p class="form-card-sub-header">or pay the money back</p>
-                        <p class="form-card-working-hours"><span>We work:</span> Mon-Fri 10am - 8pm (GMT+2)</p>
-                    </div>
+        </div>
+        <div class="form-slide">
+            <div class="form-card-container">
+                <div class="form-card">
+                    <h2 class="form-card-header">We will send an individual route in 8 business hours</h2>
+                    <p class="form-card-sub-header">or pay the money back</p>
+                    <p class="form-card-working-hours"><span>We work:</span> Mon-Fri 10am - 8pm (GMT+2)</p>
                 </div>
-                <div class="form-column">
-                    <form class="form-contact-info">
-                        <input type="text" id="customer-name" placeholder="Your Name">
-                        <p class="form-input-error name-input-error">Please enter a valid name</p>
-                        <input type="email" id="customer-email" placeholder="your@mail.com">
-                        <p class="form-input-error mail-input-error">Please enter a e-mail address</p>
-                    </form>
-                    <div class="form-slide-footer">
-                        <button id="prev-3" class="prev-btn">back</button>
-                        <p class="pagination">Step 4/4</p>
-                        <input type="submit" id="finish-btn" class="form-btn" value="Continue to payment €35">
-                    </div>
+            </div>
+            <div class="form-column">
+                <form class="form-contact-info">
+                    <input type="text" id="customer-name" placeholder="Your Name">
+                    <p class="form-input-error name-input-error">Please enter a valid name</p>
+                    <input type="email" id="customer-email" placeholder="your@mail.com">
+                    <p class="form-input-error mail-input-error">Please enter a e-mail address</p>
+                </form>
+                <div class="form-slide-footer">
+                    <button id="prev-3" class="prev-btn">back</button>
+                    <p class="pagination">Step 4/4</p>
+                    <input type="submit" id="finish-btn" class="form-btn" value="Continue to payment €35">
                 </div>
             </div>
         </div>

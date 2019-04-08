@@ -13,7 +13,6 @@ $(document).ready(function () {
     let nameStatus = false;
     let emailStatus = false;
 
-
     ///////////FUNCTIONS/////////////////
 
     let hideErrorMessage = () => {
@@ -44,16 +43,17 @@ $(document).ready(function () {
 
     let checkValidCustomerInfo = () => {
         if ($('#customer-name').val()) {
-            nameStatus=true;
+            nameStatus = true;
             $('#customer-name').siblings('.name-input-error').css('opacity', '0');
-        };
+        }
+        ;
         if ($('#customer-email').val()) {
-            let currentMail =$('#customer-email').val().split('@');
-            if(currentMail.length==2){
-                let currentMailDot=currentMail[1].split('.').length;
-                if(currentMailDot>=2){
+            let currentMail = $('#customer-email').val().split('@');
+            if (currentMail.length == 2) {
+                let currentMailDot = currentMail[1].split('.').length;
+                if (currentMailDot >= 2) {
                     $('#customer-email').siblings('.mail-input-error').css('opacity', '0');
-                    emailStatus=true;
+                    emailStatus = true;
                 }
             }
         }
@@ -102,21 +102,21 @@ $(document).ready(function () {
         }
     };
 
-    let createNewCustomer= () => {
+    let createNewCustomer = () => {
         const customer = {};
         customer.kyivVisit = kyivVisit.find('.active-form-tab').html();
         customer.arriveDate = arriveDate.val();
-        customer.daysNum= daysVisit.find('.active-form-tab').html();
-        customer.children= childrenVisit.find('.active-form-tab').html();
-        customer.budget= budgetChoose.find('.active-form-tab').html();
+        customer.daysNum = daysVisit.find('.active-form-tab').html();
+        customer.children = childrenVisit.find('.active-form-tab').html();
+        customer.budget = budgetChoose.find('.active-form-tab').html();
         const taste = [];
         const pref = [];
-        customer.taste=taste;
-        customer.preferences=pref;
-        for(let i=0;i<preferenceChoose.find('.active-form-tab').length;i++){
+        customer.taste = taste;
+        customer.preferences = pref;
+        for (let i = 0; i < preferenceChoose.find('.active-form-tab').length; i++) {
             pref.push(preferenceChoose.find(`.active-form-tab:eq(${i})`).html().split('<')[0]);
         }
-        for(let i=0;i<tasteChoose.find('.active-form-tab').length;i++){
+        for (let i = 0; i < tasteChoose.find('.active-form-tab').length; i++) {
             taste.push(tasteChoose.find(`.active-form-tab:eq(${i})`).html().split('<')[0]);
         }
         customer.name = $('#customer-name').val();
@@ -128,19 +128,18 @@ $(document).ready(function () {
         checkValidCustomerInfo();
         if (!nameStatus) {
             $('#customer-name').siblings('.name-input-error').css('opacity', '1');
-        }if (!emailStatus) {
+        }
+        if (!emailStatus) {
             $('#customer-email').siblings('.mail-input-error').css('opacity', '1');
-        }else{
+        } else {
             const newCustomer = createNewCustomer();
             alert(`New customer request is done! Results of the application form: 1.Kyiv been - ${newCustomer.kyivVisit}; 2.Arrive date - ${newCustomer.arriveDate}; 3.Visit days - ${newCustomer.daysNum}; 4.Children - ${newCustomer.children}; 5.Preferences - ${newCustomer.preferences}; 6.Budget - ${newCustomer.budget} 7.Taste - ${newCustomer.taste}; Contact info - Name: ${newCustomer.name}; Email: ${newCustomer.email}.`);
         }
     };
 
-
     ///////////CURRENT DATE CALENDAR SETTINGS/////////////////
 
     $('#arrive-date').attr('min', `${today}`);
-
 
     ///////////CLICK EVENTS/////////////////
 

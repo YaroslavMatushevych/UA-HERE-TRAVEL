@@ -13,16 +13,12 @@ $basic-font: 'Muli';
 }
 
 .main-form {
-  //max-width: 1200px;
+  display: flex;
   padding: 85px 0;
   min-height: 800px;
   box-sizing: border-box;
   margin: 0 auto;
   overflow: hidden;
-}
-
-.form-slider {
-  display: flex;
   position: relative;
   transition: 0.4s;
 }
@@ -115,10 +111,6 @@ $basic-font: 'Muli';
   flex-wrap: wrap;
 }
 
-.form-card-container {
-  min-width: 50%;
-}
-
 .form-card {
   @include flex(fs, fs);
   padding: 45px 45px 45px 65px;
@@ -130,6 +122,10 @@ $basic-font: 'Muli';
   box-shadow: -45px 45px 0px 0px rgba(183, 183, 183, 1);
   position: relative;
   left: 14px;
+
+  &-container {
+    min-width: 50%;
+  }
 
   &-header {
     @include text($basic-font, #34353a, 60, 900, left, none);
