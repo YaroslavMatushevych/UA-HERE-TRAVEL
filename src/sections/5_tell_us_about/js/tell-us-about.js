@@ -148,8 +148,8 @@ $(document).ready(function () {
         hideErrorMessage();
         let numBtn = e.target.id.split('-')[1];
         if ($(e.target).hasClass('active-next-btn')) {
-            $(`.form-slide:eq(${numBtn - 1})`).removeClass('active-form-slide').addClass('left-form-slide');
-            $(`.form-slide:eq(${numBtn})`).addClass('active-form-slide');
+            $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_active').addClass('form-slide_left');
+            $(`.form-slide:eq(${numBtn})`).addClass('form-slide_active');
         } else {
             if (numBtn == 1) {
                 showErrorMessageFirst();
@@ -162,8 +162,8 @@ $(document).ready(function () {
 
     $('.prev-btn').click((e) => {
         let numBtn = e.target.id.split('-')[1];
-        $(`.form-slide:eq(${numBtn})`).removeClass('active-form-slide');
-        $(`.form-slide:eq(${numBtn - 1})`).removeClass('left-form-slide').addClass('active-form-slide');
+        $(`.form-slide:eq(${numBtn})`).removeClass('form-slide_active');
+        $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_left').addClass('form-slide_active');
     });
 
     $('#finish-btn').click((e) => {
