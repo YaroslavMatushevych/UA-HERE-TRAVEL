@@ -10,6 +10,8 @@ $(document).ready(function () {
     const budgetChoose = $('#budget');
     const tasteChoose = $('#taste');
     const today = new Date().toISOString().substr(0, 10);
+    let nameStatus = false;
+    let emailStatus = false;
 
 
     ///////////FUNCTIONS/////////////////
@@ -38,15 +40,25 @@ $(document).ready(function () {
         if (tasteChoose.hasClass('filled-quest')) {
             tasteChoose.find('.form-error').css({'opacity': '0'});
         }
-        if ($('#customer-name').val()) {
-            $('#customer-name').siblings('.name-input-error').css('opacity', '0');
-        }
-        ;
-        if ($('#customer-email').val()) {
-            $('#customer-email').siblings('.mail-input-error').css('opacity', '0');
-        }
-        ;
     };
+
+    let checkValidCustomerInfo = () => {
+        if ($('#customer-name').val()) {
+            nameStatus=true;
+            $('#customer-name').siblings('.name-input-error').css('opacity', '0');
+        };
+        if ($('#customer-email').val()) {
+            let currentMail =$('#customer-email').val().split('@');
+            if(currentMail.length==2){
+                let currentMailDot=currentMail[1].split('.').length;
+                if(currentMailDot>=2){
+                    $('#customer-email').siblings('.mail-input-error').css('opacity', '0');
+                    emailStatus=true;
+                }
+            }
+        }
+        ;
+    }
 
     let showErrorMessageFirst = () => {
         if (!kyivVisit.hasClass('filled-quest')) {
@@ -90,16 +102,38 @@ $(document).ready(function () {
         }
     };
 
+    let createNewCustomer= () => {
+        const customer = {};
+        customer.kyivVisit = kyivVisit.find('.active-form-tab').html();
+        customer.arriveDate = arriveDate.val();
+        customer.daysNum= daysVisit.find('.active-form-tab').html();
+        customer.children= childrenVisit.find('.active-form-tab').html();
+        customer.budget= budgetChoose.find('.active-form-tab').html();
+        const taste = [];
+        const pref = [];
+        customer.taste=taste;
+        customer.preferences=pref;
+        for(let i=0;i<preferenceChoose.find('.active-form-tab').length;i++){
+            pref.push(preferenceChoose.find(`.active-form-tab:eq(${i})`).html().split('<')[0]);
+        }
+        for(let i=0;i<tasteChoose.find('.active-form-tab').length;i++){
+            taste.push(tasteChoose.find(`.active-form-tab:eq(${i})`).html().split('<')[0]);
+        }
+        customer.name = $('#customer-name').val();
+        customer.email = $('#customer-email').val();
+        return customer;
+    };
+
     let checkFilledInputs = () => {
-        if (!$('#customer-name').val()) {
+        checkValidCustomerInfo();
+        if (!nameStatus) {
             $('#customer-name').siblings('.name-input-error').css('opacity', '1');
-        }
-        ;
-        if (!$('#customer-email').val()) {
+        }if (!emailStatus) {
             $('#customer-email').siblings('.mail-input-error').css('opacity', '1');
+        }else{
+            const newCustomer = createNewCustomer();
+            alert(`New customer request is done! Results of the application form: 1.Kyiv been - ${newCustomer.kyivVisit}; 2.Arrive date - ${newCustomer.arriveDate}; 3.Visit days - ${newCustomer.daysNum}; 4.Children - ${newCustomer.children}; 5.Preferences - ${newCustomer.preferences}; 6.Budget - ${newCustomer.budget} 7.Taste - ${newCustomer.taste}; Contact info - Name: ${newCustomer.name}; Email: ${newCustomer.email}.`);
         }
-        ;
-        hideErrorMessage();
     };
 
 
@@ -134,7 +168,6 @@ $(document).ready(function () {
     });
 
     $('#finish-btn').click((e) => {
-        hideErrorMessage();
         checkFilledInputs();
     });
 
