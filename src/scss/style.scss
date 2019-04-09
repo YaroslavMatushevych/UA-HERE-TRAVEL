@@ -9,26 +9,26 @@ $font: "Muli", sans-serif;
 /*-------------------------- C O N T A I N E R S------------------------------*/
 
 .container {
-  max-width: 1200px !important;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 @media screen and (max-width: 1200px) {
   .container {
-    max-width: 960px !important;
+    max-width: 960px;
   }
 }
 
 @media screen and (max-width: 993px) {
   .container {
-    max-width: 728px !important;
+    max-width: 728px;
   }
 }
 
 @media screen and (max-width: 768px) {
 
   .container {
-    max-width: 576px !important;
+    max-width: 576px;
   }
 }
 
