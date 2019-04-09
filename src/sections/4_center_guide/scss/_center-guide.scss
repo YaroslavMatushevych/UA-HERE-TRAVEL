@@ -54,7 +54,7 @@
 
 }
 
-.form-send__send-me {
+.form-send__button {
     margin-top: 80px;
     font-family: "Muli", sans-serif;
     min-width: 225px;
@@ -67,16 +67,16 @@
     background: linear-gradient(to bottom, #90dced 0%, #3da3c0 100%);
     cursor: pointer;
 
-}
+    &:hover {
+        background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
+        box-shadow: inset 0px -6px 0px 0px rgba(60,160,188,1);
+    }
 
-.form-send__send-me:hover {
-    background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
-    box-shadow: inset 0px -6px 0px 0px rgba(60,160,188,1);
-}
+    &:hover {
+        background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
+        box-shadow: inset 0px -2px 0px 0px rgba(60,160,188,1);
+    }
 
-.form-send__send-me:active {
-    background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
-    box-shadow: inset 0px -2px 0px 0px rgba(60,160,188,1);
 }
 
 .form-send__file-description {
