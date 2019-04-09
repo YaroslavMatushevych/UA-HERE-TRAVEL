@@ -1,3 +1,97 @@
-.test {
-    color: green;
+
+.block {
+  background-color: white;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  justify-content: flex-end;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  width: 100%;
+  display: flex;
+  padding-right: 164px;
+  align-items: center;
+}
+
+.logo {
+  padding-left: 44px;
+  width: 52px;
+  height: 48px;
+  padding-right: 260px;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+
+}
+
+.fa-facebook-f {
+
+  width: 10px;
+  height: 23px;
+
+}
+
+.fa-instagram {
+  width: 15px;
+  height: 25px;
+  line-height: 25px;
+}
+
+.fa-bars {
+  display: none;
+}
+
+.anchors {
+  background-image: linear-gradient(#f6d671, #f6d671);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  height: 26px;
+  margin-right: 18px;
+  @include text('Muli', rgba(52, 53, 58, 255), 18, auto, auto, auto);
+  background-size: 0 2px;
+  transition: back-ground-size .5s;
+}
+
+.anchors:hover {
+  background-size: 100% 2px;
+}
+
+.header-back {
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  background-size: 100vw;
+  background-image: url("../../../img/thats_what_you_get/Heroshot_1920px.png");
+}
+
+.headline-block {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 718px;
+  padding-bottom: 223px;
+  padding-top: 207px;
+}
+
+.headline {
+  font-size: 60px;
+  @include text('Muli', rgba(255, 255, 255, 255), 65, auto, auto, auto);
+}
+
+.classic {
+  @include btn;
+  width: 260px;
+  margin-top: 87px;
+}
+
+@media screen and (max-width: 993px) {
+
 }
