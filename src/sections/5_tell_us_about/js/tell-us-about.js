@@ -18,21 +18,25 @@ $(document).ready(function () {
     let hideErrorMessage = () => {
         if (kyivVisit.hasClass('filled-quest')) {
             kyivVisit.parent().find('.form-error').css({'opacity': '0'});
+            kyivVisit.css('border-color','#a3a2a2');
         }
         if (arriveDate.val()) {
             arriveDate.siblings('.form-error').css({'opacity': '0'});
         }
         if (daysVisit.hasClass('filled-quest')) {
             daysVisit.parent().find('.form-error').css({'opacity': '0'});
+            daysVisit.css('border-color','#a3a2a2');
         }
         if (childrenVisit.hasClass('filled-quest')) {
             childrenVisit.parent().find('.form-error').css({'opacity': '0'});
+            childrenVisit.css('border-color','#a3a2a2');
         }
         if (preferenceChoose.hasClass('filled-quest')) {
             preferenceChoose.find('.form-error').css({'opacity': '0'});
         }
         if (budgetChoose.hasClass('filled-quest')) {
             budgetChoose.parent().find('.form-error').css({'opacity': '0'});
+            budgetChoose.css('border-color','#a3a2a2');
         }
         if (tasteChoose.hasClass('filled-quest')) {
             tasteChoose.find('.form-error').css({'opacity': '0'});
@@ -61,26 +65,28 @@ $(document).ready(function () {
     let showErrorMessageFirst = () => {
         if (!kyivVisit.hasClass('filled-quest')) {
             kyivVisit.parent().find('.form-error').css({'opacity': '1'});
+            kyivVisit.css('border-color','#c92533');
         }
-        ;
         if (!arriveDate.val()) {
             arriveDate.siblings('.form-error').css({'opacity': '1'});
         }
-        ;
         if (!daysVisit.hasClass('filled-quest')) {
             daysVisit.parent().find('.form-error').css({'opacity': '1'});
+            daysVisit.css('border-color','#c92533');
         }
     };
 
     let showErrorMessageSecond = () => {
         if (!childrenVisit.hasClass('filled-quest')) {
             childrenVisit.parent().find('.form-error').css({'opacity': '1'});
+            childrenVisit.css('border-color','#c92533');
         }
         if (!preferenceChoose.hasClass('filled-quest')) {
             preferenceChoose.find('.form-error').css({'opacity': '1'});
         }
         if (!budgetChoose.hasClass('filled-quest')) {
             budgetChoose.parent().find('.form-error').css({'opacity': '1'});
+            budgetChoose.css('border-color','#c92533');
         }
         if (!tasteChoose.hasClass('filled-quest')) {
             tasteChoose.find('.form-error').css({'opacity': '1'});
