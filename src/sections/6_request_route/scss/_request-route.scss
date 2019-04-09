@@ -63,6 +63,9 @@
 .route-button:hover{
     @include btn-hover;
 }
+.route-button:active{
+    @include btn-active;
+}
 .route-overlay {
     visibility: hidden;
     position: fixed;

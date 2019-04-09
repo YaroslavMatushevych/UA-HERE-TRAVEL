@@ -18,23 +18,25 @@ $(document).ready(function () {
     let hideErrorMessage = () => {
         if (kyivVisit.hasClass('filled-quest')) {
             kyivVisit.parent().find('.form-error').css({'opacity': '0'});
+            kyivVisit.css('border-color','#a3a2a2');
         }
-        ;
         if (arriveDate.val()) {
             arriveDate.siblings('.form-error').css({'opacity': '0'});
         }
-        ;
         if (daysVisit.hasClass('filled-quest')) {
             daysVisit.parent().find('.form-error').css({'opacity': '0'});
+            daysVisit.css('border-color','#a3a2a2');
         }
         if (childrenVisit.hasClass('filled-quest')) {
             childrenVisit.parent().find('.form-error').css({'opacity': '0'});
+            childrenVisit.css('border-color','#a3a2a2');
         }
         if (preferenceChoose.hasClass('filled-quest')) {
             preferenceChoose.find('.form-error').css({'opacity': '0'});
         }
         if (budgetChoose.hasClass('filled-quest')) {
             budgetChoose.parent().find('.form-error').css({'opacity': '0'});
+            budgetChoose.css('border-color','#a3a2a2');
         }
         if (tasteChoose.hasClass('filled-quest')) {
             tasteChoose.find('.form-error').css({'opacity': '0'});
@@ -63,26 +65,28 @@ $(document).ready(function () {
     let showErrorMessageFirst = () => {
         if (!kyivVisit.hasClass('filled-quest')) {
             kyivVisit.parent().find('.form-error').css({'opacity': '1'});
+            kyivVisit.css('border-color','#c92533');
         }
-        ;
         if (!arriveDate.val()) {
             arriveDate.siblings('.form-error').css({'opacity': '1'});
         }
-        ;
         if (!daysVisit.hasClass('filled-quest')) {
             daysVisit.parent().find('.form-error').css({'opacity': '1'});
+            daysVisit.css('border-color','#c92533');
         }
     };
 
     let showErrorMessageSecond = () => {
         if (!childrenVisit.hasClass('filled-quest')) {
             childrenVisit.parent().find('.form-error').css({'opacity': '1'});
+            childrenVisit.css('border-color','#c92533');
         }
         if (!preferenceChoose.hasClass('filled-quest')) {
             preferenceChoose.find('.form-error').css({'opacity': '1'});
         }
         if (!budgetChoose.hasClass('filled-quest')) {
             budgetChoose.parent().find('.form-error').css({'opacity': '1'});
+            budgetChoose.css('border-color','#c92533');
         }
         if (!tasteChoose.hasClass('filled-quest')) {
             tasteChoose.find('.form-error').css({'opacity': '1'});
@@ -90,7 +94,7 @@ $(document).ready(function () {
     };
 
     let checkFilledForm = () => {
-        if ((kyivVisit.hasClass('filled-quest')) && (daysVisit.hasClass('filled-quest')) && ($('#arrive-date').val())) {
+        if ((kyivVisit.hasClass('filled-quest')) && (daysVisit.hasClass('filled-quest')) && (arriveDate.val())) {
             $('#next-1').addClass('active-next-btn');
         } else {
             $('#next-1').removeClass('active-next-btn');
@@ -139,7 +143,7 @@ $(document).ready(function () {
 
     ///////////CURRENT DATE CALENDAR SETTINGS/////////////////
 
-    $('#arrive-date').attr('min', `${today}`);
+    arriveDate.attr('min', `${today}`);
 
     ///////////CLICK EVENTS/////////////////
 
@@ -148,8 +152,8 @@ $(document).ready(function () {
         hideErrorMessage();
         let numBtn = e.target.id.split('-')[1];
         if ($(e.target).hasClass('active-next-btn')) {
-            $(`.form-slide:eq(${numBtn - 1})`).removeClass('active-form-slide').addClass('left-form-slide');
-            $(`.form-slide:eq(${numBtn})`).addClass('active-form-slide');
+            $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_active').addClass('form-slide_left');
+            $(`.form-slide:eq(${numBtn})`).addClass('form-slide_active');
         } else {
             if (numBtn == 1) {
                 showErrorMessageFirst();
@@ -162,8 +166,8 @@ $(document).ready(function () {
 
     $('.prev-btn').click((e) => {
         let numBtn = e.target.id.split('-')[1];
-        $(`.form-slide:eq(${numBtn})`).removeClass('active-form-slide');
-        $(`.form-slide:eq(${numBtn - 1})`).removeClass('left-form-slide').addClass('active-form-slide');
+        $(`.form-slide:eq(${numBtn})`).removeClass('form-slide_active');
+        $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_left').addClass('form-slide_active');
     });
 
     $('#finish-btn').click((e) => {

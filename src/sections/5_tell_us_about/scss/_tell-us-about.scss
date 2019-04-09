@@ -1,9 +1,4 @@
 ///////////////////////BASIC SLIDER PROP/////////////////////////
-$basic-font: 'Muli';
-
-@mixin content-width {
-  width: max-content;
-}
 
 .tell-us-about {
   max-width: 100%;
@@ -17,7 +12,6 @@ $basic-font: 'Muli';
   padding: 85px 0;
   min-height: 800px;
   box-sizing: border-box;
-  margin: 0 auto;
   overflow: hidden;
   position: relative;
   transition: 0.4s;
@@ -29,21 +23,28 @@ $basic-font: 'Muli';
   min-height: 610px;
   width: 100%;
   transition: 0.4s;
-  box-suppress: hide;
   position: absolute;
   transform: translateX(150%);
-}
 
-.active-form-slide {
-  transform: translateX(0);
-}
+  &-footer {
+    @include flex(sb, c);
+    align-self: flex-end;
+    width: max-content;
+    flex-direction: column;
+  }
 
-.left-form-slide {
-  transform: translateX(-150%);
+  &_active {
+    transform: translateX(0);
+  }
+
+  &_left {
+    transform: translateX(-150%);
+  }
 }
 
 .form-btn {
   @include btn;
+  text-transform: none;
 
   &:hover {
     @include btn-hover;
@@ -52,10 +53,11 @@ $basic-font: 'Muli';
   &:active {
     @include btn-active;
   }
+
 }
 
 .prev-btn {
-  @include text($basic-font, #a3a2a2, 22, 700, center, capitalize);
+  @include text($font, #a3a2a2, 22, 700, center, capitalize);
   cursor: pointer;
   position: absolute;
   transform: translate(-300%, 50%);
@@ -66,19 +68,11 @@ $basic-font: 'Muli';
     transition: 0.4s;
     text-decoration: underline;
   }
-}
 
-#prev-3 {
-  position: absolute;
-  transform: translate(-430%, 50%);
-}
-
-.form-slide-footer {
-  @include flex(sb, c);
-  align-self: flex-end;
-  @include content-width;
-  //width: max-content;
-  flex-direction: column;
+  &_left {
+    position: absolute;
+    transform: translate(-430%, 50%);
+  }
 }
 
 .header-txt {
@@ -88,18 +82,14 @@ $basic-font: 'Muli';
 }
 
 .sub-txt {
-  @include text($basic-font, #34353a, 28, 500, center, none);
+  @include text($font, #34353a, 28, 500, center, none);
 }
 
 .pagination {
-  @include text($basic-font, #34353a, 20, 700, center, none);
+  @include text($font, #34353a, 20, 700, center, none);
   margin-bottom: 11px;
   color: #34353a;
   position: relative;
-}
-
-#arrive-date-picker {
-  margin-bottom: 66px;
 }
 
 .form-column {
@@ -112,6 +102,7 @@ $basic-font: 'Muli';
 }
 
 .form-card {
+  min-width: 50%;
   @include flex(fs, fs);
   padding: 45px 45px 45px 65px;
   background-color: $white;
@@ -123,21 +114,31 @@ $basic-font: 'Muli';
   position: relative;
   left: 14px;
 
-  &-container {
-    min-width: 50%;
-  }
-
   &-header {
-    @include text($basic-font, #34353a, 60, 900, left, none);
+    @include text($font, #34353a, 60, 900, left, none);
     margin-bottom: 50px;
     letter-spacing: -1px;
   }
 
   &-sub-header {
-    @include text($basic-font, #34353a, 30, 400, left, none);
+    @include text($font, #34353a, 30, 400, left, none);
     line-height: 45px;
   }
+
+  &-working-hours {
+    @include text($font, #34353a, 15, 400, left, none);
+    height: 100%;
+    position: absolute;
+    right: calc(0% + 65px);
+    top: calc(100% - 60px);
+
+    & span {
+      font-weight: 700;
+    }
+  }
 }
+
+///////////////////////COMMON QUEST PROP/////////////////////////
 
 .form-quest {
   @include flex(fs, fs);
@@ -146,28 +147,14 @@ $basic-font: 'Muli';
   position: relative;
 }
 
-.form-card-working-hours {
-  @include text($basic-font, #34353a, 15, 400, left, none);
-  height: 100%;
-  position: absolute;
-  right: calc(0% + 65px);
-  top: calc(100% - 60px);
-
-  & span {
-    font-weight: 700;
-  }
-}
-
-///////////////////////COMMON QUEST PROP/////////////////////////
-
 .quest-header-txt {
-  @include text($basic-font, #34353a, 20, 700, left, none);
+  @include text($font, #34353a, 20, 700, left, none);
   margin-bottom: 13px;
 }
 
 .form-picker {
-  @include text($basic-font, #a3a2a2, 18, 400, left, capitalize);
-  @include flex(c, c);
+  @include text($font, #a3a2a2, 18, 400, left, capitalize);
+  @include flex(sa, c);
   height: 55px;
   position: relative;
   box-sizing: border-box;
@@ -181,7 +168,6 @@ $basic-font: 'Muli';
   line-height: 55px;
   padding: 0 30px;
   cursor: pointer;
-  height: 100%;
   border-right: 1px solid #a3a2a2;
   background-color: $white;
   transition: 0.4s;
@@ -197,7 +183,7 @@ $basic-font: 'Muli';
 }
 
 .form-multi-picker {
-  @include text($basic-font, #a3a2a2, 20, 400, left, none);
+  @include text($font, #a3a2a2, 20, 400, left, none);
   @include flex(fs, sb);
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -210,7 +196,7 @@ $basic-font: 'Muli';
   background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid #a3a2a2;
-  height: 55px;
+  height: 54px;
   line-height: 55px;
   padding: 0 20px;
   margin-right: 20px;
@@ -227,10 +213,22 @@ $basic-font: 'Muli';
 
 .multi-quest {
   margin-bottom: 0;
+
+  & textarea {
+    @include text($font, #34353a, 20, 400, left, none);
+    width: 100%;
+    height: 250px;
+    outline-style: none;
+    padding: 25px;
+    border-radius: 5px;
+    border: 1px solid #a3a2a2;
+    box-sizing: border-box;
+    resize: none;
+  }
 }
 
 .left-moved-quest {
-  margin-left: 114px;
+  margin-left: 115px;
 }
 
 .left-moved-quest-2 {
@@ -251,14 +249,14 @@ $basic-font: 'Muli';
   padding-bottom: 21px;
   border-bottom: 1px solid #34353a;
   position: relative;
-}
 
-#arrive-date {
-  @include text($basic-font, #34353a, 18, 400, left, uppercase);
-  border: none;
-  outline: 0;
-  outline-offset: 0;
-  background-color: #efefef;
+  & input {
+    @include text($font, #34353a, 18, 400, left, uppercase);
+    border: none;
+    outline: 0;
+    outline-offset: 0;
+    background-color: #efefef;
+  }
 }
 
 ::-webkit-inner-spin-button {
@@ -290,33 +288,6 @@ $basic-font: 'Muli';
   line-height: 27px;
 }
 
-#budget {
-  @include flex(sa, c);
-  width: 100%;
-  text-align: center;
-}
-
-#budget li {
-  padding: 0;
-  width: 100%;
-}
-
-#finish-btn {
-  text-transform: none;
-}
-
-#comment-form {
-  @include text($basic-font, #34353a, 20, 400, left, none);
-  width: 100%;
-  height: 250px;
-  outline-style: none;
-  padding: 25px;
-  border-radius: 5px;
-  border: 1px solid #a3a2a2;
-  box-sizing: border-box;
-  resize: none;
-}
-
 .form-contact-info {
   @include flex(fs, fs);
   flex-direction: column;
@@ -328,7 +299,7 @@ $basic-font: 'Muli';
   border: none;
   border-bottom: 1px solid #34353a;
   margin-bottom: 27px;
-  @include text($basic-font, #34353a, 20, 400, left, none);
+  @include text($font, #34353a, 20, 400, left, none);
   background-color: inherit;
   box-sizing: border-box;
   outline-style: none;
@@ -339,15 +310,10 @@ $basic-font: 'Muli';
   position: relative;
   transition: 0.4s;
   z-index: -1;
-}
 
-.fa-plus-turned {
-  transform: rotateZ(45deg);
-}
-
-.input-form-container {
-  position: relative;
-  width: 100%;
+  &-turned {
+    transform: rotateZ(45deg);
+  }
 }
 
 ///////////////////TAB STATES/////////////////////////
@@ -365,8 +331,8 @@ $basic-font: 'Muli';
 .form-error {
   opacity: 0;
   transition: 0.4s;
-  @include content-width;
-  @include text($basic-font, #c92533, 20, 400, left, none);
+  width: max-content;
+  @include text($font, #c92533, 20, 400, left, none);
   position: absolute;
   bottom: calc(-100% + 10px);
   left: 0;
@@ -383,10 +349,8 @@ $basic-font: 'Muli';
 .form-input-error {
   opacity: 0;
   transition: 0.4s;
-  @include content-width;
-  @include text($basic-font, #c92533, 20, 400, left, none);
+  width: max-content;
+  @include text($font, #c92533, 20, 400, left, none);
   position: relative;
   top: -20px;
 }
-
-///////////////////MEDIA QUERIES/////////////////////////
