@@ -1,41 +1,39 @@
 .center-guide {
     position: relative;
-    height: 870px;
+    height: 720px;
+    margin-top: 330px;
 }
 
-.triangle {
+.center-guide__triangle {
     border-style: solid;
-    border-width: 500px 0 500px 635px;
+    border-width: 550px 0 550px 720px;
     border-color: transparent transparent transparent #f0d456;
-    position: relative;
-    top: -100px;
-    z-index: 2;
-}
-
-.center-guide .inner-container {
-    margin: 60px;
     position: absolute;
-    top: 0;
-    z-index: 3;
+    top: -330px;
+    z-index: -1;
+    opacity: 1;
+    transform: translateX(0px);
 }
 
-.center-guide .heading {
+.center-guide__heading {
     font-family: "Muli Black", sans-serif;
     font-size: 30px;
     color: #34353a;
     font-weight: 700;
     margin: 45px 0;
     padding-top: 10px;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: -100px;
+        width: 107px;
+        height: 3px;
+        background-color: #838486;
+    }
 }
 
-.center-guide .line {
-    background-color: #838486;
-    width: 100px;
-    height: 3px;
-    margin-top: 70px;
-}
-
-.form-send {
+.center-guide__form-send {
     color: #a3a2a2;
     font-family: "Muli", sans-serif;
 
@@ -56,7 +54,7 @@
 
 }
 
-.send-me {
+.form-send__send-me {
     margin-top: 80px;
     font-family: "Muli", sans-serif;
     min-width: 225px;
@@ -71,17 +69,17 @@
 
 }
 
-.send-me:hover {
+.form-send__send-me:hover {
     background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
     box-shadow: inset 0px -6px 0px 0px rgba(60,160,188,1);
 }
 
-.send-me:active {
+.form-send__send-me:active {
     background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
     box-shadow: inset 0px -2px 0px 0px rgba(60,160,188,1);
 }
 
-.file-description {
+.form-send__file-description {
     font-family: "Muli", sans-serif;
     font-weight: 300;
     margin-top: 25px;
