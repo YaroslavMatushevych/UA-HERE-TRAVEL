@@ -2,6 +2,7 @@
     margin: 130px auto 100px;
 }
 .in-section{
+    position: relative;
     margin: 0 auto;
     width: 1200px;
     min-height: 1010px;
@@ -61,4 +62,145 @@
 }
 .route-button:hover{
     @include btn-hover;
+}
+.route-overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.6);
+    transition: all .4s linear;
+}
+.route-overlay.fadeInOut {
+    opacity: 1;
+    visibility: visible;
+    transition: all .4s linear;
+}
+.route-modal {
+    width: 630px;
+    height: 380px;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all .4s linear;
+    color: #34353a;
+    background-color: rgb(255, 255, 255);
+}
+.route-modal.request {
+    padding: 45px 110px 30px 120px;
+    text-align: left;
+}
+
+.route-modal.request.open {
+    visibility: visible;
+    opacity: 1;
+    transition: all .4s linear;
+}
+.route-modal-close {
+    position: absolute;
+    top: -40px;
+    right: -30px;
+    font-size: 42px;
+    color: #fff;
+}
+.route-modal-form-header {
+    @include text("Muli",#34353a,30,400,left,none);
+    padding-bottom: 35px;
+}
+.route-form {
+    display: block;
+}
+.route-modal-form-inputs {
+    @include text("Muli",#34353a,20,400,left,none);
+    display: block;
+    width: 400px;
+    height: 65px;
+    padding-left: 10px;
+    ::-webkit-input-placeholder {color:#a3a2a2;}
+    ::-moz-placeholder          {color:#a3a2a2;padding-left: 5px;}/* Firefox 19+ */
+    :-moz-placeholder           {color:#a3a2a2;}/* Firefox 18- */
+    :-ms-input-placeholder      {color:#a3a2a2;padding-left: 5px;}
+    border: none;
+    border-bottom: 1px solid rgb(0,0,0);
+    font-size: 20px;
+    outline: none;
+}
+
+.route-form-button {
+    margin-top: 45px;
+    width: 230px;
+    float: right;
+}
+.warning{
+    border-bottom: 2px solid #c92533;
+}
+.route-warning {
+    height: 0;
+    opacity: 0;
+    color: #c92533;
+}
+.route-warning.warning-text{
+    opacity: 1;
+    color: #c92533;
+}
+.route-modal.successful, .route-modal.fail {
+    padding: 50px 35px 65px 135px;
+    text-align: right;
+}
+.route-modal-check.fa-check {
+    display: block;
+    padding-right: 95px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 120px;
+    color: #3aaa35;
+}
+.route-modal-successful-form-header, .route-modal-fail-form-header {
+    @include text("Muli",#34353a,26,700,center,none);
+    padding: 35px 105px 20px 0;
+    line-height: 35px;
+}
+.route-modal-successful-form-subheader {
+    @include text("Muli",#34353a,18,700,center,none);
+    padding-right: 105px;
+    padding-bottom: 20px;
+}
+.route-modal-successful-form-subheader-time {
+    @include text("Muli",#34353a,18,400,right,none);
+}
+.route-button-successful, .route-button-fail {
+    @include text("Muli",#34353a,20,400,right,none);
+    text-decoration: underline;
+}
+.route-button-fail {
+    margin-top: 35px;
+}
+.route-modal-successful-close, .route-modal-fail-close {
+    position: absolute;
+    top: -40px;
+    right: -30px;
+    font-size: 42px;
+    color: #fff;
+}
+.route-modal-fail.fa-times {
+    display: block;
+    padding-right: 95px;
+    padding-bottom: 40px;
+    font-size: 105px;
+    color: #ec0000;
+    text-align: center;
+}
+.route-modal-fail-form-header {
+    padding: 5px 105px 0 0;
+    line-height: 35px;
 }
