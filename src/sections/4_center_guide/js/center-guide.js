@@ -1,16 +1,16 @@
 const triangle = document.querySelector('.center-guide__triangle');
 const centerGuide = document.querySelector('.center-guide');
 const topPosOfGuide = centerGuide.offsetTop;
-// const bottomPosOfGuide = topPosOfGuide + centerGuide.clientHeight;
 const viewPort = window.innerHeight;
+let alreadyPlayed = false;
 
 window.addEventListener("scroll", function(){
-    let together = window.pageYOffset + viewPort + 100;
+    let together = window.pageYOffset + viewPort - 400;
 
-    if(together - (topPosOfGuide+300) < 0) {
-            triangle.style.transform = `translateX(${together - (topPosOfGuide+300)}px)`;
+    if(together - (topPosOfGuide+300) < 0 && !alreadyPlayed) {
+        triangle.style.transform = translateX(${together - (topPosOfGuide+300)}px);
+        if (together - (topPosOfGuide+300) < 0 && together - (topPosOfGuide+300) > -10) {
+            alreadyPlayed = true;
+        }
     }
-    // if (together + (bottomPosOfGuide-300) > 0) {
-    //     triangle.style.transform = `translateX(${together + (bottomPosOfGuide-300)}px)`;
-    // }
 });

@@ -10,9 +10,13 @@
     border-color: transparent transparent transparent #f0d456;
     position: absolute;
     top: -330px;
-    z-index: -1;
+    z-index: 1;
     opacity: 1;
     transform: translateX(0px);
+}
+.center-guide-content{
+    position: relative;
+    z-index: 2;
 }
 
 .center-guide__heading {
