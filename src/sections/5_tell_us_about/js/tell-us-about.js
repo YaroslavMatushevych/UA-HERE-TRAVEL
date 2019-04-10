@@ -197,4 +197,14 @@ $(document).ready(function () {
         }
     });
 
+    $(function() {
+        $( "#arrive-date" ).datepicker({
+            dateFormat:'dd/mm/yy',
+            minDate: new Date(),
+            firstDay:1
+        });
+
+    });
+
 });
+
