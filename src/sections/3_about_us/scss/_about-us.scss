@@ -180,6 +180,26 @@
     width: 100%;
     justify-content: center;
     position: relative;
+
+    &:before{
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      box-shadow: 0 0 0 0 rgba(233, 233, 233, 1);
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      box-shadow: 0 0 0 0 rgba(233, 233, 233, 1);
+    }
   }
 
   .slider-nav {
