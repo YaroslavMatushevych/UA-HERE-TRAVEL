@@ -52,8 +52,8 @@ $('.arrow-next').click(function() {
         nextDot = $('.dot').first()
     }
     //when the arrow is clicked, fade out the current img and fade in the next one
-    currentSlide.fadeOut(600).removeClass('person__active-slide');
-    nextSlide.fadeIn(600).addClass('person__active-slide');
+    currentSlide.fadeOut(0).removeClass('person__active-slide');
+    nextSlide.fadeIn(0).addClass('person__active-slide');
     //when the arrow is clicked, remove the active class from the current dot and add it to the next one
     currentDot.removeClass('active-dot');
     nextDot.addClass('active-dot')
@@ -73,8 +73,8 @@ $('.arrow-prev').click(function(){
         prevDot = $('.dot').last();
     }
     //fade out the current img and fade in the prev one when the arrow is clicked
-    currentSlide.fadeOut(600).removeClass('person__active-slide');
-    prevSlide.fadeIn(600).addClass('person__active-slide');
+    currentSlide.fadeOut(0).removeClass('person__active-slide');
+    prevSlide.fadeIn(0).addClass('person__active-slide');
     //when the arrow is clicked, remove the active class from the current dot and add it to the next one
     currentDot.removeClass('active-dot');
     prevDot.addClass('active-dot')
