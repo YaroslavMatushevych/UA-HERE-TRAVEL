@@ -71,24 +71,24 @@
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
     opacity: 0;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.5);
     transition: all .4s linear;
 }
-.route-overlay.fadeInOut {
+.route-overlay-fade {
     opacity: 1;
     visibility: visible;
     transition: all .4s linear;
 }
 .route-modal {
-    width: 630px;
-    height: 380px;
+    width: 631px;
+    height: 384px;
     margin: 0 auto;
     position: absolute;
-    z-index: 999;
+    z-index: 99;
     top: 50%;
     left: 50%;
     box-sizing: border-box;
@@ -99,70 +99,78 @@
     color: #34353a;
     background-color: rgb(255, 255, 255);
 }
-.route-modal.request {
-    padding: 45px 110px 30px 120px;
+.route-modal-request {
+    padding: 47px 112px 29px 116px;
     text-align: left;
 }
-
-.route-modal.request.open {
+.opened {
     visibility: visible;
     opacity: 1;
     transition: all .4s linear;
 }
-.route-modal-close {
+.route-modal-close, .route-modal-successful-close,.route-modal-fail-close {
     position: absolute;
-    top: -40px;
-    right: -30px;
-    font-size: 42px;
+    top: -29px;
+    right: -22px;
+    font-size: 30px;
     color: #fff;
 }
 .route-modal-form-header {
-    @include text("Muli",#34353a,30,400,left,none);
-    padding-bottom: 35px;
+    @include text("Muli",#34353a,30,700,left,none);
+    padding-bottom: 50px;
 }
 .route-form {
     display: block;
 }
 .route-modal-form-inputs {
     @include text("Muli",#34353a,20,400,left,none);
-    display: block;
-    width: 400px;
-    height: 65px;
-    padding-left: 10px;
-    ::-webkit-input-placeholder {color:#a3a2a2;}
-    ::-moz-placeholder          {color:#a3a2a2;padding-left: 5px;}/* Firefox 19+ */
-    :-moz-placeholder           {color:#a3a2a2;}/* Firefox 18- */
-    :-ms-input-placeholder      {color:#a3a2a2;padding-left: 5px;}
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    box-sizing: border-box;
     border: none;
     border-bottom: 1px solid rgb(0,0,0);
-    font-size: 20px;
     outline: none;
 }
 
+
 .route-form-button {
-    margin-top: 45px;
+    @include btn;
+    margin-top: 35px;
     width: 230px;
     float: right;
+    font-size: 26px;
+    font-weight: 400;
+}
+.route-form-button:hover{
+    @include btn-hover;
+}
+.route-form-button:active{
+    @include btn-active;
 }
 .warning{
     border-bottom: 2px solid #c92533;
 }
 .route-warning {
-    height: 0;
+    font-size: 16px;
+    visibility: hidden;
     opacity: 0;
     color: #c92533;
 }
 .route-warning.warning-text{
     opacity: 1;
-    color: #c92533;
+    visibility: visible;
 }
-.route-modal.successful, .route-modal.fail {
-    padding: 50px 35px 65px 135px;
+.route-modal-successful {
+    padding: 61px 143px 65px 136px;
     text-align: right;
 }
-.route-modal-check.fa-check {
+.route-modal-fail {
+    padding-top: 82px;
+    text-align: right;
+}
+.route-modal-check {
     display: block;
-    padding-right: 95px;
     margin: 0 auto;
     text-align: center;
     font-size: 120px;
@@ -170,13 +178,13 @@
 }
 .route-modal-successful-form-header, .route-modal-fail-form-header {
     @include text("Muli",#34353a,26,700,center,none);
-    padding: 35px 105px 20px 0;
     line-height: 35px;
+}
+.route-modal-successful-form-header {
+    padding: 33px 0 15px;
 }
 .route-modal-successful-form-subheader {
     @include text("Muli",#34353a,18,700,center,none);
-    padding-right: 105px;
-    padding-bottom: 20px;
 }
 .route-modal-successful-form-subheader-time {
     @include text("Muli",#34353a,18,400,right,none);
@@ -185,25 +193,20 @@
     @include text("Muli",#34353a,20,400,right,none);
     text-decoration: underline;
 }
+.route-button-successful{
+    margin: 18px -106px 0 0;
+}
 .route-button-fail {
-    margin-top: 35px;
+    padding-right: 34px;
+    margin-top: 49px;
 }
-.route-modal-successful-close, .route-modal-fail-close {
-    position: absolute;
-    top: -40px;
-    right: -30px;
-    font-size: 42px;
-    color: #fff;
-}
-.route-modal-fail.fa-times {
+.route-modal-warning {
     display: block;
-    padding-right: 95px;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     font-size: 105px;
     color: #ec0000;
     text-align: center;
 }
 .route-modal-fail-form-header {
-    padding: 5px 105px 0 0;
     line-height: 35px;
 }

@@ -1,15 +1,17 @@
-function toggleModal() {
-    document.querySelector('.route-modal').classList.toggle('open');
-    document.querySelector('.route-overlay').classList.toggle('fadeInOut');
+let price = null;
+function toggleModal(modalClass) {
+    document.querySelector(`.${modalClass}`).classList.toggle('opened');
+    document.querySelector('.route-overlay').classList.toggle('route-overlay-fade');
 }
 function validateEmail(emailField){
     let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     return reg.test(emailField.value) != false;
 }
 function validateName(name) {
-    /^[A-Za-z]\s]+$/.test(name);
+    let reg = /^[[a-zA-﻿Z ,.'-]+$/i;
+    return reg.test(name.value) != false;
 }
-function validateForm (name, email){
+function removeClassWarning (name, email) {
     if (name.classList.contains('warning') || email.classList.contains('warning')) {
         document.querySelectorAll('.warning').forEach(function (item) {
             item.classList.remove('warning');
@@ -18,6 +20,9 @@ function validateForm (name, email){
             item.classList.remove('warning-text');
         });
     }
+}
+function validateForm (name, email){
+    removeClassWarning(name, email);
     if (!validateName(name) || !validateEmail(email)) {
         if (!validateName(name)) {
             document.querySelectorAll('.route-warning')[0].classList.add('warning-text');
@@ -27,24 +32,44 @@ function validateForm (name, email){
             document.querySelectorAll('.route-warning')[1].classList.add('warning-text');
             email.classList.add('warning');
         }
+        return false;
     }
     else return true;
 }
 document.addEventListener('click',function (e) {
     let target = e.target;
-    if (target.classList.contains('route-button'))  {
-        toggleModal();
+    if (target.classList.contains('route-button') && !target.classList.contains('route-form-submit'))  {
+        price = target.previousElementSibling.innerText;
+        removeClassWarning(form.elements[0],form.elements[1]);
+        toggleModal('route-modal-request');
     }
-    if (target.id === 'route-modal-close-icon' || target.id === 'route-modal-successful-close-icon' || target.id === 'route-modal-fail-close-icon'){
-        toggleModal();
+    else e.preventDefault();
+
+    if (target.id === 'route-modal-close-icon') {
+        toggleModal('route-modal-request');
+    }
+    if (target.id === 'route-modal-successful-close-icon' || target.id === 'route-form-successful'){
+        toggleModal('route-modal-successful');
+    }
+    if (target.id === 'route-modal-fail-close-icon' || target.id === 'route-form-fail'){
+        toggleModal('route-modal-fail');
     }
 
     if (target.id === 'route-form-submit') {
         if(validateForm(form.elements[0],form.elements[1])){
-
+            toggleModal('route-modal-request');
+            document.querySelectorAll('.route-modal-form-inputs')[2].innerText = `${price}`;
         }
     }
     if (target.classList.contains('route-overlay') || target.classList.contains('close-form')) {
-        toggleFadeInOut();
+        toggleModal();
+    }
+    if (target.id === 'route-button-successful-new-form'){
+        toggleModal('route-modal-request');
+        toggleModal('route-modal-successful');
+    }
+    if (target.id === 'route-button-fail-new-form'){
+        toggleModal('route-modal-request');
+        toggleModal('route-modal-fail');
     }
 });
