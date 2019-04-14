@@ -1,34 +1,28 @@
 .request-route{
-    margin: 130px auto 100px;
+    margin-top: 140px;
 }
-.in-section{
-    margin: 0 auto;
-    width: 1200px;
-    min-height: 1010px;
-}
-.header-section{
+.rr-header-section{
     @include header(30);
     position: relative;
-    margin: 75px 0 67px;
+    margin: 75px 0 65px;
     text-align: left;
-}
-.header-section:before {
-    content: '';
-    position: absolute;
-    bottom: 100px;
-    width: 107px;
-    height: 3px;
-    background-color: rgb(131, 132, 134);
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 100px;
+        width: 107px;
+        height: 3px;
+        background-color: rgb(131, 132, 134);
+    }
 }
 .route{
+    margin-bottom: 85px;
     display: flex;
     justify-content: space-between;
     min-height: 725px;
 }
 .route-item{
-    margin-bottom: 85px;
     width: 380px;
-    height: 725px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -45,7 +39,7 @@
 .route-description{
     @include text(Muli, #34353a, 20, 400, left, none);
     width: 90%;
-    height: 140px;
+    height: 145px;
     overflow: hidden;
     line-height: 24px;
 }
@@ -64,4 +58,50 @@
 }
 .route-button:active{
     @include btn-active;
+}
+
+@media screen and (max-width: 768px) {
+    .request-route{
+        margin-top: 100px;
+    }
+    .route{
+        flex-direction: column;
+    }
+    .route-description{
+        width: 100%;
+    }
+    .route-item{
+        flex-direction: row;
+    }
+    .route-item-photo{
+        width: 320px;
+        height: 320px;
+        margin-right: 23px;
+    }
+    .route-price-button{
+        justify-content: space-between;
+    }
+}
+@media screen and (max-width: 578px) {
+    .rr-header-section{
+        margin: 50px 0;
+        &:before{
+            bottom: 75px;
+        }
+    }
+    .route{
+        display: block;
+    }
+    .route-item{
+        margin: 0 auto 60px;
+        flex-direction: column;
+        width: 290px;
+    }
+    .route-item-photo{
+        width: 290px;
+        height: 290px;
+    }
+    .route-description{
+        height: 100%;
+    }
 }

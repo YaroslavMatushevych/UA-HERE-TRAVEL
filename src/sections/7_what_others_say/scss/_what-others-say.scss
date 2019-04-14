@@ -1,26 +1,23 @@
-.in-section{
-    margin: 0 auto;
-    width: 1200px;
-    min-height: 600px;
+.what-others-say{
+    margin: 140px 0 65px;
 }
-.header-section{
+.wos-header-section{
     @include header(30);
     position: relative;
     margin: 67px 0;
     text-align: left;
-}
-.header-section:before {
-    content: '';
-    position: absolute;
-    bottom: 100px;
-    width: 107px;
-    height: 3px;
-    background-color: rgb(131, 132, 134);
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 100px;
+        width: 107px;
+        height: 3px;
+        background-color: rgb(131, 132, 134);
+    }
 }
 .photo-speach-container{
     display: flex;
     justify-content: space-between;
-    min-height: 350px;
 }
 .photo-item{
     position: relative;
@@ -108,4 +105,72 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0,0,0,0.7);
+}
+.photo-item.photo-item-fade, .people-speach.people-speach-fade, .whatsapp-block-item.whatsapp-block-item-fade {
+    opacity: 0;
+}
+.photo-item, .people-speach, .whatsapp-block-item{
+    opacity: 1;
+    transition: opacity 1s;
+}
+.wos-dots{
+    @include flex(c, c);
+    margin: 0;
+    visibility: hidden;
+}
+.wos-dot-item-active{
+    @include flex(c, c);
+    background-color: rgb(255, 208, 8);
+}
+
+@media screen and (max-width: 768px) {
+    .what-others-say{
+        margin-top: 100px;
+    }
+    .wos-header-section{
+        margin: 75px 0 65px;
+    }
+    .photo-item{
+        width: 320px;
+        height: 240px;
+        margin-right: 23px;
+        margin-left: 0;
+        box-shadow: none;
+    }
+    .speach-flex-row{
+        width: 100%;
+    }
+    .arrow-icon, .close-icon{
+        display: none;
+    }
+    .people-full-name{
+        margin-bottom: 35px;
+    }
+    .whatsapp-btn{
+        margin-top: 35px;
+    }
+    .wos-dots{
+        visibility: visible;
+        margin: 30px 0 45px;
+    }
+}
+@media screen and (max-width: 578px) {
+    .wos-header-section{
+        margin: 50px 0;
+        &:before{
+            bottom: 75px;
+        }
+    }
+    .photo-speach-container{
+        display: block;
+        margin: 0 auto;
+    }
+    .photo-item{
+        margin-bottom: 60px;
+        width: 290px;
+        height: 240px;
+    }
+    .whatsapp-btn{
+        margin-top: 30px;
+    }
 }
