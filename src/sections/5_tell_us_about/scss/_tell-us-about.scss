@@ -42,6 +42,10 @@
   }
 }
 
+.hidden-slide{
+  display: none;
+}
+
 .form-btn {
   @include btn;
   text-transform: none;
@@ -444,4 +448,70 @@
 }
 .ui-datepicker-unselectable .ui-state-default{
   color: #afaeae;
+}
+
+///////////////////MEDIA QUERIES/////////////////////////
+
+@media screen and (max-width: 993px) {
+  .main-form{
+    min-height: 894px;
+    padding: 60px 0;
+  }
+  .form-slide{
+    flex-direction: column;
+    min-height: calc(894px - 120px);
+    justify-content: flex-start;
+  }
+  .form-card-container{
+    padding: 0 70px;
+  }
+  .form-card{
+    min-height: 360px;
+    box-shadow: none;
+    left: 0;
+    padding: 30px 35px;
+    margin-bottom: 43px;
+  }
+  .form-card-header{
+    font-size: 40px;
+    margin-bottom: 30px;
+    padding-right: 90px;
+  }
+  .left-moved-quest, .left-moved-quest-2, .downed-quest {
+    margin: 0;
+  }
+  .form-column{
+    justify-content: flex-start;
+    flex: 1 0 50%;
+  }
+  .form-quest{
+    flex: 1 0 50%;
+  }
+  .form-slide-footer{
+    position: absolute;
+    bottom: 0;
+  }
+  .multi-quest{
+    margin-bottom: 55px;
+    & textarea{
+      height: 130px;
+    }
+  }
+  .centered-quest{
+    align-items: center;
+  }
+  .form-contact-info{
+    margin: 40px auto 0 auto;
+    width: 400px;
+  }
+  .left-moved-quest{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .form-multi-tab{
+    font-size: 18px;
+  }
+  .form-tab{
+    font-size: 18px;
+  }
 }

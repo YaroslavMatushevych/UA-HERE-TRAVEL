@@ -1,6 +1,6 @@
 <section class="tell-us-about">
     <div class="container main-form">
-        <div class="form-slide form-slide_active">
+        <div class="form-slide form-slide_active" id="slide-one">
             <div class="form-card-container">
                 <div class="form-card">
                     <h2 class="form-card-header">Tell us about your travel plans</h2>
@@ -26,7 +26,7 @@
                             <p id="date-error" class="form-error">Please select the date</p>
                         </div>
                     </div>
-                    <div class="form-quest">
+                    <div class="form-quest centered-quest">
                         <p class="quest-header-txt">3. For how many days do you come?</p>
                         <ul id="days-visit" class="form-picker">
                             <li class="form-tab">1</li>
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-slide">
+        <div class="form-slide" id="slide-two">
             <div class="form-column">
                 <div class="quest-container">
                     <div class="form-quest">
@@ -108,16 +108,16 @@
                 <div class="form-slide-footer">
                     <button id="prev-1" class="prev-btn">back</button>
                     <p class="pagination">Step 2/4</p>
-                    <button id="next-2" class="next-btn form-btn unactive-btn">Next</button>
+                    <button id="next-2" class="next-btn form-btn">Next</button>
                 </div>
             </div>
         </div>
-        <div class="form-slide">
+        <div class="form-slide" id="slide-three">
             <div class="form-column">
                 <div class="quest-container downed-quest">
-                    <div class="form-quest multi-quest">
+                    <div class="form-quest multi-quest filled-quest">
                         <p class="quest-header-txt">8. Do you need our help with:</p>
-                        <ul id="service-form" class="form-multi-picker">
+                        <ul id="service-form" class="form-multi-picker filled-quest">
                             <li class="form-multi-tab">Rent a car <i class="fas fa-plus"></i></li>
                             <li class="form-multi-tab">Airport transfer <i class="fas fa-plus"></i></li>
                             <li class="form-multi-tab">Find accomodation <i class="fas fa-plus"></i></li>
@@ -127,7 +127,7 @@
             </div>
             <div class="form-column">
                 <div class="quest-container left-moved-quest-2 downed-quest">
-                    <div class="form-quest multi-quest">
+                    <div class="form-quest multi-quest filled-quest">
                         <p class="quest-header-txt">9. If you want something special tell us</p>
                         <textarea id="comment-form" cols="40" placeholder="I want..."></textarea>
                     </div>
@@ -139,7 +139,40 @@
                 </div>
             </div>
         </div>
-        <div class="form-slide">
+        <div class="hidden-slide" id="slide-four">
+            <div class="form-column">
+                <div class="quest-container">
+                </div>
+                <div class="form-slide-footer">
+                    <button class="prev-btn">back</button>
+                    <p class="pagination">Step 3/4</p>
+                    <button id="next-4" class="next-btn form-btn active-next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden-slide" id="slide-five">
+            <div class="form-column">
+                <div class="quest-container">
+                </div>
+                <div class="form-slide-footer">
+                    <button class="prev-btn">back</button>
+                    <p class="pagination">Step 3/4</p>
+                    <button id="next-5" class="next-btn form-btn active-next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+        <div class="hidden-slide" id="slide-six">
+            <div class="form-column">
+                <div class="quest-container">
+                </div>
+                <div class="form-slide-footer">
+                    <button class="prev-btn">back</button>
+                    <p class="pagination">Step 3/4</p>
+                    <button id="next-6" class="next-btn form-btn active-next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-slide" id="last-slide">
             <div class="form-card-container">
                 <div class="form-card">
                     <h2 class="form-card-header">We will send an individual route in 8 business hours</h2>
