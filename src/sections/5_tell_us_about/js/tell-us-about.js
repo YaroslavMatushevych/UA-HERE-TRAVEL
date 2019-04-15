@@ -201,10 +201,14 @@ $(document).ready(function () {
         $( "#arrive-date" ).datepicker({
             dateFormat:'dd/mm/yy',
             minDate: new Date(),
-            firstDay:1
+            firstDay:1,
+            hideIfNoPrevNext: true
         });
 
     });
+    $('#arrive-date').hover(()=>{
+        $('.fa-calendar-alt').css('color','$yellow');
+    })
 
 });
 

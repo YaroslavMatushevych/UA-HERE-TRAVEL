@@ -288,6 +288,7 @@
   color: #a3a2a2;
   z-index: -1;
   line-height: 27px;
+  transition: 0.4s;
 }
 
 .form-contact-info {
@@ -376,6 +377,9 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
+}
+.datepicker:hover + .fa-calendar-alt{
+  color: $yellow;
 }
 .ui-datepicker-calendar thead{
   width: 100%;
