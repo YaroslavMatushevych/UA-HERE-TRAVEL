@@ -11,7 +11,6 @@
     z-index: 99;
     @include text("Muli",#34353A,26,bold,center,none);
     line-height: 35px;
-    position: relative;
 }
 .get-in-touch__modal-overlay{
     position: fixed;
