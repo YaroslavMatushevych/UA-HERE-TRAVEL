@@ -152,15 +152,79 @@ $(document).ready(function () {
 
     ///////////MEDIA QUERIES/////////////////
 
-    let adaptToDeviceScreen = () =>{
+    let adaptToDeviceScreen = () => {
         const currentQuest = getUptoDateQuests();
-        if(window.innerWidth>=994){
+        if (window.innerWidth <= 578 && !changedMediaThird) {
+            $('#slide-four').removeClass('hidden-slide');
+            $('#slide-four').addClass('form-slide');
+            $('#slide-five').removeClass('hidden-slide');
+            $('#slide-five').addClass('form-slide');
+            $('#slide-six').removeClass('hidden-slide');
+            $('#slide-six').addClass('form-slide');
+            updatePagination();
+            currentQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
+            currentQuest.preferenceQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
+            currentQuest.budgetQuest.appendTo($('#slide-four').find('.quest-container:eq(0)'));
+            currentQuest.tasteQuest.appendTo($('#slide-five').find('.quest-container:eq(0)'));
+            currentQuest.additionalQuest.appendTo($('#slide-six').find('.quest-container:eq(0)'));
+            currentQuest.commentQuest.appendTo($('#slide-six').find('.quest-container:eq(0)'));
+
+            changedMediaThird = true;
+            changedMediaFirst = false;
+            changedMediaSecond = false;
+        }
+        if (window.innerWidth <= 768 && window.innerWidth >= 579 && !changedMediaSecond) {
+            $('#slide-four').removeClass('hidden-slide');
+            $('#slide-four').addClass('form-slide');
+            $('#slide-five').removeClass('form-slide');
+            $('#slide-five').addClass('hidden-slide');
+            $('#slide-six').removeClass('form-slide');
+            $('#slide-six').addClass('hidden-slide');
+            $('#next-4').addClass('active-next-btn');
+            updatePagination();
+
+            currentQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
+            currentQuest.preferenceQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
+
+            currentQuest.budgetQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
+            currentQuest.tasteQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
+
+            currentQuest.additionalQuest.appendTo($('#slide-four').find('.quest-container:eq(0)'));
+            currentQuest.commentQuest.appendTo($('#slide-four').find('.quest-container:eq(0)'));
+
+            changedMediaSecond = true;
+            changedMediaFirst = false;
+            changedMediaThird = false;
+        }
+        if (window.innerWidth <= 993 && window.innerWidth >= 769 && !changedMediaFirst) {
             $('#slide-four').removeClass('form-slide');
             $('#slide-four').addClass('hidden-slide');
             $('#slide-five').removeClass('form-slide');
             $('#slide-five').addClass('hidden-slide');
             $('#slide-six').removeClass('form-slide');
             $('#slide-six').addClass('hidden-slide');
+            updatePagination();
+
+            currentQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
+            currentQuest.preferenceQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
+            currentQuest.budgetQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
+
+            currentQuest.tasteQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
+            currentQuest.additionalQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
+            currentQuest.commentQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
+
+            changedMediaFirst = true;
+            changedMediaSecond = false;
+            changedMediaThird = false;
+        }
+        if (window.innerWidth >= 994) {
+            $('#slide-four').removeClass('form-slide');
+            $('#slide-four').addClass('hidden-slide');
+            $('#slide-five').removeClass('form-slide');
+            $('#slide-five').addClass('hidden-slide');
+            $('#slide-six').removeClass('form-slide');
+            $('#slide-six').addClass('hidden-slide');
+            updatePagination();
             currentQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
             currentQuest.preferenceQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
             currentQuest.budgetQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
@@ -169,150 +233,18 @@ $(document).ready(function () {
             currentQuest.additionalQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
             currentQuest.commentQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
 
-        }
-        if (window.innerWidth<=993 && window.innerWidth>=769 && !changedMediaFirst) {
-            $('#slide-four').removeClass('form-slide');
-            $('#slide-four').addClass('hidden-slide');
-            $('#slide-five').removeClass('form-slide');
-            $('#slide-five').addClass('hidden-slide');
-            $('#slide-six').removeClass('form-slide');
-            $('#slide-six').addClass('hidden-slide');
-            updatePagination();
+            changedMediaFirst = false;
+            changedMediaSecond = false;
+            changedMediaThird = false;
 
-            currentQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-            currentQuest.preferenceQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-            currentQuest.budgetQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-
-            currentQuest.tasteQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-            currentQuest.additionalQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-            currentQuest.commentQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-
-            changedMediaFirst = true;
-        }
-        if (window.innerWidth <= 768 && window.innerWidth >= 579 && !changedMediaSecond) {
-            $('#slide-four').removeClass('hidden-slide');
-            $('#slide-four').addClass('form-slide');
-            $('#slide-five').removeClass('form-slide');
-            $('#slide-five').addClass('hidden-slide');
-            $('#slide-six').removeClass('form-slide');
-            $('#slide-six').addClass('hidden-slide');
-            $('#next-4').addClass('active-next-btn');
-            updatePagination();
-
-            currentQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-            currentQuest.preferenceQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-
-            currentQuest.budgetQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-            currentQuest.tasteQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-
-            currentQuest.additionalQuest.appendTo($('#slide-four').find('.quest-container'));
-            currentQuest.commentQuest.appendTo($('#slide-four').find('.quest-container'));
-
-            changedMediaSecond = true;
-        }
-        if (window.innerWidth <= 578 && !changedMediaThird) {
-            $('#slide-five').removeClass('hidden-slide');
-            $('#slide-five').addClass('form-slide');
-            $('#slide-six').removeClass('hidden-slide');
-            $('#slide-six').addClass('form-slide');
-            currentQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
-            currentQuest.preferenceQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
-            currentQuest.budgetQuest.appendTo($('#slide-four').find('.quest-container:eq(1)'));
-            currentQuest.tasteQuest.appendTo($('#slide-five').find('.quest-container:eq(1)'));
-            currentQuest.additionalQuest.appendTo($('#slide-six').find('.quest-container'));
-            currentQuest.commentQuest.appendTo($('#slide-six').find('.quest-container'));
-
-            changedMediaThird = true;
         }
     };
 
     adaptToDeviceScreen();
 
     $(window).resize(() => {
-        const newQuest = getUptoDateQuests();
-        if(window.innerWidth>=994){
-            $('#slide-four').removeClass('form-slide');
-            $('#slide-four').addClass('hidden-slide');
-            $('#slide-five').removeClass('form-slide');
-            $('#slide-five').addClass('hidden-slide');
-            $('#slide-six').removeClass('form-slide');
-            $('#slide-six').addClass('hidden-slide');
-            newQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-            newQuest.preferenceQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-            newQuest.budgetQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
-            newQuest.tasteQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
-
-            newQuest.additionalQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-            newQuest.commentQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
-
-            changedMediaFirst=false;
-            changedMediaSecond=false;
-            changedMediaThird=false;
-
-        }
-        if (window.innerWidth<=993 && window.innerWidth>=769 && !changedMediaFirst) {
-            $('#slide-four').removeClass('form-slide');
-            $('#slide-four').addClass('hidden-slide');
-            $('#slide-five').removeClass('form-slide');
-            $('#slide-five').addClass('hidden-slide');
-            $('#slide-six').removeClass('form-slide');
-            $('#slide-six').addClass('hidden-slide');
-            updatePagination();
-
-            newQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-            newQuest.preferenceQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-            newQuest.budgetQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-
-            newQuest.tasteQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-            newQuest.additionalQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-            newQuest.commentQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-
-            changedMediaFirst = true;
-            changedMediaSecond=false;
-            changedMediaThird=false;
-        }
-        if (window.innerWidth <= 768 && window.innerWidth >= 579 && !changedMediaSecond) {
-            $('#slide-four').removeClass('hidden-slide');
-            $('#slide-four').addClass('form-slide');
-            $('#slide-five').removeClass('form-slide');
-            $('#slide-five').addClass('hidden-slide');
-            $('#slide-six').removeClass('form-slide');
-            $('#slide-six').addClass('hidden-slide');
-            $('#next-4').addClass('active-next-btn');
-            updatePagination();
-
-            newQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-            newQuest.preferenceQuest.appendTo($('#slide-two').find('.quest-container:eq(0)'));
-
-            newQuest.budgetQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-            newQuest.tasteQuest.appendTo($('#slide-three').find('.quest-container:eq(0)'));
-
-            newQuest.additionalQuest.appendTo($('#slide-four').find('.quest-container'));
-            newQuest.commentQuest.appendTo($('#slide-four').find('.quest-container'));
-
-            changedMediaSecond = true;
-            changedMediaFirst=false;
-            changedMediaThird=false;
-        }
-        if (window.innerWidth <= 578 && !changedMediaThird) {
-            $('#slide-five').removeClass('hidden-slide');
-            $('#slide-five').addClass('form-slide');
-            $('#slide-six').removeClass('hidden-slide');
-            $('#slide-six').addClass('form-slide');
-            newQuest.childrenQuest.appendTo($('#slide-two').find('.quest-container:eq(1)'));
-            newQuest.preferenceQuest.appendTo($('#slide-three').find('.quest-container:eq(1)'));
-            newQuest.budgetQuest.appendTo($('#slide-four').find('.quest-container:eq(1)'));
-            newQuest.tasteQuest.appendTo($('#slide-five').find('.quest-container:eq(1)'));
-            newQuest.additionalQuest.appendTo($('#slide-six').find('.quest-container'));
-            newQuest.commentQuest.appendTo($('#slide-six').find('.quest-container'));
-
-            changedMediaThird = true;
-            changedMediaFirst=false;
-            changedMediaSecond=false;
-        }
-
+        adaptToDeviceScreen();
     });
-
 
 
     ///////////CURRENT DATE CALENDAR SETTINGS/////////////////
@@ -320,59 +252,60 @@ $(document).ready(function () {
     arriveDate.attr('min', `${today}`);
 
     ///////////CLICK EVENTS/////////////////
-        $('.next-btn').click((e) => {
-            checkFilledForm();
+    $('.next-btn').click((e) => {
+        checkFilledForm();
+        hideErrorMessage();
+        let numBtn = e.target.id.split('-')[1];
+        if ($(e.target).hasClass('active-next-btn')) {
+            $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_active').addClass('form-slide_left');
+            $(`.form-slide:eq(${numBtn})`).addClass('form-slide_active');
+        } else {
+            showErrorMessage();
+        }
+    });
+
+    $('.prev-btn').click((e) => {
+        let numBtn = e.target.id.split('-')[1];
+        $(`.form-slide:eq(${numBtn})`).removeClass('form-slide_active');
+        $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_left').addClass('form-slide_active');
+    });
+
+    $('#finish-btn').click((e) => {
+        checkFilledInputs();
+    });
+
+    $('.form-tab').click((e) => {
+        $(e.target).siblings().removeClass('active-form-tab');
+        $(e.target).addClass('active-form-tab');
+        $('.active-form-tab').parent().addClass('filled-quest');
+        $(e.target).siblings('.no-left-border-tab').removeClass('no-left-border-tab');
+        $(e.target).prev().addClass('no-left-border-tab');
+        hideErrorMessage();
+    });
+
+    $('.form-multi-tab').click((e) => {
+        if (($(e.target).hasClass('active-form-tab')) && (!$(e.target).siblings().hasClass('active-form-tab')) && ($(e.target).parent().hasClass('filled-quest'))) {
+            $(e.target).parent().removeClass('filled-quest');
+            $(e.target).removeClass('active-form-tab');
+            $(e.target).find('.fa-plus').removeClass('fa-plus-turned');
+            $(e.target).siblings('.form-error').css({'opacity': '1'});
+        } else {
+            $(e.target).parent().addClass('filled-quest');
+            $(e.target).toggleClass('active-form-tab');
+            $(e.target).find('.fa-plus').toggleClass('fa-plus-turned');
             hideErrorMessage();
-            let numBtn = e.target.id.split('-')[1];
-            if ($(e.target).hasClass('active-next-btn')) {
-                $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_active').addClass('form-slide_left');
-                $(`.form-slide:eq(${numBtn})`).addClass('form-slide_active');
-            } else {
-                showErrorMessage();
-            }
+        }
+    });
+
+    $(function () {
+        $("#arrive-date").datepicker({
+            dateFormat: 'dd/mm/yy',
+            minDate: new Date(),
+            firstDay: 1,
+            hideIfNoPrevNext: true
         });
 
-        $('.prev-btn').click((e) => {
-            let numBtn = e.target.id.split('-')[1];
-            $(`.form-slide:eq(${numBtn})`).removeClass('form-slide_active');
-            $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_left').addClass('form-slide_active');
-        });
-
-        $('#finish-btn').click((e) => {
-            checkFilledInputs();
-        });
-
-        $('.form-tab').click((e) => {
-            $(e.target).siblings().removeClass('active-form-tab');
-            $(e.target).addClass('active-form-tab');
-            $('.active-form-tab').parent().addClass('filled-quest');
-            $(e.target).siblings('.no-left-border-tab').removeClass('no-left-border-tab');
-            $(e.target).prev().addClass('no-left-border-tab');
-            hideErrorMessage();
-        });
-
-        $('.form-multi-tab').click((e) => {
-            if (($(e.target).hasClass('active-form-tab')) && (!$(e.target).siblings().hasClass('active-form-tab')) && ($(e.target).parent().hasClass('filled-quest'))) {
-                $(e.target).parent().removeClass('filled-quest');
-                $(e.target).removeClass('active-form-tab');
-                $(e.target).find('.fa-plus').removeClass('fa-plus-turned');
-                $(e.target).siblings('.form-error').css({'opacity': '1'});
-            } else {
-                $(e.target).parent().addClass('filled-quest');
-                $(e.target).toggleClass('active-form-tab');
-                $(e.target).find('.fa-plus').toggleClass('fa-plus-turned');
-                hideErrorMessage();
-            }
-        });
-
-        $(function () {
-            $("#arrive-date").datepicker({
-                dateFormat: 'dd/mm/yy',
-                minDate: new Date(),
-                firstDay: 1,
-                hideIfNoPrevNext: true
-            });
-
-        });
+    });
 
 });
+

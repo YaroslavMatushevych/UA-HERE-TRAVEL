@@ -4,7 +4,7 @@
   max-width: 100%;
   background-color: #efefef;
   position: relative;
-  top: -40px;
+  top: -30px;
 }
 
 .main-form {
@@ -98,7 +98,6 @@
 
 .form-column {
   min-width: 50%;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -362,6 +361,10 @@
   top: -20px;
 }
 
+.hidden-form-card{
+  display: none;
+}
+
 ///////////////////UI CALENDAR/////////////////////////
 
 .ui-datepicker{
@@ -452,7 +455,22 @@
 
 ///////////////////MEDIA QUERIES/////////////////////////
 
+@media screen and (max-width:1200px ) {
+  .form-tab{
+    padding: 0 20px;
+  }
+  .form-card{
+    padding: 35px;
+  }
+  .form-card-header{
+    font-size: 50px;
+  }
+}
+
 @media screen and (max-width: 993px) {
+  .form-tab{
+    padding: 0 30px;
+  }
   .main-form{
     min-height: 894px;
     padding: 60px 0;
@@ -513,5 +531,115 @@
   }
   .form-tab{
     font-size: 18px;
+  }
+  .form-media-hidden{
+    display: none;
+  }
+}
+@media screen and (max-width: 768px){
+  .main-form{
+    min-height: 1078px;
+  }
+  .form-card{
+    padding: 20px;
+    &-container{
+      padding: 0;
+    }
+  }
+  .form-quest{
+    flex: 1 0 100%;
+  }
+  .form-slide{
+    min-height: calc(1078px - 120px);
+  }
+  .centered-quest{
+    align-items: flex-start;
+  }
+  .hidden-form-card{
+    display: block;
+  }
+  .quest-container:nth-child(2){
+    margin-top: 270px;
+  }
+  .form-picker{
+    height: 50px;
+    line-height: 50px;
+  }
+  .form-multi-tab{
+    height: 50px;
+    line-height: 50px;
+    margin-right: 15px;
+  }
+  .form-contact-info{
+    margin-top: 130px;
+  }
+  .form-media-hidden{
+    display: none;
+  }
+}
+@media screen and (max-width: 578px){
+  .main-form{
+    min-height: 1000px;
+    width: 100vw;
+    padding: 0;
+  }
+  .form-slide{
+    min-height: 900px;
+  }
+  .form-column {
+    justify-content: center;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .form-quest{
+    flex: 1 0 100%;
+  }
+  .form-card{
+    position: initial;
+    border: none;
+    padding: 40px 20px 40px 20px;
+    background-color: $yellow;
+    min-height: 250px;
+  }
+  .form-card-header{
+    font-size: 30px;
+    line-height: 35px;
+    padding: 0;
+  }
+  .form-card-sub-header{
+    font-size: 20px;
+    line-height: 25px;
+  }
+  .form-tab{
+    padding: 0 25px;
+    font-size: 16px;
+  }
+  .form-multi-tab{
+    padding: 0 25px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+  }
+  .form-picker{
+    height: 45px;
+    line-height: 45px;
+  }
+  .pagination{
+    opacity: 0;
+  }
+  .form-card-working-hours{
+    position: initial;
+    align-self: flex-end;
+    margin-top: 20px;
+  }
+  .prev-btn_left{
+    transform: translate(-0%,150%);
+  }
+  .form-media-hidden{
+    display: none;
+  }
+  .budget-picker li{
+    padding: 0 15px;
   }
 }
