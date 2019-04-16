@@ -40,7 +40,39 @@ $font: "Muli", sans-serif;
   }
 }
 
+/*----------------------------- @ L O O P S ---------------------------------*/
+
+$fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
+
+@each $name, $value in $fonts {
+    .#{$name} {
+        font-size: $value;
+    }
+}
+
+/*---------------------------- @ F U N C T I O N ----------------------------*/
+
+/* Перевод px to em */ 
+
+@function px-to-em ($px, $context: 16px) {
+    @return ($px / $context) * 1em;
+}
+
 /*---------------------------- @ M I X I N S --------------------------------*/
+
+/* Подключение удаленных шрифтов */
+
+@mixin remote-fonts($name) {
+    @import url(https://fonts.googleapis.com/css?family=#{$name});
+}
+
+/* Подключение для разных разрешений */
+
+@mixin large-screen() {
+    @media screen and (max-width: 960px){
+        @content;
+    }
+}
 
 @mixin flex($jc, $ai) {
   display: flex;
@@ -160,7 +192,7 @@ $font: "Muli", sans-serif;
   box-shadow: inset 0px -6px 0px 0px rgba(60,160,188,1);
 }
 
-@mixin header ($fz) {
+@mixin header ($fz: 5) {
   font-family: "Muli", sans-serif;
   font-size: $fz + px;
   font-weight: 700;

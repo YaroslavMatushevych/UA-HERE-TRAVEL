@@ -19,6 +19,7 @@
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
