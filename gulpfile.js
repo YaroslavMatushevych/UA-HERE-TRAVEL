@@ -10,6 +10,7 @@ const terser = require('gulp-terser');						//minify for js
 const autoprefixer = require('gulp-autoprefixer');			//cross-browser compatibility css
 const babel = require('gulp-babel');						//cross-browser compatibility js
 const nunjucks = require('gulp-nunjucks-render');           //template engine
+const debug = require('gulp-debug');                        //module debug
 
 const fontsFiles = [										//составляем массив переменних с все файлов шрифтов, для переноса в папку разработки
 	'./src/fonts/**.eot',
@@ -24,7 +25,7 @@ const imgFiles = [
 ];
 
 function cleandev() {										//модуль отчистки папки перед каждой расспаковкой
-    return gulp.src('./dist', {read: false})
+    return gulp.src('./dist', {read: false})                //аргумент запрета чтения, ускоряет процесс сборки, например для картинок
         .pipe(clean())
 }
 
@@ -38,6 +39,7 @@ function buildhtml () {										//Copy index.html to dir "dev"
             .pipe(nunjucks({                                // Шаблонизатор
                 path: 'src/'
             }))
+            .pipe(debug({title: 'nunjucks'}))               //Дебаг для шага сборки шаблонизатором
             .pipe(gulp.dest('dist'))
             .pipe(browserSync.stream());
 }
@@ -49,6 +51,9 @@ function fonts () {											//Copy fonts to dir "dev"
 
 function jq () {											
     return gulp.src('./src/js/*.js')
+        .on('data', function(file) {                     //Прослушка файлов проходящих через задачу
+            console.log(file)
+        })
         .pipe(gulp.dest('./dist/js'))
 }
 
