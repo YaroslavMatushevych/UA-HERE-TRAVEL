@@ -1,73 +1,65 @@
 
 .you-get {
   max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  height: 1800px;
-}
-.second-column{
-  padding-top: 160px;
-  padding-left: 50px;
+  display: flex;
+  flex-direction: row;
+justify-content: space-around;
+
 
 }
-.first-column{
+
+.what-you-get {
+  padding-left: 45px;
+  width: 400px;
+  height: 194px;
+
+}
+.photos-text:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(5)){
+  padding-top: 120px;
+}
+
+.photos-text:nth-child(1){
   padding-top: 150px;
-  padding-left: 20px;
-}
-.what-you-get{
-  padding-left: 60px;
-
 
 }
-.text-captions{
-  @include text('Muli-ExtraBold, ﻿Eina01-Light, ', rgba(52, 53, 58, 255), 22, bold, auto, auto);
-  text-align: left;
-  width: 377px;
-  height: 58px;
-  padding-top: 30px;
-  padding-left: 20px;
+.photos-text:nth-child(6){
+  padding-bottom: 61px;
 }
-.photos-text{
-  width: 439px;
-  height: 455px;
+.photos-text:nth-child(2){
+  padding-top: 217px;
+}
+
+.all-text{
+  width: 465px;
+}
+
+.photos-text {
+  flex: 0 1 50%;
 
 }
-.texts{
-  text-align: left;
-  @include text("﻿Muli-ExtraBold, ﻿Eina01-Light, ﻿AdobeInvisFont, ﻿MyriadPro-Regular", rgba(52, 53, 58, 255), 16, auto, auto, auto);
-  width: 380px;
-  padding-top: 0;
-  padding-left: 20px;
-}
-.text{
+.text {
+  @include text("﻿Muli", rgba(52, 53, 58, 255), 20, 400, auto, auto);
 
-  text-align: left;
-  @include text("﻿Muli-ExtraBold, ﻿Eina01-Light, ﻿AdobeInvisFont, ﻿MyriadPro-Regular", rgba(52, 53, 58, 255), 16, auto, auto, auto);
-  width: 380px;
-  padding-top: 24px;
-  padding-left: 20px;
+  padding-top: 34px;
+  line-height: 30px;
+
 }
-.text-caption{
-  @include text('Muli-ExtraBold, ﻿Eina01-Light, ', rgba(52, 53, 58, 255), 22, bold, auto, auto);
+
+.text-caption {
+  @include text('Muli ', rgba(52, 53, 58, 255), 26, 800, auto, auto);
   text-align: left;
-  width: 377px;
-  height: 58px;
+
   padding-top: 90px;
-  padding-left: 20px;
+  line-height: 32px;
 
 }
-.thats-what-you-get{
-  padding-left: 20px;
-padding-bottom: 100px;
+
+.title {
+  padding-bottom: 95px;
+height: 35px;
   text-align: left;
-  @include text("﻿Muli-Black, ﻿AdobeInvisFont, ﻿MyriadPro-Regular", rgba(52, 53, 58, 255), 28, auto, auto, auto)
+  @include text("﻿Muli", rgba(52, 53, 58, 255), 30, 900, auto, auto);
+  padding-right: 270px;
 }
-.line{
-  background-color: #838486;
-  width: 120px;
-  height: 3px;
-  margin-bottom: 50px;
-  margin-left: 20px;
-}
+

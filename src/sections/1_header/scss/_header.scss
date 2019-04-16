@@ -5,42 +5,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 30px 0 80px;
 }
 
 .navbar {
-  justify-content: flex-end;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  width: 100%;
   display: flex;
-  padding-right: 164px;
+  width: 100%;
+  justify-content: space-between;
+  height: 60px;
+  //padding-right: 30px;
   align-items: center;
+  position: relative;
+}
+
+.nav-wrapper {
+  display: flex;
 }
 
 .logo {
-  padding-left: 44px;
+
   width: 52px;
   height: 48px;
-  padding-right: 260px;
+  justify-self: flex-start;
+  //padding-right: 420px;
 }
 
 .social-media {
   display: flex;
   align-items: center;
 
+
 }
 
 .fa-facebook-f {
 
-  width: 10px;
-  height: 23px;
-
+  width: 14px;
+  //line-height: 25px;
+  font-size: 19px;
 }
 
 .fa-instagram {
   width: 15px;
-  height: 25px;
-  line-height: 25px;
+  //line-height: 25px;
+  font-size: 22px;
 }
 
 .fa-bars {
@@ -48,18 +55,40 @@
 }
 
 .anchors {
-  background-image: linear-gradient(#f6d671, #f6d671);
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  text-decoration: none;
-  height: 26px;
-  margin-right: 18px;
-  @include text('Muli', rgba(52, 53, 58, 255), 18, auto, auto, auto);
-  background-size: 0 2px;
-  transition: back-ground-size .5s;
+  display: inline-block;
+  text-align: center;
+  padding-right: 25px;
 }
 
-.anchors:hover {
+.s-anchors {
+  display: inline-block;
+  text-align: center;
+  padding-right: 10px;
+}
+
+.burger-items {
+  display: flex;
+  //min-width: 570px;
+  align-items: center;
+}
+
+.anchors-a-active {
+  @include text('Muli', #34353a, 18, 900, auto, auto);
+  text-decoration: none;
+
+}
+
+.anchors-active {
+  border: none;
+  background-color: #f0d456;
+  display: inline-block;
+  text-align: center;
+  padding: 21px 21px;
+  margin-right: 24px;
+
+}
+
+.anchors-a:hover {
   background-size: 100% 2px;
 }
 
@@ -68,22 +97,23 @@
   align-items: center;
   margin: 0 auto;
   display: flex;
-  background-size: 100vw;
-  background-image: url("../../../img/thats_what_you_get/Heroshot_1920px.png");
+  background-size: cover;
+  background-image: url("../../../img/header/Heroshot_1920px.png");
 }
 
 .headline-block {
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 718px;
+  width: 734px;
   padding-bottom: 223px;
   padding-top: 207px;
 }
 
 .headline {
-  font-size: 60px;
-  @include text('Muli', rgba(255, 255, 255, 255), 65, auto, auto, auto);
+  text-align: center;
+  line-height: 60px;
+  @include text('Muli', rgba(255, 255, 255, 255), 60, 900, auto, auto);
 }
 
 .classic {
@@ -92,6 +122,58 @@
   margin-top: 87px;
 }
 
+.classic:hover {
+  @include btn-hover;
+}
+
+.classic:active {
+  @include btn-active;
+}
+
+
+.anchors-a {
+  background-image: linear-gradient(#f6d671, #f6d671);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  @include text('Muli', #34353a, 13, 400, auto, auto);
+  background-size: 0 2px;
+  transition: back-ground-size .5s;
+  text-align: center;
+  line-height: 17px;
+
+}
+
 @media screen and (max-width: 993px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    height: 120px;
+    justify-content: center;
+
+  }
+  .nav-wrapper{
+    flex-basis: 100%;
+    position: static;
+    justify-content: center;
+  }
+  .burger-items{
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
+  .social-media {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .anchors-active{
+    margin: 0;
+  }
+  .block{
+    padding:0;
+    padding-left: 20px;
+
+  }
+
 
 }
