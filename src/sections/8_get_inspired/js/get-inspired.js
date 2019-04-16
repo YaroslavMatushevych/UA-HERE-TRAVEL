@@ -1,103 +1,121 @@
-const carousel = document.querySelector('.slider');
-const wrapper = document.querySelector('.wrapper');
-const lightbox = document.querySelector('.light-box');
-const overlay = document.querySelector('.overlay');
-const items = [...document.querySelectorAll('.gallery-image')];
-const images = [...document.querySelectorAll('.gallery-image-photo')];
-const wrapperWidth = wrapper.offsetWidth;
-const dots = [...document.querySelectorAll('.gallery-dots-dot')];
-const margin = +getComputedStyle(document.querySelector('.gallery-image')).marginRight.slice(0,2);
-const imgSources = [
-    'img/get-inspired/gal1.jpg',
-    'img/get-inspired/gal2.jpg',
-    'img/get-inspired/gal3.jpg',
-    'img/get-inspired/gal4.jpg',
-    'img/get-inspired/gal5.jpg',
-    'img/get-inspired/gal6.jpg',
-    'img/get-inspired/gal7.jpg',
-    'img/get-inspired/gal8.jpg',
-    'img/get-inspired/gal9.jpg',
-    'img/get-inspired/gal10.jpg',
-    'img/get-inspired/gal11.jpg',
-    'img/get-inspired/gal12.jpg'
-];
-let offset = 0;
+const carousel = document.querySelector('.get-inspired-wrapper-slider');
+const items = [...document.querySelectorAll('.get-inspired-wrapper-slider-image')];
+const wrapperWidth = document.querySelector('.get-inspired-wrapper').offsetWidth;
+const margin = parseInt(getComputedStyle(items[0]).marginRight);
+const carouselWidth = wrapperWidth*3 + margin*4;
+let carouselBlock = document.getElementsByClassName('slider-block');
+let offset = -wrapperWidth- margin;
 let counterBlocks = 1;
-let divIndex =null;
-let targetImg =null;
-let imgs = [];
-let carouselWidth = wrapperWidth*4 + margin*3;
-let quantityBlocks = Math.floor(carouselWidth/wrapperWidth);
+let targetImg = null;
+let divIndex = null;
 carousel.style.width = `${carouselWidth}px`;
-for (let i = 0; i < imgSources.length; i++) {
-    imgs[i] = new Image();
-    imgs[i].src = imgSources[i];
-}
-function toggleActive(counter) {
-    dots[counter].classList.toggle('active');
-    dots[counter-1].classList.toggle('active');
+let cloneStart = document.getElementsByClassName('slider-block')[0].cloneNode(true);
+let cloneEnd = document.getElementsByClassName('slider-block')[carouselBlock.length - 1].cloneNode(true);
+carousel.appendChild(cloneStart);
+carousel.insertBefore(cloneEnd, carousel.children[0]);
+carousel.style.transform = `translateX(${offset}px)`;
+
+function toggleFadeInOut() {
+    document.querySelector('.get-inspired-wrapper-overlay').classList.toggle('get-inspired-fadeInOut');
+    document.querySelector('.get-inspired-wrapper-box').classList.toggle('get-inspired-fadeInOut');
 }
 function getNodeIndex( elm ){
-    let attr =images.map(function (image) {
+    let attr =[...document.querySelectorAll('.get-inspired-wrapper-slider-image-photo')].map(function (image) {
         return image.getAttribute('src');
     });
     return attr.indexOf(elm.getAttribute('src'));
 }
 function replaceImg(src) {
-    document.querySelector('.light-box-image').setAttribute('src', src);
+    document.querySelector('.get-inspired-wrapper-box-zoom-image').setAttribute('src', src);
 }
 
-function getHref(index) {
-    return items[index].children[0].getAttribute('href');
+function getSrc(index) {
+    return items[index].children[0].getAttribute('src');
+}
+
+function toggleActiveDot() {
+    document.querySelectorAll('.get-inspired-dots-dot').forEach(function (dot) {
+        if (dot.classList.contains('dot-active')) dot.classList.remove('dot-active');
+            dot.style.backgroundColor = 'rgb(255, 255, 255)';
+    });
+    document.querySelectorAll('.get-inspired-dots-dot')[counterBlocks-1].style.backgroundColor = 'rgb(255, 208, 8)';
 }
 
 document.addEventListener('click' ,function (e) {
     let target = e.target;
-    if (target.getAttribute('data-action') === "slideRight" && counterBlocks <quantityBlocks) {
-        toggleActive(counterBlocks);
+    if (target.getAttribute('data-action') === "slideRight"){
         counterBlocks++;
-        offset -= wrapperWidth+margin;
+        offset -= wrapperWidth + margin;
+        carousel.style.transition = 'all 0.4s linear';
         carousel.style.transform = `translateX(${offset}px)`;
+        if(counterBlocks === carouselBlock.length - 1){
+            setTimeout(function () {
+                counterBlocks = 1;
+                offset = 0;
+                carousel.style.transition = 'none';
+                carousel.style.transform = 'none';
+            }, 1100);
+        }
+        if (counterBlocks < 3) toggleActiveDot();
     }
-    if (target.getAttribute('data-action') === "slideLeft" && counterBlocks >1 ) {
+    if (target.getAttribute('data-action') === "slideLeft") {
         counterBlocks--;
-        toggleActive(counterBlocks);
-        offset += wrapperWidth+margin;
+        offset += wrapperWidth + margin;
+        carousel.style.transition = 'all 0.4s linear';
         carousel.style.transform = `translateX(${offset}px)`;
+        if(counterBlocks === 0){
+            setTimeout(function () {
+                counterBlocks = carouselBlock.length - 2;
+                offset = -(wrapperWidth + margin) * (carouselBlock.length - 1);
+                carousel.style.transition = 'none';
+                carousel.style.transform = `translateX(${offset}px)`;
+            }, 1100);
+        }
+        if (counterBlocks > 0)toggleActiveDot();
     }
-    if (target.classList.contains('gallery-dots-dot')) {
+    if (target.classList.contains('get-inspired-dots-dot')) {
         let counterDots = +target.getAttribute('data-action').slice(3);
         let step = Math.abs(counterDots -counterBlocks);
-        dots[counterBlocks-1].classList.toggle('active');
         if (counterDots !== counterBlocks) {
             offset = (counterDots > counterBlocks) ? offset -(wrapperWidth+margin)*step : offset +(wrapperWidth+margin)*step;
             carousel.style.transform = `translateX(${offset}px)`;
             counterBlocks= counterDots;
-            dots[counterBlocks-1].classList.toggle('active');
+            if (!target.classList.contains('active')) toggleActiveDot();
         }
     }
-    if (target.classList.contains('gallery-image-photo')) {
-        e.preventDefault();
-        targetImg = target.closest('a').getAttribute('href');
+    if (target.classList.contains('get-inspired-wrapper-slider-image-photo')) {
+        targetImg = target.previousElementSibling.getAttribute('src');
         divIndex = getNodeIndex(target);
         replaceImg(targetImg);
-        overlay.classList.toggle('fadeInOut');
-        lightbox.classList.toggle('fadeInOut');
+        toggleFadeInOut();
     }
-    if (target.classList.contains('overlay')) {
-        overlay.classList.toggle('fadeInOut');
-        lightbox.classList.toggle('fadeInOut');
-        replaceImg('#');
+    if (target.classList.contains('get-inspired-wrapper-overlay') || target.classList.contains('get-inspired-wrapper-box-zoom-close')) {
+        toggleFadeInOut();
+        setTimeout(function () {
+            replaceImg('#');
+        },400)
     }
 
-    if (target.getAttribute('data-action') === "bigSlideLeft" && (divIndex) > 0) {
-        targetImg = getHref(divIndex - 1);
-        divIndex --;
+    if (target.getAttribute('data-action') === "bigSlideLeft") {
+        if (divIndex > 0) {
+            targetImg = getSrc(divIndex - 1);
+            divIndex --;
+        }
+        else {
+            targetImg = getSrc(items.length -1);
+            divIndex = items.length -1;
+        }
         replaceImg(targetImg);
     }
-    if (target.getAttribute('data-action') === "bigSlideRight" && (divIndex + 1) < items.length) {
-        targetImg = getHref(divIndex + 1);
-        divIndex ++;
+    if (target.getAttribute('data-action') === "bigSlideRight") {
+        if ((divIndex + 1) < items.length) {
+            targetImg = getSrc(divIndex + 1);
+            divIndex ++;
+        }
+        else {
+            targetImg =getSrc(0);
+            divIndex=0;
+        }
         replaceImg(targetImg);
     }
 });

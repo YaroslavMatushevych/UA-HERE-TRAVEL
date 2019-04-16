@@ -1,52 +1,52 @@
-.container {
-    max-width: 1200px;
+.get-inspired-container {
+    width: 1366px;
     margin: 0 auto;
 }
-.header {
+.get-inspired-header {
     @include text("Muli",rgb(52, 53, 58),30,400,left,none);
     position: relative;
-    padding: 74px 0 60px 80px;
+    padding: 74px 0 60px;
 }
-.header:before {
+.get-inspired-header:before {
     content: '';
     position: absolute;
     top: 0;
     width: 107px;
-    height: 3px;
+    height: 4px;
     background-color: rgb(131, 132, 134);
 }
-.wrapper {
+.get-inspired-wrapper {
     position: relative;
-    height: 360px;
-    transition: all 0.4s ease;
+    height: 440px;
+    //transition: all 0.4s ease;
     overflow: hidden;
     font-size: 0;
 }
-.slider {
+.get-inspired-wrapper-slider {
     @include flex(cb,c);
     position: absolute;
-    transition: all 1s linear;
+    transition: all 0.4s linear;
 }
-.gallery-image {
+.get-inspired-wrapper-slider-image {
     position: relative;
     @include flex(cb,c);
-    width: 360px;
-    height: 360px;
-    left: 0;
-    margin-right: 60px;
+    width: 335px;
+    height: 440px;
+    margin-right: 8px;
+    overflow: hidden;
 }
-.gallery-image.active {
+.get-inspired-wrapper-slider-image.active {
     display: inline-block;
     visibility: visible;
     opacity: 1;
 }
-.gallery-image-photo {
-    width: 360px;
-}
-.gallery-image-photo:hover {
+.get-inspired-wrapper-slider-image-photo:hover {
     cursor: pointer;
 }
-.arrow {
+.get-inspired-wrapper-slider-image-photo-zoom {
+    display: none;
+}
+.get-inspired-wrapper-arrow-left, .get-inspired-wrapper-arrow-right {
     position: absolute;
     z-index: 9;
     top: 50%;
@@ -60,74 +60,88 @@
     transform: translateY(-50%);
     transition: all 0.4s linear;
 }
-.arrow.left {
+.get-inspired-wrapper-arrow-left {
     left: 0;
     padding-left: 50px;
     background-image: url("../img/get-inspired/arrow-left.png");
     background-position: center right;
 }
-.arrow.right {
+.get-inspired-wrapper-arrow-right {
     right: 0;
     padding-right: 50px;
     background-image: url("../img/get-inspired/arrow-right.png");
     background-position: center left;
 }
-.arrow:hover {
+.get-inspired-wrapper-arrow-left:hover {
     cursor: pointer;
 }
-.light-box {
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 99;
-    opacity: 0;
+.get-inspired-wrapper-arrow-right:hover {
+    cursor: pointer;
 }
-.overlay {
+.get-inspired-wrapper-box {
+    visibility: hidden;
+    position: fixed;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    opacity: 0;
+    transition: all .4s linear;
+}
+.get-inspired-wrapper-overlay {
     visibility: hidden;
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     z-index: 100;
     opacity: 0;
     background-color: rgba(0,0,0,0.6);
     transition: all .4s linear;
 }
-.overlay.fadeInOut, .light-box.fadeInOut {
+.get-inspired-fadeInOut {
     opacity: 1;
     visibility: visible;
     transition: all .4s linear;
 }
-.arrow.big-image {
-    z-index: 999;
-}
-.light-box-image {
+.get-inspired-wrapper-box-zoom-close {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    height: 100vh;
-    transform: translateX(-50%);
-    z-index: 200;
+    top: -40px;
+    right: 20px;
+    font-size: 42px;
+    color: #fff;
 }
-.gallery-dots {
+.get-inspired-wrapper-box-zoom {
+    position: relative;
+    @include flex(c, c);
+}
+.get-inspired-wrapper-box-zoom-left, .get-inspired-wrapper-box-zoom-right {
+    padding: 15px;
+    color: #fff;
+    font-size: 42px;
+}
+.get-inspired-wrapper-box-zoom-image {
+    height: 650px;
+}
+.get-inspired-dots {
     text-align: center;
     padding: 40px 0 70px;
 }
-.gallery-dots-dot {
+.get-inspired-dots-dot {
     padding: 8px;
     margin: 1px;
     border-radius: 50%;
     border: 1px solid rgb(255, 208, 8);
     font-size: 0;
 }
-.gallery-dots-dot.active {
+.dot-active {
     background-color: rgb(255, 208, 8);
 }
-.gallery-dots-dot:hover {
+.get-inspired-dots-dot:hover {
     cursor: pointer;
+}
+.slider-block{
+    @include flex(cb,c);
 }
