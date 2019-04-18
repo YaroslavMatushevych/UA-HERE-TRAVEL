@@ -4,6 +4,7 @@ let sideBarNav = document.getElementById("sidebar__nav");
 let sideBarNavItem = document.getElementsByClassName("sidebar__nav-item");
 let personContainer = document.getElementsByClassName("person__container");
 
+
 navItemArrow[1].style.display = "inline-block";
 personContainer[1].style.display = "flex";
 
@@ -37,45 +38,95 @@ sideBarNav.addEventListener("click", function (e) {
     }
 });
 
-$('.arrow-next').click(function() {
-    //creating the variables so that we can target them in jQuery
+$('.arrow-next, .next').click(function() {
+
     let currentSlide = $('.person__active-slide');
     let nextSlide = currentSlide.next();
+    let prevSlide = currentSlide.prev();
+    let firstSlideText = $('.person-desc__name').first().text();
+    let lastSlideText = $('.person-desc__name').last().text();
+    let nextName = nextSlide.next().find('.person-desc__name').text();
+    let prevName = prevSlide.prev().find('.person-desc__name').text();
     let currentDot = $('.active-dot');
     let nextDot= currentDot.next();
-    //if the current slide is the last, make the next slide the first one
+
+    $('.next-name').text(nextName);
+    $('.prev-name').text(prevName);
+
     if(nextSlide.length == 0 ) {
-        nextSlide = $('.person__container').first() ;
+        nextSlide = $('.person__container').first();
     }
-    //if the next dot is the last, make the next dot the first one
+
     if(nextDot.length == 0){
         nextDot = $('.dot').first()
     }
-    //when the arrow is clicked, fade out the current img and fade in the next one
+
     currentSlide.fadeOut(0).removeClass('person__active-slide');
     nextSlide.fadeIn(0).addClass('person__active-slide');
-    //when the arrow is clicked, remove the active class from the current dot and add it to the next one
+
+    // if($(".person__container").last().hasClass('person__active-slide')) {
+    //     $('.next-name').text(firstSlideText);
+    // }
+    // if($(".person__container").first().hasClass('person__active-slide')){
+    //     $('.prev-name').text(lastSlideText);
+    // }
+
     currentDot.removeClass('active-dot');
     nextDot.addClass('active-dot')
 });
-$('.arrow-prev').click(function(){
-    //creating the variables so that we can target them in jQuery
+$('.arrow-prev, .previous').click(function(){
+
     let currentSlide = $('.person__active-slide');
     let prevSlide = currentSlide.prev();
+    let nextSlide = currentSlide.next();
+    let firstSlideText = $('.person-desc__name').first().text();
+    let lastSlideText = $('.person-desc__name').last().text();
+    let prevName = prevSlide.prev().find('.person-desc__name').text();
+    let nextName = nextSlide.next().find('.person-desc__name').text();
     let currentDot= $('.active-dot');
     let prevDot= currentDot.prev();
-    //if the current slide is the last, make the prev slide the last one
+
+    $('.prev-name').text(prevName);
+    $('.next-name').text(nextName);
+
     if(prevSlide.length == 0){
         prevSlide = $('.person__container').last();
     }
-    //if the current dot is the last, make the prev dot the last one
+
     if(prevDot.length==0){
         prevDot = $('.dot').last();
     }
-    //fade out the current img and fade in the prev one when the arrow is clicked
+
     currentSlide.fadeOut(0).removeClass('person__active-slide');
     prevSlide.fadeIn(0).addClass('person__active-slide');
-    //when the arrow is clicked, remove the active class from the current dot and add it to the next one
+
+    // if($(".person__container").last().hasClass('person__active-slide')) {
+    //     $('.next-name').text(firstSlideText);
+    // }
+    // if($(".person__container").first().hasClass('person__active-slide')){
+    //     $('.prev-name').text(lastSlideText);
+    // }
+
     currentDot.removeClass('active-dot');
     prevDot.addClass('active-dot')
 });
+
+$('.dot').click(function () {
+    let currentSlide = $('.person__active-slide');
+    let currentDot= $('.active-dot');
+    let index = $('.dot').index(this);
+
+    currentSlide.fadeOut(0).removeClass('person__active-slide');
+    currentDot.removeClass('active-dot');
+
+    $(this).addClass('active-dot');
+    let nextSlide = $('.person__container').eq(index);
+    nextSlide.fadeIn(0).addClass('person__active-slide')
+
+});
+
+
+    if ($(window).width() < 481) {
+        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko410px.png");
+    }
+
