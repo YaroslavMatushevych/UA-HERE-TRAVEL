@@ -287,12 +287,12 @@ $(document).ready(function () {
         if (($(e.target).hasClass('active-form-tab')) && (!$(e.target).siblings().hasClass('active-form-tab')) && ($(e.target).parent().hasClass('filled-quest'))) {
             $(e.target).parent().removeClass('filled-quest');
             $(e.target).removeClass('active-form-tab');
-            $(e.target).find('.fa-plus').removeClass('fa-plus-turned');
+            $(e.target).find('.form-plus-icon').removeClass('form-plus-icon-turned');
             $(e.target).siblings('.form-error').css({'opacity': '1'});
         } else {
             $(e.target).parent().addClass('filled-quest');
             $(e.target).toggleClass('active-form-tab');
-            $(e.target).find('.fa-plus').toggleClass('fa-plus-turned');
+            $(e.target).find('.form-plus-icon').toggleClass('form-plus-icon-turned');
             hideErrorMessage();
         }
     });
