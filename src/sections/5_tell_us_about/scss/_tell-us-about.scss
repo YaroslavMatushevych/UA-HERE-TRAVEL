@@ -282,7 +282,7 @@
   z-index: 1;
 }
 
-.fa-calendar-alt {
+.form-calendar-icon {
   position: relative;
   left: -70px;
   font-size: 20px;
@@ -312,10 +312,10 @@
   width: 100%;
 }
 
-.fa-plus {
+.form-plus-icon {
   position: relative;
   transition: 0.4s;
-  z-index: -1;
+  z-index: -2;
 
   &-turned {
     transform: rotateZ(45deg);
@@ -372,11 +372,13 @@
   flex-direction: column;
   @include text('Muli',#34353a,20,800,center,capitalize);
   width: 320px;
-  padding: 25px 40px 40px 40px;
   box-sizing: border-box;
   box-shadow: 2.5px 4.33px 5px rgba(181,181,181,0.75);
   background-color: #ffffff;
-  position: relative;
+  position: absolute;
+}
+.ui-datepicker table{
+  padding: 0 40px 40px 40px;
 }
 
 .ui-datepicker-calendar{
@@ -384,8 +386,9 @@
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 0 40px 40px 40px;
 }
-.datepicker:hover + .fa-calendar-alt{
+.datepicker:hover + .form-calendar-icon{
   color: $yellow;
 }
 .ui-datepicker-calendar thead{
@@ -400,10 +403,12 @@
   width: 35px;
   height: 35px;
 }
-.ui-datepicker-title{
+.ui-datepicker-header{
   height: 20px;
   line-height: 20px;
   margin-bottom: 35px;
+  margin-top: 25px;
+  padding: 0 40px;
 }
 .ui-datepicker-prev, .ui-datepicker-next{
   display: inline-block;
@@ -461,9 +466,9 @@
   }
   .form-card{
     padding: 35px;
-  }
-  .form-card-header{
-    font-size: 50px;
+    &-header{
+      font-size: 50px;
+    }
   }
 }
 
@@ -479,9 +484,10 @@
     flex-direction: column;
     min-height: calc(894px - 120px);
     justify-content: flex-start;
-  }
-  .form-card-container{
-    padding: 0 70px;
+    &-footer{
+      position: absolute;
+      bottom: 0;
+    }
   }
   .form-card{
     min-height: 360px;
@@ -489,11 +495,14 @@
     left: 0;
     padding: 30px 35px;
     margin-bottom: 43px;
-  }
-  .form-card-header{
-    font-size: 40px;
-    margin-bottom: 30px;
-    padding-right: 90px;
+    &-container{
+      padding: 0 70px;
+    }
+    &-header{
+      font-size: 40px;
+      margin-bottom: 30px;
+      padding-right: 90px;
+    }
   }
   .left-moved-quest, .left-moved-quest-2, .downed-quest {
     margin: 0;
@@ -504,10 +513,6 @@
   }
   .form-quest{
     flex: 1 0 50%;
-  }
-  .form-slide-footer{
-    position: absolute;
-    bottom: 0;
   }
   .multi-quest{
     margin-bottom: 55px;
@@ -579,18 +584,21 @@
 }
 @media screen and (max-width: 578px){
   .main-form{
-    min-height: 1000px;
+    min-height: 930px;
     width: 100vw;
     padding: 0;
+    justify-content: flex-start;
   }
   .form-slide{
-    min-height: 900px;
+    min-height: 840px;
+    justify-content: flex-start;
   }
   .form-column {
     justify-content: center;
     text-align: center;
     padding-left: 15px;
     padding-right: 15px;
+    flex: 0 0 auto;
   }
   .form-quest{
     flex: 1 0 100%;
@@ -601,42 +609,78 @@
     padding: 40px;
     background-color: $yellow;
     min-height: 250px;
-  }
-  .form-card-header{
-    font-size: 30px;
-    line-height: 35px;
-    padding: 0;
-  }
-  .form-card-sub-header{
-    font-size: 20px;
-    line-height: 25px;
+    &-header{
+      font-size: 30px;
+      line-height: 35px;
+      padding: 0;
+    }
+    &-sub-header{
+      font-size: 20px;
+      line-height: 25px;
+    }
+    &-working-hours{
+      position: initial;
+      align-self: flex-end;
+      margin-top: 20px;
+    }
   }
   .form-tab{
     padding: 0 25px;
-    font-size: 16px;
+    font-size: 14px;
   }
   .form-multi-tab{
-    padding: 0 25px;
-    height: 45px;
-    line-height: 45px;
-    font-size: 16px;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    margin-bottom: 10px;
   }
   .form-picker{
-    height: 45px;
-    line-height: 45px;
+    height: 40px;
+    line-height: 40px;
   }
   .pagination{
     opacity: 0;
   }
-  .form-card-working-hours{
-    position: initial;
-    align-self: flex-end;
-    margin-top: 20px;
-  }
   .prev-btn_left{
     transform: translate(-0%,150%);
   }
-  .budget-picker li{
-    padding: 0 15px;
+  .budget-picker{
+    width: 100%;
+    & li{
+      flex: 1 0 15%;
+      padding: 0;
+      text-align: center;
+      &:nth-child(3){
+        flex-grow: 2;
+      }
+      &:nth-child(2){
+        flex-grow: 2;
+      }
+    }
+  }
+  .ui-datepicker{
+    width:320px;
+  }
+  .form-error{
+    font-size: 15px;
+  }
+  .form-submit-footer{
+    align-self: center;
+  }
+  .form-contact-info input{
+    width: 90vw;
+  }
+  .form-multi-picker .form-error {
+    top: 100%;
+  }
+  .multi-quest textarea{
+    font-size: 14px;
+  }
+  .form-mobile-downed-quest{
+    margin-top: 100px;
+  }
+  .quest-header-txt{
+    font-size: 18px;
   }
 }
