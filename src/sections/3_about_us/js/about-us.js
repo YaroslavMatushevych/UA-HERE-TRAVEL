@@ -3,6 +3,7 @@ let navItemArrow = document.getElementsByClassName("nav-item__arrow");
 let sideBarNav = document.getElementById("sidebar__nav");
 let sideBarNavItem = document.getElementsByClassName("sidebar__nav-item");
 let personContainer = document.getElementsByClassName("person__container");
+let activePersonSlide = document.getElementsByClassName("person__active-slide");
 
 
 navItemArrow[1].style.display = "inline-block";
@@ -10,12 +11,17 @@ personContainer[1].style.display = "flex";
 
 sideBarNav.addEventListener("click", function (e) {
 
+    activePersonSlide = document.getElementsByClassName("person__active-slide");
     activeColor = document.getElementsByClassName("sidebar__nav-item_active");
 
     if (e.target.classList.contains("sidebar__nav-item")) {
 
         for (let i = 0; i < activeColor.length; i++) {
             activeColor[i].classList.remove("sidebar__nav-item_active");
+        }
+
+        for (let d = 0; d < activePersonSlide.length; d++) {
+            activePersonSlide[d].classList.remove("person__active-slide");
         }
 
         for (let l = 0; l < navItemArrow.length; l++) {
@@ -32,6 +38,7 @@ sideBarNav.addEventListener("click", function (e) {
         for (let i = 0; i < sideBarNavItem.length; i++) {
             if (sideBarNavItem[i].classList.contains("sidebar__nav-item_active")) {
                 personContainer[i].style.display = "flex";
+                personContainer[i].classList.add("person__active-slide");
                 return true;
             }
         }
@@ -39,19 +46,13 @@ sideBarNav.addEventListener("click", function (e) {
 });
 
 $('.arrow-next, .next').click(function() {
-
+    let personName = $('.person-desc__name');
     let currentSlide = $('.person__active-slide');
     let nextSlide = currentSlide.next();
-    let prevSlide = currentSlide.prev();
-    let firstSlideText = $('.person-desc__name').first().text();
-    let lastSlideText = $('.person-desc__name').last().text();
-    let nextName = nextSlide.next().find('.person-desc__name').text();
-    let prevName = prevSlide.prev().find('.person-desc__name').text();
+    let firstSlideText = $(personName).first().text();
+    let lastSlideText = $(personName).last().text();
     let currentDot = $('.active-dot');
     let nextDot= currentDot.next();
-
-    $('.next-name').text(nextName);
-    $('.prev-name').text(prevName);
 
     if(nextSlide.length == 0 ) {
         nextSlide = $('.person__container').first();
@@ -64,30 +65,33 @@ $('.arrow-next, .next').click(function() {
     currentSlide.fadeOut(0).removeClass('person__active-slide');
     nextSlide.fadeIn(0).addClass('person__active-slide');
 
-    // if($(".person__container").last().hasClass('person__active-slide')) {
-    //     $('.next-name').text(firstSlideText);
-    // }
-    // if($(".person__container").first().hasClass('person__active-slide')){
-    //     $('.prev-name').text(lastSlideText);
-    // }
+    let activeSlide = $('.person__active-slide');
+    console.log($(activeSlide).next().length);
+
+    if($(activeSlide).prev().length === 0){
+        $('.prev-name').text(lastSlideText);
+    }
+    if($(activeSlide).next().length === 0){
+        $('.next-name').text(firstSlideText);
+    }
+
+    let prevName = $(activeSlide).prev().find(personName).text();
+    let nextName = $(activeSlide).next().find(personName).text();
+
+    $('.prev-name').text(prevName);
+    $('.next-name').text(nextName);
 
     currentDot.removeClass('active-dot');
     nextDot.addClass('active-dot')
 });
 $('.arrow-prev, .previous').click(function(){
-
+    let personName = $('.person-desc__name');
     let currentSlide = $('.person__active-slide');
     let prevSlide = currentSlide.prev();
-    let nextSlide = currentSlide.next();
-    let firstSlideText = $('.person-desc__name').first().text();
-    let lastSlideText = $('.person-desc__name').last().text();
-    let prevName = prevSlide.prev().find('.person-desc__name').text();
-    let nextName = nextSlide.next().find('.person-desc__name').text();
+    let firstSlideText = $(personName).first().text();
+    let lastSlideText = $(personName).last().text();
     let currentDot= $('.active-dot');
     let prevDot= currentDot.prev();
-
-    $('.prev-name').text(prevName);
-    $('.next-name').text(nextName);
 
     if(prevSlide.length == 0){
         prevSlide = $('.person__container').last();
@@ -100,12 +104,19 @@ $('.arrow-prev, .previous').click(function(){
     currentSlide.fadeOut(0).removeClass('person__active-slide');
     prevSlide.fadeIn(0).addClass('person__active-slide');
 
-    // if($(".person__container").last().hasClass('person__active-slide')) {
-    //     $('.next-name').text(firstSlideText);
-    // }
-    // if($(".person__container").first().hasClass('person__active-slide')){
-    //     $('.prev-name').text(lastSlideText);
-    // }
+    let activeSlide = $('.person__active-slide');
+    console.log($(activeSlide).prev().length);
+    if($(activeSlide).prev().prev().length == 0){
+        $('.prev-name').text(lastSlideText);
+    }
+    if($(activeSlide).next().next().length == 0){
+        $('.next-name').text(firstSlideText);
+    }
+    let prevName = $(activeSlide).prev().find(personName).text();
+    let nextName = $(activeSlide).next().find(personName).text();
+
+    $('.prev-name').text(prevName);
+    $('.next-name').text(nextName);
 
     currentDot.removeClass('active-dot');
     prevDot.addClass('active-dot')
