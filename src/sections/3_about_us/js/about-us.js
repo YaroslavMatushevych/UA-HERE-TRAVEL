@@ -68,13 +68,6 @@ $('.arrow-next, .next').click(function() {
     let activeSlide = $('.person__active-slide');
     console.log($(activeSlide).next().length);
 
-    if($(activeSlide).prev().length === 0){
-        $('.prev-name').text(lastSlideText);
-    }
-    if($(activeSlide).next().length === 0){
-        $('.next-name').text(firstSlideText);
-    }
-
     let prevName = $(activeSlide).prev().find(personName).text();
     let nextName = $(activeSlide).next().find(personName).text();
 
@@ -83,6 +76,13 @@ $('.arrow-next, .next').click(function() {
 
     currentDot.removeClass('active-dot');
     nextDot.addClass('active-dot')
+
+    if($(activeSlide).prev().length === 0){
+        $('.prev-name').text(lastSlideText);
+    }
+    if($(activeSlide).next().length === 0){
+        $('.next-name').text(firstSlideText);
+    }
 });
 $('.arrow-prev, .previous').click(function(){
     let personName = $('.person-desc__name');
@@ -105,18 +105,19 @@ $('.arrow-prev, .previous').click(function(){
     prevSlide.fadeIn(0).addClass('person__active-slide');
 
     let activeSlide = $('.person__active-slide');
-    console.log($(activeSlide).prev().length);
+
+    let prevName = $(activeSlide).prev().find(personName).text();
+    let nextName = $(activeSlide).next().find(personName).text();
+
+    $('.prev-name').text(prevName);
+    $('.next-name').text(nextName);
+
     if($(activeSlide).prev().prev().length == 0){
         $('.prev-name').text(lastSlideText);
     }
     if($(activeSlide).next().next().length == 0){
         $('.next-name').text(firstSlideText);
     }
-    let prevName = $(activeSlide).prev().find(personName).text();
-    let nextName = $(activeSlide).next().find(personName).text();
-
-    $('.prev-name').text(prevName);
-    $('.next-name').text(nextName);
 
     currentDot.removeClass('active-dot');
     prevDot.addClass('active-dot')
