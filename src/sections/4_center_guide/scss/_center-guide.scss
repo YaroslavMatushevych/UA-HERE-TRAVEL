@@ -4,7 +4,7 @@
     margin-top: 330px;
 }
 
-.center-guide__triangle {
+.center-guide-triangle {
     border-style: solid;
     border-width: 550px 0 550px 720px;
     border-color: transparent transparent transparent #f0d456;
@@ -15,12 +15,12 @@
     transform: translateX(0px);
 }
 
-.center-guide__container {
+.center-guide-container {
     z-index: 2;
     position: relative;
 }
 
-.center-guide__heading {
+.center-guide-container__heading {
     font-family: "Muli Black", sans-serif;
     font-size: 30px;
     color: #34353a;
@@ -38,7 +38,7 @@
     }
 }
 
-.center-guide__form-send {
+.center-guide-container__form {
     color: #a3a2a2;
     font-family: "Muli", sans-serif;
 
@@ -60,37 +60,54 @@
 
 }
 
-.form-send__button {
+.form__button {
+    @include btn;
     margin-top: 80px;
-    font-family: "Muli", sans-serif;
     min-width: 225px;
     height: 60px;
     font-weight: 700;
-    color: #fff;
     border-radius: 25px;
     font-size: 22px;
-    box-shadow: inset 0px -3px 0px 0px rgba(60,160,188,1);
-    background: linear-gradient(to bottom, #90dced 0%, #3da3c0 100%);
-    cursor: pointer;
 
-    &:hover {
-        background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
-        box-shadow: inset 0px -6px 0px 0px rgba(60,160,188,1);
+    &:hover{
+        @include btn-hover;
     }
-
-    &:hover {
-        background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
-        box-shadow: inset 0px -2px 0px 0px rgba(60,160,188,1);
+    &:active{
+        @include btn-active;
     }
-
 }
 
-.form-send__file-description {
+.form__file-description {
     font-family: "Muli", sans-serif;
     font-weight: 300;
     margin-top: 25px;
     margin-left: 15px;
 }
+
+.form__valid-email, .form__valid-name {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+//.center-guide-alert {
+//    position: fixed;
+//    right: 0;
+//    left: 0;
+//    top: 0;
+//    bottom: 0;
+//    background: rgba(0,0,0,0.3);
+//    z-index: 10;
+//}
+//
+//.center-guide-alert__success {
+//    position: absolute;
+//    right: 50%;
+//    bottom: 50%;
+//    transform: translate(50%, 50%);
+//    width: 500px;
+//    height: 300px;
+//    background: #fff;
+//}
 
 @media screen and (max-width: 768px) {
 
@@ -99,12 +116,12 @@
         margin: 100px 0;
     }
 
-    .center-guide__triangle {
+    .center-guide-triangle {
         border-width: 460px 0 460px 560px;
         top: -260px;
     }
 
-    .center-guide__heading {
+    .center-guide-container__heading {
         font-family: "Muli Black", sans-serif;
         font-size: 30px;
         color: #34353a;
@@ -123,10 +140,9 @@
         margin-bottom: 400px;
     }
 
-    .center-guide__triangle {
+    .center-guide-triangle {
         top: 0;
         left: 50%;
-        //transform: translate(-50%, 0);
         transform: translateX(-50%);
         transform: translateY(0);
         overflow: hidden;
@@ -134,7 +150,7 @@
         border-color: #f0d456 transparent transparent transparent;
     }
 
-    .center-guide__heading {
+    .center-guide-container__heading {
         padding-top: 130px;
         text-align: center;
 
@@ -143,13 +159,13 @@
         }
     }
 
-    .center-guide__form-send {
+    .center-guide-container__form {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .form-send__file-description {
+    .form__file-description {
         margin-left: 0;
     }
 }
