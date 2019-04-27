@@ -1,6 +1,12 @@
 .request-route{
     margin-top: 140px;
 }
+.header-section{
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    min-height: 1010px;
+}
 .rr-header-section{
     @include header(30);
     position: relative;
@@ -58,52 +64,6 @@
 }
 .route-button:active{
     @include btn-active;
-}
-
-@media screen and (max-width: 768px) {
-    .request-route{
-        margin-top: 100px;
-    }
-    .route{
-        flex-direction: column;
-    }
-    .route-description{
-        width: 100%;
-    }
-    .route-item{
-        flex-direction: row;
-    }
-    .route-item-photo{
-        width: 320px;
-        height: 320px;
-        margin-right: 23px;
-    }
-    .route-price-button{
-        justify-content: space-between;
-    }
-}
-@media screen and (max-width: 578px) {
-    .rr-header-section{
-        margin: 50px 0;
-        &:before{
-            bottom: 75px;
-        }
-    }
-    .route{
-        display: block;
-    }
-    .route-item{
-        margin: 0 auto 60px;
-        flex-direction: column;
-        width: 290px;
-    }
-    .route-item-photo{
-        width: 290px;
-        height: 290px;
-    }
-    .route-description{
-        height: 100%;
-    }
 }
 .route-overlay {
     visibility: hidden;
@@ -248,4 +208,51 @@
 }
 .route-modal-fail-form-header {
     line-height: 35px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .request-route{
+        margin-top: 100px;
+    }
+    .route{
+        flex-direction: column;
+    }
+    .route-description{
+        width: 100%;
+    }
+    .route-item{
+        flex-direction: row;
+    }
+    .route-item-photo{
+        width: 320px;
+        height: 320px;
+        margin-right: 23px;
+    }
+    .route-price-button{
+        justify-content: space-between;
+    }
+}
+@media screen and (max-width: 578px) {
+    .rr-header-section{
+        margin: 50px 0;
+        &:before{
+            bottom: 75px;
+        }
+    }
+    .route{
+        display: block;
+    }
+    .route-item{
+        margin: 0 auto 60px;
+        flex-direction: column;
+        width: 290px;
+    }
+    .route-item-photo{
+        width: 290px;
+        height: 290px;
+    }
+    .route-description{
+        height: 100%;
+    }
 }
