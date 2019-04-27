@@ -1,12 +1,10 @@
 let activeColor = document.getElementsByClassName("sidebar__nav-item_active");
-let navItemArrow = document.getElementsByClassName("nav-item__arrow");
-let sideBarNav = document.getElementById("sidebar__nav");
+let sideBarNav = document.getElementsByClassName("sidebar__nav")[0];
 let sideBarNavItem = document.getElementsByClassName("sidebar__nav-item");
 let personContainer = document.getElementsByClassName("person__container");
 let activePersonSlide = document.getElementsByClassName("person__active-slide");
 
 
-navItemArrow[1].style.display = "inline-block";
 personContainer[1].style.display = "flex";
 
 sideBarNav.addEventListener("click", function (e) {
@@ -24,21 +22,16 @@ sideBarNav.addEventListener("click", function (e) {
             activePersonSlide[d].classList.remove("person__active-slide");
         }
 
-        for (let l = 0; l < navItemArrow.length; l++) {
-            navItemArrow[l].style.display = "none";
-        }
-
         for (let k = 0; k < personContainer.length; k++) {
             personContainer[k].style.display = "none";
         }
 
         e.target.classList.add("sidebar__nav-item_active");
-        e.target.firstChild.style.display = "inline-block";
 
-        for (let i = 0; i < sideBarNavItem.length; i++) {
-            if (sideBarNavItem[i].classList.contains("sidebar__nav-item_active")) {
-                personContainer[i].style.display = "flex";
-                personContainer[i].classList.add("person__active-slide");
+        for (let p = 0; p < sideBarNavItem.length; p++) {
+            if (sideBarNavItem[p].classList.contains("sidebar__nav-item_active")) {
+                personContainer[p].style.display = "flex";
+                personContainer[p].classList.add("person__active-slide");
                 return true;
             }
         }
