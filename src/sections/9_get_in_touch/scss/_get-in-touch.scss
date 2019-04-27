@@ -1,3 +1,6 @@
+.get-in-touch__content{
+    display: flex;
+}
 .get-in-touch__modal{
     width: 633px;
     height: 386px;
@@ -29,6 +32,10 @@
     font-size: 120px;
     color: #3aaa35;
 }
+.get-in-touch__modal-cross{
+    font-size: 120px;
+    color: #ec0000;
+}
 .get-in-touch__modal-button-cross{
     color: #fff;
     position: absolute;
@@ -41,9 +48,9 @@
     @include text("Muli",#34353a,26,700,center,none);
     margin-top: 34px;
 }
-.get-in-touch__modal p:nth-child(4){
+.get-in-touch__modal p:nth-child(5){
     @include text("Muli",#34353a,18,400,center,none);
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .get-in-touch__modal span{
   font-weight: 700;
@@ -57,6 +64,7 @@
     bottom: 27px;
     cursor: pointer;
 }
+
 .get-in-touch__title{
     @include text("Muli Black",#34353a,30,700,left,none);
     margin: 45px 0;
@@ -105,9 +113,9 @@
     @include btn-active;
 }
 .get-in-touch__square{
-    width: 587px;
+    max-width: 587px;
     height: 540px;
-    border:26px solid $yellow;
+    border: 26px solid $yellow;
     box-sizing: border-box;
     position: absolute;
     top: 0;
@@ -122,22 +130,38 @@
         width: 557px;
         height: 540px;
         box-shadow: -14px 46px 0 0 #b7b7b7;
-        right: 4px;
+        left: -26px;
         top: -26px;
     }
 }
 .get-in-touch__title_media768{
     display: none;
 }
+.get-in-touch__warning{
+    @include text($font, #c92533, 20, 400, left, none);
+    opacity: 0;
+    transition: 0.4s;
+    align-self: flex-start;
+}
+.warning_visible{
+    opacity: 1;
+}
 
-@media screen and (max-width: 993px) {
+@media screen and (max-width: 1200px){
+    .get-in-touch__square{
+      padding: 209px 121px;
+      &::before{
+          width: 100%;
+      }
+    }
+}
+@media screen and (max-width: 993px){
     .get-in-touch__square{
         display: none;
     }
     .get-in-touch__form{
         @include flex(c,c);
         border: 26px solid $yellow;
-        margin: 21px;
         box-sizing: border-box;
     }
     .get-in-touch__title{
@@ -160,5 +184,29 @@
     }
     .get-in-touch__btn{
         margin: 0;
+    }
+}
+@media screen and (max-width: 768px){
+    .get-in-touch__form{
+        padding: 35px 14px;
+    }
+    .get-in-touch__modal{
+        width: 100%;
+        padding: 58px 110px
+    }
+}
+@media screen and (max-width: 578px){
+    .get-in-touch__form{
+        border: none;
+        margin: 0;
+    }
+    .get-in-touch__modal{
+        width: 100%;
+        padding: 22px 0;
+    }
+    .get-in-touch__modal span{
+        display: block;
+        line-height: 1px;
+        margin-top: 28px;
     }
 }

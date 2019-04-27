@@ -17,12 +17,13 @@
 .footer__list-block{
     flex-basis: 314px;
 }
-.footer__list li{
+.footer__list-item{
     @include text("Muli",#F5F5F5,16,400,left,none);
+    display: block;
     margin-bottom: 21px;
-    cursor: pointer;
+    text-decoration: none;
 }
-.footer__list li:last-child{
+.footer__list>.footer__list-item:last-child{
     margin-bottom: 0;
 }
 .footer__copy{
@@ -37,5 +38,20 @@
     }
     .footer__menu-wrapper{
         width: auto;
+    }
+    .footer__list-block{
+    }
+}
+@media screen and (max-width: 768px){
+    .footer>.container{
+        padding: 0 35px 0 35px;
+    }
+    .footer__menu{
+        padding-left: 28px;
+    }
+}
+@media screen and (max-width: 578px){
+    .footer__menu{
+      padding-left: 0;
     }
 }
