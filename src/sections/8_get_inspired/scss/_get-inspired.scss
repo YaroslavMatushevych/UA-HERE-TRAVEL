@@ -1,147 +1,149 @@
-.get-inspired-container {
-    width: 1366px;
-    margin: 0 auto;
-}
+//.get-inspired-container {
+//    width: 1366px;
+//    margin: 0 auto;
+//}
 .get-inspired-header {
-    @include text("Muli",rgb(52, 53, 58),30,400,left,none);
-    position: relative;
-    padding: 74px 0 60px;
+  @include text("Muli",rgb(52, 53, 58),30,400,left,none);
+  position: relative;
+  padding: 74px 0 60px;
 }
 .get-inspired-header:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 107px;
-    height: 4px;
-    background-color: rgb(131, 132, 134);
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 107px;
+  height: 4px;
+  background-color: rgb(131, 132, 134);
 }
 .get-inspired-wrapper {
-    position: relative;
-    height: 440px;
-    //transition: all 0.4s ease;
-    overflow: hidden;
-    font-size: 0;
+  position: relative;
+  height: 440px;
+  //transition: all 0.4s ease;
+  overflow: hidden;
+  font-size: 0;
 }
 .get-inspired-wrapper-slider {
-    @include flex(cb,c);
-    position: absolute;
-    transition: all 0.4s linear;
+  @include flex(cb,c);
+  position: absolute;
+  transition: all 0.4s linear;
 }
 .get-inspired-wrapper-slider-image {
-    position: relative;
-    @include flex(cb,c);
-    width: 335px;
-    height: 440px;
-    margin-right: 8px;
-    overflow: hidden;
+  position: relative;
+  @include flex(cb,c);
+  width: calc(100%/3 - 8px);
+  height: auto;
+  //width: 335px;
+  //height: 440px;
+  margin-right: 8px;
+  overflow: hidden;
 }
 .get-inspired-wrapper-slider-image.active {
-    display: inline-block;
-    visibility: visible;
-    opacity: 1;
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+}
+.get-inspired-wrapper-slider-image-photo {
+  width: 100%;
 }
 .get-inspired-wrapper-slider-image-photo:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .get-inspired-wrapper-slider-image-photo-zoom {
-    display: none;
+  display: none;
 }
 .get-inspired-wrapper-arrow-left, .get-inspired-wrapper-arrow-right {
-    position: absolute;
-    z-index: 9;
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    padding:  25px 0;
-    border: none;
-    outline: unset;
-    background-color: transparent ;
-    background-repeat: no-repeat;
-    transform: translateY(-50%);
-    transition: all 0.4s linear;
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  padding:  25px 0;
+  border: none;
+  outline: unset;
+  background-color: transparent ;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  transition: all 0.4s linear;
 }
 .get-inspired-wrapper-arrow-left {
-    left: 0;
-    padding-left: 50px;
-    background-image: url("../img/get-inspired/arrow-left.png");
-    background-position: center right;
+  left: 0;
+  padding-left: 50px;
+  background-image: url("../img/get-inspired/arrow-left.png");
+  background-position: center right;
 }
 .get-inspired-wrapper-arrow-right {
-    right: 0;
-    padding-right: 50px;
-    background-image: url("../img/get-inspired/arrow-right.png");
-    background-position: center left;
+  right: 0;
+  padding-right: 50px;
+  background-image: url("../img/get-inspired/arrow-right.png");
+  background-position: center left;
 }
 .get-inspired-wrapper-arrow-left:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .get-inspired-wrapper-arrow-right:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .get-inspired-wrapper-box {
-    visibility: hidden;
-    position: fixed;
-    margin: 0 auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 999;
-    opacity: 0;
-    transition: all .4s linear;
+  visibility: hidden;
+  position: fixed;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+  opacity: 0;
+  transition: all .4s linear;
 }
 .get-inspired-wrapper-overlay {
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    opacity: 0;
-    background-color: rgba(0,0,0,0.6);
-    transition: all .4s linear;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  opacity: 0;
+  background-color: rgba(0,0,0,0.6);
+  transition: all .4s linear;
 }
 .get-inspired-fadeInOut {
-    opacity: 1;
-    visibility: visible;
-    transition: all .4s linear;
+  opacity: 1;
+  visibility: visible;
+  transition: all .4s linear;
 }
 .get-inspired-wrapper-box-zoom-close {
-    position: absolute;
-    top: -40px;
-    right: 20px;
-    font-size: 42px;
-    color: #fff;
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  font-size: 42px;
+  color: #fff;
 }
 .get-inspired-wrapper-box-zoom {
-    position: relative;
-    @include flex(c, c);
+  position: relative;
+  @include flex(c, c);
 }
 .get-inspired-wrapper-box-zoom-left, .get-inspired-wrapper-box-zoom-right {
-    padding: 15px;
-    color: #fff;
-    font-size: 42px;
+  padding: 15px;
+  color: #fff;
+  font-size: 42px;
 }
 .get-inspired-wrapper-box-zoom-image {
-    height: 650px;
+  height: 650px;
 }
 .get-inspired-dots {
-    text-align: center;
-    padding: 40px 0 70px;
+  text-align: center;
+  padding: 40px 0 70px;
 }
 .get-inspired-dots-dot {
-    padding: 8px;
-    margin: 1px;
-    border-radius: 50%;
-    border: 1px solid rgb(255, 208, 8);
-    font-size: 0;
+  padding: 8px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 1px solid rgb(255, 208, 8);
+  font-size: 0;
 }
 .dot-active {
-    background-color: rgb(255, 208, 8);
+  background-color: rgb(255, 208, 8);
 }
 .get-inspired-dots-dot:hover {
-    cursor: pointer;
-}
-.slider-block{
-    @include flex(cb,c);
+  cursor: pointer;
 }

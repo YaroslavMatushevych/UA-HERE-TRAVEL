@@ -1,5 +1,6 @@
 .request-route{
     margin-top: 140px;
+    position: relative;
 }
 .header-section{
     position: relative;
@@ -83,13 +84,12 @@
     transition: all .4s linear;
 }
 .route-modal {
-    width: 631px;
-    height: 384px;
     margin: 0 auto;
     position: absolute;
     z-index: 99;
     top: 50%;
     left: 50%;
+    width: 630px;
     box-sizing: border-box;
     transform: translate(-50%,-50%);
     visibility: hidden;
@@ -161,11 +161,11 @@
     visibility: visible;
 }
 .route-modal-successful {
-    padding: 61px 143px 65px 136px;
+    padding: 41px 143px 45px 136px;
     text-align: right;
 }
 .route-modal-fail {
-    padding-top: 82px;
+    padding: 75px 10px 25px;
     text-align: right;
 }
 .route-modal-check {
@@ -232,6 +232,20 @@
     .route-price-button{
         justify-content: space-between;
     }
+    .route-modal {
+        width: 520px;
+    }
+    .route-modal-request {
+        padding: 47px 82px 29px 86px;
+        text-align: left;
+    }
+    .route-modal-successful {
+        padding: 41px 83px 45px 86px;
+        text-align: right;
+    }
+    .route-button-successful{
+        margin: 18px -60px 0 0;
+    }
 }
 @media screen and (max-width: 578px) {
     .rr-header-section{
@@ -254,5 +268,26 @@
     }
     .route-description{
         height: 100%;
+    }
+    .route-modal {
+        width: 100%;
+    }
+    .route-modal-close, .route-modal-successful-close,.route-modal-fail-close {
+        top: -40px;
+        right: 20px;
+    }
+    .route-modal-request {
+        padding: 37px 40px 29px 45px;
+        text-align: left;
+    }
+    .route-modal-successful {
+        padding: 35px 5px 33px;
+    }
+    .route-modal-successful-form-subheader-time {
+        display: block;
+        text-align: center;
+    }
+    .route-button-successful{
+        margin: 18px 15px 0 0;
     }
 }
