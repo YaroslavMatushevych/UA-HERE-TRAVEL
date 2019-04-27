@@ -38,7 +38,7 @@ sideBarNav.addEventListener("click", function (e) {
     }
 });
 
-$('.arrow-next, .next').click(function() {
+$('.next').click(function() {
     let personName = $('.person-desc__name');
     let currentSlide = $('.person__active-slide');
     let nextSlide = currentSlide.next();
@@ -77,7 +77,7 @@ $('.arrow-next, .next').click(function() {
         $('.next-name').text(firstSlideText);
     }
 });
-$('.arrow-prev, .previous').click(function(){
+$('.previous').click(function(){
     let personName = $('.person-desc__name');
     let currentSlide = $('.person__active-slide');
     let prevSlide = currentSlide.prev();
@@ -130,7 +130,14 @@ $('.dot').click(function () {
 
 });
 
-
+window.addEventListener('resize', function(){
+    if ($(window).width() < 481) {
+        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko410px.png");
+    }
+    if ($(window).width() >= 481) {
+        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko1.png");
+    }
+});
     if ($(window).width() < 481) {
         $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko410px.png");
     }
