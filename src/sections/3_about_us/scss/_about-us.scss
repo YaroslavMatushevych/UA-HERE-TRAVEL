@@ -151,8 +151,25 @@
   display: none;
 }
 
-.person__active-slide {
-  display: flex;
+@media screen and (max-width: 993px){
+
+  .sidebar {
+    flex-basis: 34%;
+    padding-right: 15px;
+  }
+
+  .person-desc {
+    padding: 15px 15px;
+  }
+
+  .person-desc__name {
+    font-size: 35px;
+  }
+
+  .person-desc__expert, .person-desc__speech {
+    line-height: 26px;
+    font-size: 17px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -323,12 +340,12 @@
   .slider-dots li.active-dot {
     background-color: #f0d456;
   }
-
-  .person__active-slide {
-    display: flex !important;
-  }
-
 }
+
+.person__active-slide {
+  display: flex !important;
+}
+
 
 .dot {
   cursor: pointer;
@@ -398,6 +415,4 @@
   .slider-dots {
     top: 0;
   }
-
-
 }
