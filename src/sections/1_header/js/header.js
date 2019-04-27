@@ -23,3 +23,4 @@ for (var i= 0; i< document.getElementsByClassName('anchors').length; i++){
         this.classList.toggle('active')
     })
 }*/
+

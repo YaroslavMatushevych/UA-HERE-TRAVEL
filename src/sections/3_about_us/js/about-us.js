@@ -1,14 +1,15 @@
 let activeColor = document.getElementsByClassName("sidebar__nav-item_active");
-let navItemArrow = document.getElementsByClassName("nav-item__arrow");
-let sideBarNav = document.getElementById("sidebar__nav");
+let sideBarNav = document.getElementsByClassName("sidebar__nav")[0];
 let sideBarNavItem = document.getElementsByClassName("sidebar__nav-item");
 let personContainer = document.getElementsByClassName("person__container");
+let activePersonSlide = document.getElementsByClassName("person__active-slide");
 
-navItemArrow[1].style.display = "inline-block";
+
 personContainer[1].style.display = "flex";
 
 sideBarNav.addEventListener("click", function (e) {
 
+    activePersonSlide = document.getElementsByClassName("person__active-slide");
     activeColor = document.getElementsByClassName("sidebar__nav-item_active");
 
     if (e.target.classList.contains("sidebar__nav-item")) {
@@ -17,8 +18,8 @@ sideBarNav.addEventListener("click", function (e) {
             activeColor[i].classList.remove("sidebar__nav-item_active");
         }
 
-        for (let l = 0; l < navItemArrow.length; l++) {
-            navItemArrow[l].style.display = "none";
+        for (let d = 0; d < activePersonSlide.length; d++) {
+            activePersonSlide[d].classList.remove("person__active-slide");
         }
 
         for (let k = 0; k < personContainer.length; k++) {
@@ -26,56 +27,111 @@ sideBarNav.addEventListener("click", function (e) {
         }
 
         e.target.classList.add("sidebar__nav-item_active");
-        e.target.firstChild.style.display = "inline-block";
 
-        for (let i = 0; i < sideBarNavItem.length; i++) {
-            if (sideBarNavItem[i].classList.contains("sidebar__nav-item_active")) {
-                personContainer[i].style.display = "flex";
+        for (let p = 0; p < sideBarNavItem.length; p++) {
+            if (sideBarNavItem[p].classList.contains("sidebar__nav-item_active")) {
+                personContainer[p].style.display = "flex";
+                personContainer[p].classList.add("person__active-slide");
                 return true;
             }
         }
     }
 });
 
-$('.arrow-next').click(function() {
-    //creating the variables so that we can target them in jQuery
+$('.arrow-next, .next').click(function() {
+    let personName = $('.person-desc__name');
     let currentSlide = $('.person__active-slide');
     let nextSlide = currentSlide.next();
+    let firstSlideText = $(personName).first().text();
+    let lastSlideText = $(personName).last().text();
     let currentDot = $('.active-dot');
     let nextDot= currentDot.next();
-    //if the current slide is the last, make the next slide the first one
+
     if(nextSlide.length == 0 ) {
-        nextSlide = $('.person__container').first() ;
+        nextSlide = $('.person__container').first();
     }
-    //if the next dot is the last, make the next dot the first one
+
     if(nextDot.length == 0){
         nextDot = $('.dot').first()
     }
-    //when the arrow is clicked, fade out the current img and fade in the next one
+
     currentSlide.fadeOut(0).removeClass('person__active-slide');
     nextSlide.fadeIn(0).addClass('person__active-slide');
-    //when the arrow is clicked, remove the active class from the current dot and add it to the next one
+
+    let activeSlide = $('.person__active-slide');
+    console.log($(activeSlide).next().length);
+
+    let prevName = $(activeSlide).prev().find(personName).text();
+    let nextName = $(activeSlide).next().find(personName).text();
+
+    $('.prev-name').text(prevName);
+    $('.next-name').text(nextName);
+
     currentDot.removeClass('active-dot');
     nextDot.addClass('active-dot')
+
+    if($(activeSlide).prev().length === 0){
+        $('.prev-name').text(lastSlideText);
+    }
+    if($(activeSlide).next().length === 0){
+        $('.next-name').text(firstSlideText);
+    }
 });
-$('.arrow-prev').click(function(){
-    //creating the variables so that we can target them in jQuery
+$('.arrow-prev, .previous').click(function(){
+    let personName = $('.person-desc__name');
     let currentSlide = $('.person__active-slide');
     let prevSlide = currentSlide.prev();
+    let firstSlideText = $(personName).first().text();
+    let lastSlideText = $(personName).last().text();
     let currentDot= $('.active-dot');
     let prevDot= currentDot.prev();
-    //if the current slide is the last, make the prev slide the last one
+
     if(prevSlide.length == 0){
         prevSlide = $('.person__container').last();
     }
-    //if the current dot is the last, make the prev dot the last one
+
     if(prevDot.length==0){
         prevDot = $('.dot').last();
     }
-    //fade out the current img and fade in the prev one when the arrow is clicked
+
     currentSlide.fadeOut(0).removeClass('person__active-slide');
     prevSlide.fadeIn(0).addClass('person__active-slide');
-    //when the arrow is clicked, remove the active class from the current dot and add it to the next one
+
+    let activeSlide = $('.person__active-slide');
+
+    let prevName = $(activeSlide).prev().find(personName).text();
+    let nextName = $(activeSlide).next().find(personName).text();
+
+    $('.prev-name').text(prevName);
+    $('.next-name').text(nextName);
+
+    if($(activeSlide).prev().prev().length == 0){
+        $('.prev-name').text(lastSlideText);
+    }
+    if($(activeSlide).next().next().length == 0){
+        $('.next-name').text(firstSlideText);
+    }
+
     currentDot.removeClass('active-dot');
     prevDot.addClass('active-dot')
 });
+
+$('.dot').click(function () {
+    let currentSlide = $('.person__active-slide');
+    let currentDot= $('.active-dot');
+    let index = $('.dot').index(this);
+
+    currentSlide.fadeOut(0).removeClass('person__active-slide');
+    currentDot.removeClass('active-dot');
+
+    $(this).addClass('active-dot');
+    let nextSlide = $('.person__container').eq(index);
+    nextSlide.fadeIn(0).addClass('person__active-slide')
+
+});
+
+
+    if ($(window).width() < 481) {
+        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko410px.png");
+    }
+

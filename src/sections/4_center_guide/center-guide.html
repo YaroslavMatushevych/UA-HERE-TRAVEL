@@ -1,13 +1,15 @@
 <section class="center-guide">
-    <div class="center-guide__triangle"></div>
-    <div class="container center-guide__container">
-            <h2 class="center-guide__heading">Get your free Kyiv Center guide</h2>
-            <form class="center-guide__form-send" action="mailto:someone@example.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Your Name">
-                <input type="text" name="mail" placeholder="your@mail.com">
-                <button class="form-send__button" type="submit" value="Send">Send Me</button>
-                <p class="form-send__file-description"><i class="far fa-file-pdf"></i> PDF, 8 pages, 35 MB</p>
+    <div class="center-guide-triangle"></div>
+    <div class="center-guide-container container">
+            <h2 class="center-guide-container__heading">Get your free Kyiv Center guide</h2>
+            <form class="center-guide-container__form" action="mailto:someone@example.com" method="post" enctype="text/plain">
+                <input class="form__name" type="text" name="name" placeholder="Your Name">
+                <p class="form__valid-name"></p>
+                <input class="form__email" type="text" name="mail" placeholder="your@mail.com">
+                <p class="form__valid-email"></p>
+                <button class="form__button" type="submit" value="Send">Send Me</button>
+                <p class="form__file-description"><i class="far fa-file-pdf"></i> PDF, 8 pages, 35 MB</p>
             </form>
     </div>
-
+<!--    <div class="center-guide-alert"><div class="center-guide-alert__success"></div></div>-->
 </section>
