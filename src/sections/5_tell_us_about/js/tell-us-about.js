@@ -37,6 +37,7 @@ $(document).ready(function () {
         if (arriveDate.val()) {
             arriveDate.siblings('.form-error').css({'opacity': '0'});
             $('.form-calendar').addClass('filled-quest');
+            $('.form-calendar').css('border-color', '#a3a2a2');  
         }
         if (daysVisit.hasClass('filled-quest')) {
             daysVisit.parent().find('.form-error').css({'opacity': '0'});
@@ -88,6 +89,8 @@ $(document).ready(function () {
                 }
 
             }
+        }if(!arriveDate.val()){
+            $('.form-calendar').css('border-color','#c92533');
         }
     };
 
@@ -312,6 +315,10 @@ $(document).ready(function () {
             hideIfNoPrevNext: true
         });
 
+    });
+    
+    arriveDate.change(()=>{
+        checkFilledForm();
     });
 
 });

@@ -200,7 +200,7 @@
   border-radius: 5px;
   border: 1px solid #a3a2a2;
   height: 54px;
-  line-height: 55px;
+  line-height: 54px;
   padding: 0 20px;
   margin-right: 20px;
   margin-bottom: 15px;
@@ -228,6 +228,15 @@
     box-sizing: border-box;
     resize: none;
   }
+}
+.budget-picker{
+    width: 100%;
+    
+    & li{
+        padding: 0;
+        flex: 1 0 25%;
+        text-align: center
+    }
 }
 
 .left-moved-quest {
