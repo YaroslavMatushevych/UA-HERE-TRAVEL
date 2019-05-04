@@ -32,7 +32,7 @@
     width: 380px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    //justify-content: space-between;
 }
 .route-item-photo{
     width: 380px;
@@ -45,20 +45,25 @@
 }
 .route-description{
     @include text(Muli, #34353a, 20, 400, left, none);
-    width: 90%;
-    height: 145px;
+    padding-right: 5px;
+    //height: 145px;
     overflow: hidden;
-    line-height: 24px;
+    //line-height: 24px;
+    line-height: 1.3em;
+    height: calc(1.3em * 6);
+    margin-bottom: 30px ;
 }
 .route-price-button{
-    margin-top: 47px;
+    padding: 15px 0;
     @include flex(sa, c);
+    background-color: #fbfbfb;
 }
 .route-price{
     @include text(Muli, #7b7b7c, 30, 400, center, none);
 }
 .route-button{
     @include btn;
+    height: 50px;
 }
 .route-button:hover{
     @include btn-hover;
@@ -131,8 +136,6 @@
     border-bottom: 1px solid rgb(0,0,0);
     outline: none;
 }
-
-
 .route-form-button {
     @include btn;
     margin-top: 35px;
@@ -210,8 +213,7 @@
     line-height: 35px;
 }
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 993px) {
     .request-route{
         margin-top: 100px;
     }
@@ -219,10 +221,11 @@
         flex-direction: column;
     }
     .route-description{
-        width: 100%;
+        letter-spacing: 0.2px;
     }
     .route-item{
         flex-direction: row;
+        width: 100%;
     }
     .route-item-photo{
         width: 320px;
@@ -230,8 +233,10 @@
         margin-right: 23px;
     }
     .route-price-button{
-        justify-content: space-between;
+        //justify-content: space-between;
     }
+}
+@media screen and (max-width: 768px) {
     .route-modal {
         width: 520px;
     }
