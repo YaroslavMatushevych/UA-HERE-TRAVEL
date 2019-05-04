@@ -1,30 +1,28 @@
 .about-us{
   padding-top:110px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-us__flex-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 50px;
 }
 
 .sidebar {
-  flex-basis: 23%;
-  padding-right: 40px;
+  flex-basis: 26%;
   background-color: #fff;
 }
 
 .sidebar__title {
-  font-family: "Muli Black", sans-serif;
-  font-size: 30px;
-  color: #34353a;
-  font-weight: 700;
+  @include text("Muli Black",#34353a,30,700,left,none);
   position: relative;
 
   &:before{
     content: '';
     position: absolute;
-    top: -100px;
+    top: -76px;
     width: 107px;
     height: 3px;
     background-color: #838486;
@@ -32,16 +30,16 @@
 }
 
 .sidebar__nav {
-  margin-top: 110px;
+  margin-top: 125px;
   color: #939393;
-  text-transform: capitalize;
   font-size: 22px;
   z-index: 4;
   position: relative;
 }
 
 .sidebar__nav-item {
-  padding: 10px 0;
+  @include text("Muli",#939393,18,600,left,uppercase);
+  padding: 15px 0;
   cursor: pointer;
 
   &:hover:before {
@@ -73,7 +71,7 @@
 }
 
 .person {
-  flex-basis: 80%;
+  flex-basis: 67%;
   border: 20px solid #f0d456;
   box-sizing: border-box;
   margin-left: 10px;
@@ -89,31 +87,31 @@
 
   &:before{
     content: '';
-    width: 10px;
+    width: 14px;
     height: 100%;
     position: absolute;
     left: 0;
     bottom: -20px;
-    box-shadow: -30px 0 0 0 rgba(233, 233, 233, 1);
+    box-shadow: -34px 0 0 0 rgba(233, 233, 233, 1);
   }
 
   &:after{
     content: '';
     position: absolute;
     bottom: -20px;
-    left: -30px;
+    left: -34px;
     width: 100%;
-    height: 35px;
-    box-shadow: 0 35px 0 0 rgba(233, 233, 233, 1);
+    height: 50px;
+    box-shadow: 0 50px 0 0 rgba(233, 233, 233, 1);
   }
 }
 
 .person-photo {
   width: 110%;
-  height: 110%;
+  height: 106%;
   position: relative;
   z-index: 2;
-  top: -10%;
+  top: -6%;
   right: 0;
   flex-basis: 65%;
 }
@@ -122,8 +120,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  flex-basis: 70%;
-  padding: 15px 30px;
+  flex-basis: 65%;
+  padding: 15px 10px;
   box-sizing: border-box;
   font-family: "Muli", sans-serif;
   font-size: 20px;
@@ -142,7 +140,7 @@
 }
 
 .person-desc__expert, .person-desc__speech {
-  line-height: 30px;
+  line-height: 34px;
 }
 
 .person-desc__expert {
@@ -166,15 +164,57 @@
   display: none;
 }
 
+@media screen and (max-width: 1200px) {
+  .about-us {
+    max-width: 960px;
+  }
+  .person-desc__expert, .person-desc__speech {
+    line-height: 32px;
+  }
+}
+
 @media screen and (max-width: 993px){
+
+  .about-us {
+    margin: 0 30px;
+  }
 
   .sidebar {
     flex-basis: 34%;
     padding-right: 0;
   }
 
+  .sidebar__nav {
+    margin-top: 90px;
+  }
+
+  .sidebar__nav-item {
+    font-size: 17px;
+    padding: 10px 0;
+  }
+
+  .person__container {
+
+    &:before{
+      width: 10px;
+      bottom: -20px;
+      box-shadow: -30px 0 0 0 rgba(233, 233, 233, 1);
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: -30px;
+      width: 100%;
+      height: 35px;
+      box-shadow: 0 35px 0 0 rgba(233, 233, 233, 1);
+    }
+  }
+
   .person-desc {
     padding: 15px 10px;
+    flex-basis: 95%;
   }
 
   .person-desc__name {
@@ -182,12 +222,16 @@
   }
 
   .person-desc__expert, .person-desc__speech {
-    line-height: 26px;
+    line-height: 24px;
     font-size: 16px;
   }
 }
 
 @media screen and (max-width: 768px) {
+
+  .about-us {
+    margin: 0 15px;
+  }
 
   .about-us__flex-container {
     display: flex;
@@ -257,6 +301,14 @@
     }
   }
 
+  .person-desc__name span {
+    display: inline-block;
+  }
+
+  .person-desc {
+    flex-basis: 70%;
+  }
+
   .person-desc__name {
     font-size: 40px;
   }
@@ -266,8 +318,8 @@
   }
 
   .person-desc__speech {
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 17px;
+    line-height: 30px;
   }
 
   .slider-nav-top {
@@ -297,7 +349,7 @@
     font-size: 18px;
     color: #00b6cc;
     cursor: pointer;
-    margin-left: 8px;
+    margin: 0 8px;
   }
 
   .next{
@@ -306,7 +358,7 @@
     font-size: 18px;
     color: #00b6cc;
     cursor: pointer;
-    margin-right: 8px;
+    margin: 0 8px;
   }
 
   .slider-nav {
@@ -366,11 +418,51 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 578px) {
+
+  .about-us {
+    max-width: 100%;
+    margin: 0 15px;
+  }
+
+  .next, .previous {
+    font-size: 15px;
+    margin: 0 5px;
+  }
+
+  .next-name, .prev-name {
+    font-size: 15px;
+  }
+
+  .person-desc {
+    flex-basis: 106%;
+    padding: 10px 8px;
+  }
+
+  .person-desc__name {
+    font-size: 28px;
+  }
+
+  .person-desc__expert {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .person-desc__speech {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
 @media screen and (max-width: 480px) {
+
+  .about-us {
+    margin: 0 auto;
+  }
 
   .sidebar {
     order: 1;
-    padding: 0 40px;
+    padding: 0 20px;
   }
 
   .slider-nav-top {
@@ -382,6 +474,15 @@
 
   .top__prev {
     display: none;
+  }
+
+  .next, .previous {
+    font-size: 18px;
+    margin: 0 5px;
+  }
+
+  .next-name, .prev-name {
+    font-size: 18px;
   }
 
   .person {
@@ -403,15 +504,17 @@
   .person-desc {
     border-top: 20px solid #f0d456;
     flex-basis: 100%;
-    padding-top: 20px;
+    padding: 20px 20px 10px;
   }
 
-  .person-desc__name span {
-    display: inline-block;
+  .person-desc__speech {
+    font-size: 17px;
+    line-height: 28px;
   }
 
   .person-desc__expert {
     margin: 15px 0;
+    font-size: 17px;
   }
 
   .arrow-prev {
