@@ -29,7 +29,10 @@ $(document).ready(function () {
 
     updatePagination();
 
+    //унифицировать функцию скрытия сообщения с передачей аргументов
+
     let hideErrorMessage = () => {
+
         if (kyivVisit.hasClass('filled-quest')) {
             kyivVisit.parent().find('.form-error').css({'opacity': '0'});
             kyivVisit.css('border-color', '#a3a2a2');
@@ -142,7 +145,13 @@ $(document).ready(function () {
             $('#customer-email').siblings('.mail-input-error').css('opacity', '1');
         } else {
             const newCustomer = createNewCustomer();
-            alert(`New customer request is done! Results of the application form: 1.Kyiv been - ${newCustomer.kyivVisit}; 2.Arrive date - ${newCustomer.arriveDate}; 3.Visit days - ${newCustomer.daysNum}; 4.Children - ${newCustomer.children}; 5.Preferences - ${newCustomer.preferences}; 6.Budget - ${newCustomer.budget} 7.Taste - ${newCustomer.taste}; Additional info: ${newCustomer.service} Comment-${newCustomer.comment} Contact info - Name: ${newCustomer.name}; Email: ${newCustomer.email}.`);
+            $.ajax({
+                type: 'POST',
+                dataType:'json',
+                url:'path',
+                data:newCustomer
+            });
+            // alert(`New customer request is done! Results of the application form: 1.Kyiv been - ${newCustomer.kyivVisit}; 2.Arrive date - ${newCustomer.arriveDate}; 3.Visit days - ${newCustomer.daysNum}; 4.Children - ${newCustomer.children}; 5.Preferences - ${newCustomer.preferences}; 6.Budget - ${newCustomer.budget} 7.Taste - ${newCustomer.taste}; Additional info: ${newCustomer.service} Comment-${newCustomer.comment} Contact info - Name: ${newCustomer.name}; Email: ${newCustomer.email}.`);
         }
     };
 
@@ -320,6 +329,8 @@ $(document).ready(function () {
     arriveDate.change(()=>{
         checkFilledForm();
     });
+
+
 
 });
 
