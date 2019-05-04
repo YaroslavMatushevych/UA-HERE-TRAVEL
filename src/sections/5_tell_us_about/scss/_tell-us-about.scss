@@ -32,6 +32,8 @@
     align-self: flex-end;
     width: max-content;
     flex-direction: column;
+    position: relative;
+    right: 40px;
   }
 
   &_active {
