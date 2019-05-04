@@ -136,6 +136,13 @@
     color: #3aaa35;
 }
 
+.alert-cross {
+    flex-basis: 75%;
+    font-size: 200px;
+    text-align: center;
+    color: red;
+}
+
 .alert-message {
     text-align: right;
 }
@@ -216,7 +223,7 @@
         font-size: 30px;
     }
 
-    .alert-check {
+    .alert-check, .alert-cross {
         font-size: 130px;
     }
 
@@ -269,7 +276,7 @@
         padding: 20px 12px;
     }
 
-    .alert-check {
+    .alert-check, .alert-cross {
         font-size: 100px;
     }
 
