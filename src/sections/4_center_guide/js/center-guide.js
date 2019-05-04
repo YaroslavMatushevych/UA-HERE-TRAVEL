@@ -59,8 +59,9 @@ function validateEmail(email) {
 
 function validateName(name) {
     let res = /^[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*$/;
-    return res.test(name);
+    return console.log(res.test(name));
 }
+
 
 function validate() {
     let ValidName = $(".form__valid-name");
@@ -97,23 +98,23 @@ $(".alert-saltire, .alert-message__close").click(function(){
 });
 
 
-$(function() {
-    $(".form__button").click(function(e) {
-        e.preventdefault();
-        let data = {
-            name: $("#form__name").val(),
-            email: $("#form__email").val(),
-        };
-        $.ajax({
-            type: "POST",
-            url: "email.php",
-            data: data,
-            success: function(){
-                $(".center-guide-alert").addClass("visible");
-                $('.center-guide-alert__success').css("display", "flex");
-            }
-        });
-
-        return false;
-    });
-});
+// $(function() {
+//     $(".form__button").click(function(e) {
+//         e.preventdefault();
+//         let data = {
+//             name: $("#form__name").val(),
+//             email: $("#form__email").val(),
+//         };
+//         $.ajax({
+//             type: "POST",
+//             url: "email.php",
+//             data: data,
+//             success: function(){
+//                 $(".center-guide-alert").addClass("visible");
+//                 $('.center-guide-alert__success').css("display", "flex");
+//             }
+//         });
+//
+//         return false;
+//     });
+// });

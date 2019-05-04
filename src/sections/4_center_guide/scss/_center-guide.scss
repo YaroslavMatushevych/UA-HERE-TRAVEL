@@ -176,7 +176,7 @@
         margin: 0 30px;
     }
 
-    .center-guide-alert__success {
+    .center-guide-alert__success, .center-guide-alert__fail {
         width: 700px;
         height: 420px;
     }
@@ -210,7 +210,7 @@
         }
     }
 
-    .center-guide-alert__success {
+    .center-guide-alert__success, .center-guide-alert__fail {
         width: 450px;
         height: 290px;
         padding: 20px 30px;
@@ -270,7 +270,7 @@
         display: none;
     }
 
-    .center-guide-alert__success {
+    .center-guide-alert__success, .center-guide-alert__fail {
         width: 350px;
         height: 250px;
         padding: 20px 12px;
