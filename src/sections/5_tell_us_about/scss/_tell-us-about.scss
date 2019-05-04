@@ -200,7 +200,7 @@
   border-radius: 5px;
   border: 1px solid #a3a2a2;
   height: 54px;
-  line-height: 55px;
+  line-height: 54px;
   padding: 0 20px;
   margin-right: 20px;
   margin-bottom: 15px;
@@ -228,6 +228,15 @@
     box-sizing: border-box;
     resize: none;
   }
+}
+.budget-picker{
+    width: 100%;
+    
+    & li{
+        padding: 0;
+        flex: 1 0 25%;
+        text-align: center
+    }
 }
 
 .left-moved-quest {
@@ -494,10 +503,7 @@
     box-shadow: none;
     left: 0;
     padding: 30px 35px;
-    margin-bottom: 43px;
-    &-container{
-      padding: 0 70px;
-    }
+    margin: 0 70px 43px 70px;
     &-header{
       font-size: 40px;
       margin-bottom: 30px;
@@ -547,9 +553,7 @@
   }
   .form-card{
     padding: 20px;
-    &-container{
-      padding: 0;
-    }
+      margin: 0 0 48px 0;
   }
   .form-quest{
     flex: 1 0 100%;

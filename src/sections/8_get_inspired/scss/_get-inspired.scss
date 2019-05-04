@@ -1,57 +1,39 @@
-//.get-inspired-container {
-//    width: 1366px;
-//    margin: 0 auto;
-//}
-.get-inspired-header {
-  @include text("Muli",rgb(52, 53, 58),30,400,left,none);
+.get-inspired {
   position: relative;
-  padding: 74px 0 60px;
-}
-.get-inspired-header:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 107px;
-  height: 4px;
-  background-color: rgb(131, 132, 134);
-}
-.get-inspired-wrapper {
-  position: relative;
-  height: 440px;
-  //transition: all 0.4s ease;
-  overflow: hidden;
-  font-size: 0;
-}
-.get-inspired-wrapper-slider {
-  @include flex(cb,c);
-  position: absolute;
-  transition: all 0.4s linear;
-}
-.get-inspired-wrapper-slider-image {
-  position: relative;
-  @include flex(cb,c);
-  width: calc(100%/3 - 8px);
-  height: auto;
-  //width: 335px;
-  //height: 440px;
-  margin-right: 8px;
-  overflow: hidden;
-}
-.get-inspired-wrapper-slider-image.active {
-  display: inline-block;
-  visibility: visible;
-  opacity: 1;
-}
-.get-inspired-wrapper-slider-image-photo {
-  width: 100%;
-}
-.get-inspired-wrapper-slider-image-photo:hover {
-  cursor: pointer;
-}
-.get-inspired-wrapper-slider-image-photo-zoom {
-  display: none;
-}
-.get-inspired-wrapper-arrow-left, .get-inspired-wrapper-arrow-right {
+  &-header {
+    @include text("Muli",rgb(52, 53, 58),30,700,left,none);
+    position: relative;
+    padding: 74px 0 60px;
+  }
+  &-header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 107px;
+    height: 4px;
+    background-color: rgb(131, 132, 134);
+  }
+  &-slider {
+    position: relative;
+    overflow: hidden;
+    &-track {
+      @include flex(cb,fs);
+      position: absolute;
+      transition: all 0.4s linear;
+    }
+    &-item {
+      margin-right: 8px;
+      overflow: hidden;
+      &-image {
+        width: 100%;
+      }
+      &-image:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  }
+.get-inspired-arrow-left, .get-inspired-arrow-right {
   position: absolute;
   z-index: 9;
   top: 50%;
@@ -59,42 +41,33 @@
   height: 50px;
   padding:  25px 0;
   border: none;
-  outline: unset;
+  outline: none;
   background-color: transparent ;
   background-repeat: no-repeat;
   transform: translateY(-50%);
   transition: all 0.4s linear;
 }
-.get-inspired-wrapper-arrow-left {
+.get-inspired-arrow-left {
   left: 0;
   padding-left: 50px;
   background-image: url("../img/get-inspired/arrow-left.png");
   background-position: center right;
 }
-.get-inspired-wrapper-arrow-right {
+.get-inspired-arrow-right {
   right: 0;
   padding-right: 50px;
   background-image: url("../img/get-inspired/arrow-right.png");
   background-position: center left;
 }
-.get-inspired-wrapper-arrow-left:hover {
+.get-inspired-arrow-left:hover,  .get-inspired-arrow-right:hover {
   cursor: pointer;
 }
-.get-inspired-wrapper-arrow-right:hover {
-  cursor: pointer;
-}
-.get-inspired-wrapper-box {
+.get-inspired-zoom-box {
   visibility: hidden;
-  position: fixed;
-  margin: 0 auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  z-index: 999;
   opacity: 0;
   transition: all .4s linear;
 }
-.get-inspired-wrapper-overlay {
+.get-inspired-overlay {
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -105,30 +78,42 @@
   opacity: 0;
   background-color: rgba(0,0,0,0.6);
   transition: all .4s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .get-inspired-fadeInOut {
   opacity: 1;
   visibility: visible;
   transition: all .4s linear;
 }
-.get-inspired-wrapper-box-zoom-close {
+.get-inspired-zoom-close {
   position: absolute;
-  top: -40px;
-  right: 20px;
+  top: 5px;
+  right: 12px;
+  z-index: 9999;
   font-size: 42px;
   color: #fff;
 }
-.get-inspired-wrapper-box-zoom {
-  position: relative;
-  @include flex(c, c);
-}
-.get-inspired-wrapper-box-zoom-left, .get-inspired-wrapper-box-zoom-right {
-  padding: 15px;
+.get-inspired-zoom-arrow-left, .get-inspired-zoom-arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  padding: 5px;
   color: #fff;
   font-size: 42px;
 }
-.get-inspired-wrapper-box-zoom-image {
-  height: 650px;
+.get-inspired-zoom-arrow-left {
+  left: 0;
+}
+.get-inspired-zoom-arrow-right {
+  right: 0;
+}
+.get-inspired-zoom-box-image {
+  display: block;
+  max-width: 100%;
+  max-height: 650px;
 }
 .get-inspired-dots {
   text-align: center;
@@ -146,4 +131,15 @@
 }
 .get-inspired-dots-dot:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .get-inspired-header {
+    padding: 65px 0 35px;
+  }
+}
+@media screen and (max-width: 578px) {
+  .get-inspired-header {
+    padding: 45px 0 40px;
+  }
 }

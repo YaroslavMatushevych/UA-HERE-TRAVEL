@@ -36,14 +36,14 @@ function validateForm (name, email){
     }
     else return true;
 }
-document.addEventListener('click',function (e) {
+document.querySelector('.request-route').addEventListener('click',function (e) {
     let target = e.target;
     if (target.classList.contains('route-button') && !target.classList.contains('route-form-submit'))  {
         price = target.previousElementSibling.innerText;
         removeClassWarning(form.elements[0],form.elements[1]);
         toggleModal('route-modal-request');
     }
-    else e.preventDefault();
+    if (!target.classList.contains('route-button') || target.classList.contains('route-form-submit'))  e.preventDefault();
 
     if (target.id === 'route-modal-close-icon') {
         toggleModal('route-modal-request');
