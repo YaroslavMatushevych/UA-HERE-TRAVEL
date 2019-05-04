@@ -1,13 +1,36 @@
 <section class="center-guide">
-    <div class="center-guide__triangle"></div>
-    <div class="container">
-            <h2 class="center-guide__heading">Get your free Kyiv Center guide</h2>
-            <form class="center-guide__form-send" action="mailto:someone@example.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Your Name">
-                <input type="text" name="mail" placeholder="your@mail.com">
-                <button class="form-send__button" type="submit" value="Send">Send Me</button>
-                <p class="form-send__file-description"><i class="far fa-file-pdf"></i> PDF, 8 pages, 35 MB</p>
+    <div class="center-guide-triangle"></div>
+    <div class="center-guide-container">
+            <h2 class="center-guide-container__heading">Get your free Kyiv Center guide</h2>
+            <form class="center-guide-container__form">
+                <input id="form__name" name="form__name" type="text" placeholder="Your Name">
+                <p class="form__valid-name"></p>
+
+                <input id="form__email" name="form__email" type="email" placeholder="Your Email">
+                <p class="form__valid-email"></p>
+
+                <button class="form__button" type="submit" value="Send">Send Me</button>
+                <p class="form__file-description"><i class="far fa-file-pdf"></i> PDF, 8 pages, 35 MB</p>
             </form>
     </div>
-
+    <div class="center-guide-alert">
+        <div class="center-guide-alert__success">
+            <a href="#" class="alert-saltire">&#10006;</a>
+            <div class="alert-check">&#10004;</div>
+            <div class="alert-message">
+                <p class="alert-message__text">We have already sent you an amazing
+                    Kyiv Center tour guide</p>
+                <a href="#" class="alert-message__close">close</a>
+            </div>
+        </div>
+        <div class="center-guide-alert__fail">
+            <a href="#" class="alert-saltire">&#10006;</a>
+            <div class="alert-check">&#10004;</div>
+            <div class="alert-message">
+                <p class="alert-message__text">We have already sent you an amazing
+                    Kyiv Center tour guide</p>
+                <a href="#" class="alert-message__close">close</a>
+            </div>
+        </div>
+    </div>
 </section>

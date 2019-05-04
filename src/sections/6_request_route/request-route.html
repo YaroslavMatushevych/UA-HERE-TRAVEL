@@ -1,39 +1,82 @@
 <section class="request-route">
-    <div class="in-section">
-        <h2 class="header-section">Request a Route</h2>
+    <div class="container">
+        <h2 class="rr-header-section">Request a Route</h2>
         <div class="route">
             <div class="route-item">
                 <img class="route-item-photo" src="../../img/request-route/route1.png" alt="route1">
-                <h3 class="route-name">Classic Route</h3>
-                <p class="route-description">Aperiam assumenda delectus dignissimos ducimus, eum fugit
-                    harum id ipsam laudantium, libero minus neque nobis nulla.
-                </p>
-                <div class="route-price-button">
-                    <p class="route-price">25 euro</p>
-                    <button class="route-button">request</button>
+                <div class="in-root-item">
+                    <h3 class="route-name">Classic Route</h3>
+                    <p class="route-description">Excellent option to explore all the major attractions of the city.
+                        Along with the route of the tour will get to know the history of Ukraine, starting from the
+                        foundation of Kiev and finishing with independent Ukraine.
+                    </p>
+                    <div class="route-price-button">
+                        <p class="route-price">25 euro</p>
+                        <button class="route-button">request</button>
+                    </div>
                 </div>
             </div>
             <div class="route-item">
                 <img class="route-item-photo" src="../../img/request-route/route2.png" alt="route2">
-                <h3 class="route-name">Cafe and Bars</h3>
-                <p class="route-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Aperiam assumenda delectus dignissimos ducimus.
-                </p>
-                <div class="route-price-button">
-                    <p class="route-price">25 euro</p>
-                    <button class="route-button">request</button>
+                <div class="in-root-item">
+                    <h3 class="route-name">Cafe and Bars</h3>
+                    <p class="route-description">This is a plan for those who in love with a really awesome cocktails
+                        and delicious cuisine. You’ll try Ukrainian dishes and will see the nightlife of Kyiv.
+                    </p>
+                    <div class="route-price-button">
+                        <p class="route-price">25 euro</p>
+                        <button class="route-button">request</button>
+                    </div>
                 </div>
             </div>
             <div class="route-item">
                 <img class="route-item-photo" src="../../img/request-route/route3.png" alt="route3">
-                <h3 class="route-name">Non tourist</h3>
-                <p class="route-description">
-                </p>
-                <div class="route-price-button">
-                    <p class="route-price">25 euro</p>
-                    <button class="route-button">request</button>
+                <div class="in-root-item">
+                    <h3 class="route-name">Non tourist</h3>
+                    <p class="route-description">If you want to visit non-tourist places, dive into the Ukrainian
+                        culture and explore the deep corners of the city, be sure to take this map.
+                        We know the most interesting and unusual places!
+                    </p>
+                    <div class="route-price-button">
+                        <p class="route-price">25 euro</p>
+                        <button class="route-button">request</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="route-modal route-modal-request">
+            <i id="route-modal-close-icon" class="route-modal-close fas fa-times"></i>
+            <form id="form" class="route-form" action="#">
+                <h3 class="route-modal-form-header">Request a Classic tour</h3>
+                <input class="route-modal-form-inputs" type="text" placeholder="Your Name" required>
+                <p class="route-warning">Please enter a valid name.</p>
+                <input class="route-modal-form-inputs" type="email" placeholder="your@mail.com" required>
+                <p class="route-warning">Please enter a valid e-mail address.</p>
+                <input class="route-modal-form-inputs" type="hidden">
+                <input id ='route-form-submit' class="route-form-button" type="submit" value="request">
+                <button id="route-button-successful-new-form">successful</button>
+                <button id="route-button-fail-new-form">fail</button>
+            </form>
+        </div>
+        <div class="route-modal route-modal-successful">
+            <i id="route-modal-successful-close-icon" class="route-modal-successful-close fas fa-times"></i>
+            <form id="form-successful" class="route-modal-successful-form" action="#">
+                <i class="route-modal-check fa fa-check" aria-hidden="true"></i>
+                <h3 class="route-modal-successful-form-header">We will contact you within 2 business hours</h3>
+                <h4 class="route-modal-successful-form-subheader">We work: <span
+                        class="route-modal-successful-form-subheader-time"> Mo - Fr 10am - 8pm (GMT +2)</span></h4>
+                <button id ='route-form-successful' class="route-button-successful">Close</button>
+            </form>
+        </div>
+        <div class="route-modal route-modal-fail">
+            <i id="route-modal-fail-close-icon" class="route-modal-fail-close fas fa-times"></i>
+            <form id="form-fail" class="route-modal-fail-form" action="#">
+                <i class="route-modal-warning fa fa-times" aria-hidden="true"></i>
+                <h4 class="route-modal-fail-form-header">Something went wrong;(</h4>
+                <h4 class="route-modal-fail-form-header">Please try again!</h4>
+                <button id ='route-form-fail' class="route-button-fail">Close</button>
+            </form>
+        </div>
+        <div class="route-overlay"></div>
     </div>
 </section>
