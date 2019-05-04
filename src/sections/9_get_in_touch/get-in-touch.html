@@ -1,23 +1,20 @@
 <section class="get-in-touch">
   <div class="container">
-    <div class="get-in-touch__modal-overlay modal-success">
-      <div class="get-in-touch__modal">
-        <i class="get-in-touch__modal-button-cross fas fa-times"></i>
-        <i class="get-in-touch__modal-check fa fa-check" aria-hidden="true"></i>
-        <p>We will contact you within</p>
-        <p>2 business hours</p>
-        <p><span>We work:</span> Mo - Fr 10am - 8pm (GMT +2)</p>
-        <button class="get-in-touch__modal-button-close">Close</button>
-      </div>
+    <div class="modal__overlay"></div>
+    <div class="modal modal_success">
+      <i class="modal__button-cross fas fa-times"></i>
+      <i class="modal__check fa fa-check" aria-hidden="true"></i>
+      <p class="modal__text">We will contact you within</p>
+      <p class="modal__text">2 business hours</p>
+      <p class="modal__text"><span>We work:</span> Mo - Fr 10am - 8pm (GMT +2)</p>
+      <button class="modal__button-close">Close</button>
     </div>
-    <div class="get-in-touch__modal-overlay modal-fail">
-      <div class="get-in-touch__modal">
-        <i class="get-in-touch__modal-button-cross fas fa-times"></i>
-        <i class="get-in-touch__modal-cross fa fa-times" aria-hidden="true"></i>
-        <p>Something went wrong;(</p>
-        <p>Please try again!</p>
-        <button class="get-in-touch__modal-button-close">Close</button>
-      </div>
+    <div class="modal modal_fail">
+      <i class="modal__button-cross fas fa-times"></i>
+      <i class="modal__cross fa fa-times" aria-hidden="true"></i>
+      <p class="modal__text">Something went wrong;(</p>
+      <p class="modal__text">Please try again!</p>
+      <button class="modal__button-close">Close</button>
     </div>
     <h2 class="get-in-touch__title">We will contact you soon</h2>
     <h2 class="get-in-touch__title get-in-touch__title_media768">Let’s get in touch</h2>
@@ -27,7 +24,11 @@
       <input type="email" name="mail" id="get-in-touch__email" placeholder="your@mail.com" required>
       <p class="get-in-touch__warning email-warning">Please enter a valid e-mail address.</p>
       <textarea name="name" placeholder="Your message"></textarea>
-      <input class="get-in-touch__btn" type="submit" value="Get in touch">
+      <div>
+        <button id="success">success</button>
+        <button id="fail">fail</button>
+      </div>
+      <input class="get-in-touch__btn" value="Get in touch">
     </form>
     <div class="get-in-touch__square">
       <p>Let's get in touch</p>
