@@ -1,5 +1,5 @@
 // ***MODAL WINDOW***
-.get-in-touch__content{
+.get-in-touch-content{
     display: flex;
 }
 .modal{
@@ -17,7 +17,7 @@
     line-height: 35px;
     display: none;
 }
-.modal__overlay{
+.modal-overlay{
     position: fixed;
     top: 0;
     left: 0;
@@ -27,22 +27,22 @@
     z-index: 9;
     display: none;
 }
-.modal_active{
+.modal-active{
     display: block;
 }
-.modal__text{
+.modal-text{
     @include text("Muli",#34353A,26,bold,center,none);
     line-height: 35px;
 }
-.modal__check{
+.modal-check{
     font-size: 120px;
     color: #3aaa35;
 }
-.modal__cross{
+.modal-cross{
     font-size: 120px;
     color: #ec0000;
 }
-.modal__button-cross{
+.modal-button-cross{
     color: #fff;
     position: absolute;
     top: -30px;
@@ -72,13 +72,13 @@
 }
 
 // ***SECTION GET-IN-TOUCH***
-.get-in-touch__title{
+.get-in-touch-title{
     @include text("Muli Black",#34353a,30,700,left,none);
     margin: 45px 0;
     padding-top: 10px;
 }
 .get-in-touch{
-    &__form{
+    &-form{
         display: flex;
         flex-direction: column;
   }
@@ -86,7 +86,7 @@
         @include text("Muli",black,20,400,left,none);
         border: 0;
         border-bottom: 1px solid #34353a;
-        padding: 19px 15px;
+        padding: 0 0 23px 14px;
         display: block;
         width: 370px;
         height: 20px;
@@ -98,7 +98,7 @@
         height: 107px;
         resize: none;
         padding: 19px 15px;
-        margin: 62px 0 52px;
+        margin: 42px 0 52px;
         border: 1px solid #303030;
         border-radius: 5px;
         outline-style: none;
@@ -107,7 +107,7 @@
 .get-in-touch{
     position: relative;
 }
-.get-in-touch__btn{
+.get-in-touch-btn{
     @include btn;
     margin-bottom: 152px;
     width: 226px;
@@ -115,13 +115,13 @@
     font-weight: 800;
     text-transform: none;
 }
-.get-in-touch__btn:hover{
+.get-in-touch-btn:hover{
     @include btn-hover;
 }
-.get-in-touch__btn:active{
+.get-in-touch-btn:active{
     @include btn-active;
 }
-.get-in-touch__square{
+.get-in-touch-square{
     max-width: 587px;
     height: 540px;
     border: 26px solid $yellow;
@@ -143,79 +143,77 @@
         top: -26px;
     }
 }
-.get-in-touch__title_media768{
+.get-in-touch-title-media768{
     display: none;
 }
-.get-in-touch__warning{
+.get-in-touch-warning{
     @include text($font, #c92533, 20, 400, left, none);
     opacity: 0;
     transition: 0.4s;
     align-self: flex-start;
 }
-.warning_visible{
+.warning-visible{
     opacity: 1;
 }
 
 @media screen and (max-width: 1200px){
-    .get-in-touch__square{
+    .get-in-touch-square{
       padding: 209px 121px;
+      width: calc(50% - 34px);
       &::before{
           width: 100%;
       }
     }
 }
 @media screen and (max-width: 993px){
-    .get-in-touch__square{
+    .get-in-touch-square{
         display: none;
     }
-    .get-in-touch__form{
+    .get-in-touch-form{
         @include flex(c,c);
         border: 26px solid $yellow;
         box-sizing: border-box;
     }
-    .get-in-touch__title{
+    .get-in-touch-title{
         display: none;
     }
-    .get-in-touch__title_media768{
+    .get-in-touch-title-media768{
         display: block;
         margin: 0 0 38px 21px;
     }
-    .get-in-touch__form{
+    .get-in-touch-form{
         padding: 49px 130px 34px 130px;
     }
-    .get-in-touch__form input:nth-child(-n+3){
-        width: 100%;
-        box-sizing: border-box;
+    .get-in-touch-form input:nth-child(-n+3){
         outline-style: none;
     }
-    .get-in-touch__form textarea{
-        width: 100%;
-        box-sizing: border-box;
+    .get-in-touch-form textarea{
         outline-style: none;
+        margin-bottom: 34px;
     }
-    .get-in-touch__btn{
+    .get-in-touch-btn{
         margin: 0;
     }
 }
 @media screen and (max-width: 768px){
-    .get-in-touch__form{
+    .get-in-touch-form{
         padding: 35px 14px;
     }
-    .get-in-touch__modal{
+    .get-in-touch-modal{
         width: 100%;
         padding: 58px 110px
     }
 }
 @media screen and (max-width: 578px){
-    .get-in-touch__form{
+    .get-in-touch-form{
         border: none;
         margin: 0;
     }
-    .get-in-touch__modal{
+    .get-in-touch-modal{
         width: 100%;
         padding: 22px 0;
     }
-    .get-in-touch__modal span{
+    .get-in-touch-modal span{
         display: block;
         line-height: 1px;
         margin-top: 28px;
