@@ -539,6 +539,10 @@
   .form-contact-info{
     margin: 40px auto 0 auto;
     width: 400px;
+    & input{
+      display: inline-block;
+      width: 400px;
+    }
   }
   .left-moved-quest{
     display: flex;
