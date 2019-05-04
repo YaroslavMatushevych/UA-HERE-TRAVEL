@@ -62,7 +62,7 @@ function scripts () {
 		.pipe(babel({											//babel
             presets: ['@babel/env']
         }))
-        .pipe(terser())														//minify js
+        .pipe(terser())											//minify js
         .pipe(concat('all.js'))									//concat all js files
 		.pipe(rename(function (path) {							// function of rename extname for .css
             path.extname = ".min.js";
@@ -76,9 +76,8 @@ function forSass() {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cleanCSS({level: 2}))								// minifyCSS after sourcemaps and sass
-        .pipe(autoprefixer({
-            browsers: ['> 0.1%'],								// для браузеров которые использует 0.1%
-			cascade: false
+        .pipe(autoprefixer(['last 15 versions', '>1%', 'ie 8', 'ie 7'], {
+            cascade: true
         }))
         .pipe(rename(function (path) {							// function of rename extname for .css
             path.extname = ".min.css";
