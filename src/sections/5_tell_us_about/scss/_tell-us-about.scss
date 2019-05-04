@@ -9,7 +9,8 @@
 
 .main-form {
   display: flex;
-  padding: 85px 0;
+  padding-top: 85px;
+  padding-bottom: 85px;
   min-height: 800px;
   box-sizing: border-box;
   overflow: hidden;
@@ -479,6 +480,10 @@
       font-size: 50px;
     }
   }
+  .form-slide-footer{
+    position: relative;
+    right: 40px;
+  }
 }
 
 @media screen and (max-width: 993px) {
@@ -487,7 +492,8 @@
   }
   .main-form{
     min-height: 894px;
-    padding: 60px 0;
+    padding-bottom: 60px;
+    padding-top: 60px;
   }
   .form-slide{
     flex-direction: column;
@@ -501,7 +507,7 @@
   .form-card{
     min-height: 360px;
     box-shadow: none;
-    left: 0;
+    left: -20px;
     padding: 30px 35px;
     margin: 0 70px 43px 70px;
     &-header{
@@ -524,6 +530,7 @@
     margin-bottom: 55px;
     & textarea{
       height: 130px;
+      width: calc(100% - 40px);
     }
   }
   .centered-quest{
@@ -553,7 +560,7 @@
   }
   .form-card{
     padding: 20px;
-      margin: 0 0 48px 0;
+    margin: 0 20px 48px 20px;
   }
   .form-quest{
     flex: 1 0 100%;
@@ -585,8 +592,11 @@
   .form-media-hidden{
     display: none;
   }
+  .budget-picker{
+    width: calc(100% - 40px);
+  }
 }
-@media screen and (max-width: 578px){
+@media screen and (max-width: 480px){
   .main-form{
     min-height: 930px;
     width: 100vw;
@@ -596,6 +606,9 @@
   .form-slide{
     min-height: 840px;
     justify-content: flex-start;
+    &-footer{
+      right: 20px;
+    }
   }
   .form-column {
     justify-content: center;
@@ -613,6 +626,7 @@
     padding: 40px;
     background-color: $yellow;
     min-height: 250px;
+    margin: 0 0 48px 0;
     &-header{
       font-size: 30px;
       line-height: 35px;
@@ -671,6 +685,10 @@
   }
   .form-submit-footer{
     align-self: center;
+    transform: translateX(-50%);
+    left: 50%;
+    right: 0;
+
   }
   .form-contact-info input{
     width: 90vw;
@@ -680,6 +698,7 @@
   }
   .multi-quest textarea{
     font-size: 14px;
+    width: 100%;
   }
   .form-mobile-downed-quest{
     margin-top: 100px;
