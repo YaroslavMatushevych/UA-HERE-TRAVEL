@@ -1,11 +1,14 @@
 $(function(){
     $( "#photo-speach" ).on( "swipeleft", swipeleftHandler );
-    function swipeleftHandler( event ){
-        moveLeft();
-    }
     $( "#photo-speach" ).on( "swiperight", swiperightHandler );
+    $( "#whatsapp-block" ).on( "swipeleft", swipeleftHandler );
+    $( "#whatsapp-block" ).on( "swiperight", swiperightHandler );
+
     function swiperightHandler( event ){
         moveRight();
+    }
+    function swipeleftHandler( event ){
+        moveLeft();
     }
 });
 
