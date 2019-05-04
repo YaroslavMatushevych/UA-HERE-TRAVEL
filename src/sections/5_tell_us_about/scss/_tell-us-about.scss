@@ -32,6 +32,8 @@
     align-self: flex-end;
     width: max-content;
     flex-direction: column;
+    position: relative;
+    right: 20px;
   }
 
   &_active {
@@ -539,6 +541,10 @@
   .form-contact-info{
     margin: 40px auto 0 auto;
     width: 400px;
+    & input{
+      display: inline-block;
+      width: 400px;
+    }
   }
   .left-moved-quest{
     display: flex;
