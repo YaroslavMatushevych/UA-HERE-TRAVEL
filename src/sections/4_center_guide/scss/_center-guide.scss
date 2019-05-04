@@ -18,20 +18,19 @@
 .center-guide-container {
     z-index: 2;
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .center-guide-container__heading {
-    font-family: "Muli Black", sans-serif;
-    font-size: 30px;
-    color: #34353a;
-    font-weight: 700;
+    @include text("Muli Black",#34353a,30,700,left,none);
     margin: 45px 0;
     padding-top: 10px;
 
     &:before{
         content: '';
         position: absolute;
-        top: -100px;
+        top: -76px;
         width: 107px;
         height: 3px;
         background-color: #838486;
@@ -43,7 +42,7 @@
     font-family: "Muli", sans-serif;
 }
 
-.form__name, .form__email {
+#form__name, #form__email {
     font-family: "Muli", sans-serif;
     background-color: transparent;
     border: 0;
@@ -84,7 +83,7 @@
 }
 
 .form__valid-email, .form__valid-name {
-    margin-top: 15px;
+    margin-top: 5px;
     font-size: 18px;
 }
 
@@ -105,7 +104,7 @@
     }
 }
 
-.center-guide-alert__success {
+.center-guide-alert__success, .center-guide-alert__fail {
     position: absolute;
     right: 50%;
     bottom: 50%;
@@ -115,7 +114,7 @@
     padding: 60px 100px;
     box-sizing: border-box;
     background: $white;
-    display: flex;
+    display: none;
     flex-direction: column;
     border-radius: 30px;
 }
@@ -158,7 +157,18 @@
     }
 }
 
+@media screen and (max-width: 1200px) {
+    .center-guide-container {
+        max-width: 960px;
+    }
+}
+
 @media screen and (max-width: 993px) {
+
+    .center-guide-container {
+        margin: 0 30px;
+    }
+
     .center-guide-alert__success {
         width: 700px;
         height: 420px;
@@ -175,6 +185,10 @@
     .center-guide-triangle {
         border-width: 460px 0 460px 560px;
         top: -260px;
+    }
+
+    .center-guide-container {
+        margin: 0 15px;
     }
 
     .center-guide-container__heading {
@@ -217,6 +231,10 @@
         margin-bottom: 400px;
     }
 
+    .center-guide-container {
+        margin: 0 20px;
+    }
+
     .center-guide-triangle {
         top: 0;
         left: 50%;
@@ -228,7 +246,7 @@
 
     .center-guide-container__heading {
         padding-top: 130px;
-        text-align: center;
+        text-align: left;
 
         &:before{
             top: 50px;
@@ -238,11 +256,11 @@
     .center-guide-container__form {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .form__file-description {
-        margin-left: 0;
+        display: none;
     }
 
     .center-guide-alert__success {
