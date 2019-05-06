@@ -11,33 +11,41 @@ $font: "Muli", sans-serif;
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 @media screen and (max-width: 1200px) {
   .container {
-    max-width: 960px;
+    max-width: 1140px;
   }
 }
 
 @media screen and (max-width: 993px) {
   .container {
-    max-width: 728px;
+    max-width: 960px;
   }
 }
 
 @media screen and (max-width: 768px) {
 
   .container {
-    max-width: 576px;
+    max-width: 720px;
   }
 }
 
 @media screen and (max-width: 578px) {
 
   .container {
-    max-width: 100%;
-    padding: 0 15px;
+    max-width: 540px;
   }
+}
+
+@media screen and (max-width: 480px) {
+
+  .container {
+    max-width: 100%;
+  }
+
 }
 
 /*----------------------------- @ L O O P S ---------------------------------*/
@@ -52,7 +60,7 @@ $fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
 
 /*---------------------------- @ F U N C T I O N ----------------------------*/
 
-/* Перевод px to em */ 
+/* Перевод px to em */
 
 @function px-to-em ($px, $context: 16px) {
     @return ($px / $context) * 1em;

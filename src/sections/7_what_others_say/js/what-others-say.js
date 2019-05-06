@@ -1,9 +1,25 @@
+$(function(){
+    $( "#photo-speach" ).on( "swipeleft", swipeleftHandler );
+    $( "#photo-speach" ).on( "swiperight", swiperightHandler );
+    $( "#whatsapp-block" ).on( "swipeleft", swipeleftHandler );
+    $( "#whatsapp-block" ).on( "swiperight", swiperightHandler );
+
+    function swiperightHandler( event ){
+        moveRight();
+    }
+    function swipeleftHandler( event ){
+        moveLeft();
+    }
+});
+
 const peoplePhoto = document.getElementsByClassName("photo-item");
 const peopleSpeach = document.getElementsByClassName("people-speach");
+const peopleSpeachItem = document.getElementsByClassName("people-speach-item");
 const screens = document.getElementsByClassName("whatsapp-block-item");
-
 let whatsappBlock = document.getElementById("whatsapp-block");
 let overlayScreen = document.getElementById("overlay");
+let speachHeight = 195;
+//let speachHeight = parseInt(peopleSpeachItem[0].style.lineHeight) * 100;
 
 let activeBlock = 0;
 
@@ -11,10 +27,6 @@ let activeBlock = 0;
     for (let i = 0; i < peoplePhoto.length; i++) {
         let wosDot = document.createElement('span');
         wosDot.classList.add('wos-dot-item');
-        wosDot.style.padding = '8px';
-        wosDot.style.margin = '1px';
-        wosDot.style.border = '1px solid #ffd008';
-        wosDot.style.borderRadius = '50%';
         document.querySelector('.wos-dots').appendChild(wosDot);
     }
     document.querySelector('.wos-dot-item').classList.add('wos-dot-item-active');
@@ -24,24 +36,10 @@ const wosDots = document.getElementsByClassName("wos-dot-item");
 
 document.addEventListener('click', function(e){
     if(e.target.id === 'right-arrow' || e.target.id === 'right-arrow-screen'){
-        if(activeBlock === peoplePhoto.length - 1){
-            activeBlock = 0;
-            movePhotoBlock(activeBlock, peoplePhoto.length - 1);
-        }
-        else{
-            activeBlock++;
-            movePhotoBlock(activeBlock, activeBlock - 1);
-        }
+        moveRight();
     }
     if(e.target.id === 'left-arrow' || e.target.id === 'left-arrow-screen'){
-        if(activeBlock === 0){
-            activeBlock = peoplePhoto.length - 1;
-            movePhotoBlock(activeBlock, 0);
-        }
-        else{
-            activeBlock--;
-            movePhotoBlock(activeBlock, activeBlock + 1);
-        }
+        moveLeft();
     }
     if(e.target.className === "whatsapp-btn"){
         whatsappBlock.hidden = false;
@@ -51,7 +49,32 @@ document.addEventListener('click', function(e){
         whatsappBlock.hidden = true;
         overlayScreen.hidden = true;
     }
+    if(e.target.classList.contains("people-speach-item-over")){
+        console.log('ok');
+        e.target.classList.remove("people-speach-item-over");
+    }
 });
+
+function moveLeft(){
+    if(activeBlock === 0){
+        activeBlock = peoplePhoto.length - 1;
+        movePhotoBlock(activeBlock, 0);
+    }
+    else{
+        activeBlock--;
+        movePhotoBlock(activeBlock, activeBlock + 1);
+    }
+}
+function moveRight(){
+    if(activeBlock === peoplePhoto.length - 1){
+        activeBlock = 0;
+        movePhotoBlock(activeBlock, peoplePhoto.length - 1);
+    }
+    else{
+        activeBlock++;
+        movePhotoBlock(activeBlock, activeBlock - 1);
+    }
+}
 
 function movePhotoBlock(activeItem, hiddenItem){
     peoplePhoto[hiddenItem].classList.toggle('photo-item-fade');
@@ -67,12 +90,22 @@ function movePhotoBlock(activeItem, hiddenItem){
 
         peoplePhoto[activeItem].hidden = false;
         peopleSpeach[activeItem].hidden = false;
+        if(peopleSpeachItem[activeItem].scrollHeight > speachHeight){
+            peopleSpeachItem[activeItem].classList.add("people-speach-item-over");
+        }
+
         screens[activeItem].hidden = false;
-    }, 400);
+    }, 200);
     setTimeout(function(){
         peoplePhoto[activeItem].classList.toggle('photo-item-fade');
         peopleSpeach[activeItem].classList.toggle('people-speach-fade');
         screens[activeItem].classList.toggle('whatsapp-block-item-fade');
-    }, 500);
+    }, 300);
 }
 
+// (new Swipe(document.getElementById('photo-speach'))).onLeft(function() {
+//     moveLeft();
+// }).run();
+// (new Swipe(document.getElementById('photo-speach'))).onRight(function() {
+//     moveRight();
+// }).run();
