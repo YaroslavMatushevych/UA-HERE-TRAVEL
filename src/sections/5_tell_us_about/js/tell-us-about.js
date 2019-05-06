@@ -29,6 +29,12 @@ $(document).ready(function () {
 
     updatePagination();
 
+    let preventDefaultAction = (arg)=>{
+        for(let i=0;i<=arg.length;i++){
+            arg[i].preventDefault();
+        }
+    };
+
     //унифицировать функцию скрытия сообщения с передачей аргументов
 
     let hideErrorMessage = () => {
@@ -145,12 +151,20 @@ $(document).ready(function () {
             $('#customer-email').siblings('.mail-input-error').css('opacity', '1');
         } else {
             const newCustomer = createNewCustomer();
-            $.ajax({
-                type: 'POST',
-                dataType:'json',
-                url:'path',
-                data:newCustomer
-            });
+
+            // $.ajax({
+            //     type: 'POST',
+            //     data: JSON.stringify(newCustomer),
+            //     contentType: 'application/json',
+            //     url: '/post/add'
+            // }).done(function(data){
+            //     console.log(data);
+            //     if (!data.ok) {
+            //
+            //     } else {
+            //         $(location).attr('href', '/');
+            //     }
+            // });
             // alert(`New customer request is done! Results of the application form: 1.Kyiv been - ${newCustomer.kyivVisit}; 2.Arrive date - ${newCustomer.arriveDate}; 3.Visit days - ${newCustomer.daysNum}; 4.Children - ${newCustomer.children}; 5.Preferences - ${newCustomer.preferences}; 6.Budget - ${newCustomer.budget} 7.Taste - ${newCustomer.taste}; Additional info: ${newCustomer.service} Comment-${newCustomer.comment} Contact info - Name: ${newCustomer.name}; Email: ${newCustomer.email}.`);
         }
     };
@@ -281,16 +295,19 @@ $(document).ready(function () {
         } else {
             showErrorMessage();
         }
+        return false;
     });
 
     $('.prev-btn').click((e) => {
         let numBtn = e.target.id.split('-')[1];
         $(`.form-slide:eq(${numBtn})`).removeClass('form-slide_active');
         $(`.form-slide:eq(${numBtn - 1})`).removeClass('form-slide_left').addClass('form-slide_active');
+        return false;
     });
 
     $('#finish-btn').click((e) => {
         checkFilledInputs();
+        return false;
     });
 
     $('.form-tab').click((e) => {
@@ -315,6 +332,10 @@ $(document).ready(function () {
             hideErrorMessage();
         }
     });
+
+    arriveDate.click(()=>{
+        arriveDate.preventDefault();
+    })
 
     $(function () {
         $("#arrive-date").datepicker({
