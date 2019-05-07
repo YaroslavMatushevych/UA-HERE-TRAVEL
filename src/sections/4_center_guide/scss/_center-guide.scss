@@ -11,8 +11,12 @@
     position: absolute;
     top: -330px;
     z-index: 1;
-    opacity: 1;
     transform: translateX(-100%);
+}
+
+.played {
+    transform: translateX(0%);
+    transition: transform 0.9s linear;
 }
 
 .center-guide-container {
@@ -22,7 +26,7 @@
     margin: 0 auto;
 }
 
-.center-guide-container__heading {
+.center-guide-heading {
     @include text("Muli Black",#34353a,30,700,left,none);
     margin: 45px 0;
     padding-top: 10px;
@@ -37,12 +41,12 @@
     }
 }
 
-.center-guide-container__form {
+.center-guide-form {
     color: #a3a2a2;
     font-family: "Muli", sans-serif;
 }
 
-#form__name, #form__email {
+#input-name, #input-email {
     font-family: "Muli", sans-serif;
     background-color: transparent;
     border: 0;
@@ -58,7 +62,7 @@
     }
 }
 
-.form__button {
+.form-button {
     @include btn;
     margin-top: 80px;
     min-width: 225px;
@@ -75,14 +79,14 @@
     }
 }
 
-.form__file-description {
+.form-file-description {
     font-family: "Muli", sans-serif;
     font-weight: 300;
     margin-top: 25px;
     margin-left: 15px;
 }
 
-.form__valid-email, .form__valid-name {
+.valid-email, .valid-name {
     margin-top: 5px;
     font-size: 18px;
 }
@@ -104,7 +108,7 @@
     }
 }
 
-.center-guide-alert__success, .center-guide-alert__fail {
+.alert-success, .alert-fail {
     position: absolute;
     right: 50%;
     bottom: 50%;
@@ -119,7 +123,7 @@
     border-radius: 30px;
 }
 
-.alert-saltire {
+.saltire {
     position: absolute;
     top: -40px;
     right: -40px;
@@ -129,14 +133,14 @@
     font-weight: 900;
 }
 
-.alert-check {
+.check {
     flex-basis: 75%;
     font-size: 200px;
     text-align: center;
     color: #3aaa35;
 }
 
-.alert-cross {
+.cross {
     flex-basis: 75%;
     font-size: 200px;
     text-align: center;
@@ -147,7 +151,7 @@
     text-align: right;
 }
 
-.alert-message__text {
+.message-text {
     font-size: 30px;
     font-weight: 700;
     text-align: center;
@@ -155,7 +159,7 @@
     line-height: 45px;
 }
 
-.alert-message__close {
+.close {
     color: #34353a;
     font-size: 20px;
 
@@ -176,7 +180,7 @@
         margin: 0 30px;
     }
 
-    .center-guide-alert__success, .center-guide-alert__fail {
+    .alert-success, .alert-fail {
         width: 700px;
         height: 420px;
     }
@@ -184,21 +188,21 @@
 
 @media screen and (max-width: 768px) {
 
-    .center-guide {
-        height: 520px;
-        margin: 100px 0;
-    }
+  .center-guide {
+    height: 520px;
+    margin-top: 230px;
+  }
 
-    .center-guide-triangle {
-        border-width: 460px 0 460px 560px;
-        top: -260px;
-    }
+  .center-guide-triangle {
+    border-width: 400px 0 400px 500px;
+    top: -250px;
+  }
 
     .center-guide-container {
         margin: 0 15px;
     }
 
-    .center-guide-container__heading {
+    .center-guide-heading {
         font-family: "Muli Black", sans-serif;
         font-size: 30px;
         color: #34353a;
@@ -210,24 +214,24 @@
         }
     }
 
-    .center-guide-alert__success, .center-guide-alert__fail {
+    .alert-success, .alert-fail {
         width: 450px;
         height: 290px;
         padding: 20px 30px;
         border-radius: 20px;
     }
 
-    .alert-saltire {
+    .saltire {
         top: -30px;
         right: -12px;
         font-size: 30px;
     }
 
-    .alert-check, .alert-cross {
+    .check, .cross {
         font-size: 130px;
     }
 
-    .alert-message__text {
+    .message-text {
         font-size: 24px;
     }
 }
@@ -251,7 +255,7 @@
         border-color: #f0d456 transparent transparent transparent;
     }
 
-    .center-guide-container__heading {
+    .center-guide-heading {
         padding-top: 130px;
         text-align: left;
 
@@ -260,31 +264,31 @@
         }
     }
 
-    .center-guide-container__form {
+    .center-guide-form {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .form__file-description {
+    .form-file-description {
         display: none;
     }
 
-    .center-guide-alert__success, .center-guide-alert__fail {
+    .alert-success, .alert-fail {
         width: 350px;
         height: 250px;
         padding: 20px 12px;
     }
 
-    .alert-check, .alert-cross {
+    .check, .cross {
         font-size: 100px;
     }
 
-    .alert-message__text {
+    .message-text {
         font-size: 20px;
     }
 
-    .alert-message__close {
+    .close {
         font-size: 14px;
     }
 }

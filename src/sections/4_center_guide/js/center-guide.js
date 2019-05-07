@@ -1,16 +1,20 @@
 const triangle = document.querySelector('.center-guide-triangle');
 const centerGuide = document.querySelector('.center-guide');
-const topPosOfGuide = centerGuide.offsetTop;
 const viewPort = window.innerHeight;
+const centerGuideY = centerGuide.offsetTop + ((centerGuide.offsetHeight - 300) / 2);
 let windowScroll = window.pageYOffset + viewPort;
 let alreadyPlayed = false;
 
-
 if (window.innerWidth >= 481) {
-    if (windowScroll > (topPosOfGuide + 100)) {
+    if (windowScroll > centerGuideY) {
         triangle.style.transform = `translateX(0)`;
         alreadyPlayed = true;
     }
+}
+
+if (window.innerWidth < 481) {
+    triangle.style.transform = "translate(-50%, 0%)";
+    alreadyPlayed = true;
 }
 
 
@@ -18,25 +22,19 @@ window.addEventListener("scroll", function() {
     windowScroll = window.pageYOffset + viewPort;
 
     if (window.innerWidth >= 481){
-        if (windowScroll - (topPosOfGuide + 320) < 0 && !alreadyPlayed) {
-            triangle.style.transform = `translateX(${windowScroll - (topPosOfGuide + 300)}px)`;
-            if (windowScroll - (topPosOfGuide + 320) < 0 && windowScroll - (topPosOfGuide + 300) > -10) {
-                alreadyPlayed = true;
-            }
+        if (windowScroll > centerGuideY && !alreadyPlayed) {
+            triangle.classList.add("played");
+            alreadyPlayed = true;
         }
     }
-    if (window.innerWidth < 481) {
-        triangle.style.transform = "translate(-50%, 0%)";
-    }
-
 });
 
 window.addEventListener('resize', function(){
-    if ($(window).width() >= 481 && !alreadyPlayed) {
+    if (window.innerWidth >= 481 && !alreadyPlayed) {
         triangle.style.transform = `translateX(-100%)`;
     }
 
-    if ($(window).width() >= 481 && alreadyPlayed) {
+    if (window.innerWidth >= 481 && alreadyPlayed) {
         triangle.style.transform = `translateX(0)`;
     }
 
@@ -46,9 +44,9 @@ window.addEventListener('resize', function(){
 });
 
 $(".center-guide-alert").click(function(event) {
-    if (!$(event.target).closest(".center-guide-alert__success, .center-guide-alert__fail, .alert-saltire").length) {
+    if (!$(event.target).closest(".alert-success, .alert-fail, .saltire").length) {
         $("body").find(".center-guide-alert").removeClass("visible");
-        $('.center-guide-alert__fail, .center-guide-alert__success').css("display", "none");
+        $('.alert-fail, .alert-success').css("display", "none");
     }
 });
 
@@ -59,15 +57,15 @@ function validateEmail(email) {
 
 function validateName(name) {
     let res = /^[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*$/;
-    return console.log(res.test(name));
+    return res.test(name);
 }
 
 
 function validate() {
-    let ValidName = $(".form__valid-name");
-    let ValidEmail = $(".form__valid-email");
-    let name = $("#form__name").val();
-    let email = $("#form__email").val();
+    let ValidName = $(".valid-name");
+    let ValidEmail = $(".valid-email");
+    let name = $("#input-name").val();
+    let email = $("#input-email").val();
     ValidName.text("");
     ValidEmail.text("");
 
@@ -83,38 +81,19 @@ function validate() {
 
     if (!validateName(name) || !validateEmail(email)) {
         $(".center-guide-alert").addClass("visible");
-        $('.center-guide-alert__fail').css("display", "flex");
+        $('.alert-fail').css("display", "flex");
     }
     return false;
 }
 
-$(".form__button").click(function(){
-    validate();
+$(document).on("submit", "#get-guide", function (e) {
+    e.preventDefault();
+    validate(this);
 });
 
-$(".alert-saltire, .alert-message__close").click(function(){
+
+
+$(".saltire, .close").click(function(){
     $(".center-guide-alert").removeClass("visible");
-    $('.center-guide-alert__fail, .center-guide-alert__success').css("display", "none");
+    $('.alert-fail, .alert-success').css("display", "none");
 });
-
-
-// $(function() {
-//     $(".form__button").click(function(e) {
-//         e.preventdefault();
-//         let data = {
-//             name: $("#form__name").val(),
-//             email: $("#form__email").val(),
-//         };
-//         $.ajax({
-//             type: "POST",
-//             url: "email.php",
-//             data: data,
-//             success: function(){
-//                 $(".center-guide-alert").addClass("visible");
-//                 $('.center-guide-alert__success').css("display", "flex");
-//             }
-//         });
-//
-//         return false;
-//     });
-// });
