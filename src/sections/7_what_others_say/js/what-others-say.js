@@ -1,17 +1,3 @@
-$(function(){
-    $( "#photo-speach" ).on( "swipeleft", swipeleftHandler );
-    $( "#photo-speach" ).on( "swiperight", swiperightHandler );
-    $( "#whatsapp-block" ).on( "swipeleft", swipeleftHandler );
-    $( "#whatsapp-block" ).on( "swiperight", swiperightHandler );
-
-    function swiperightHandler( event ){
-        moveRight();
-    }
-    function swipeleftHandler( event ){
-        moveLeft();
-    }
-});
-
 const peoplePhoto = document.getElementsByClassName("photo-item");
 const peopleSpeach = document.getElementsByClassName("speach-item");
 const peopleSpeachItem = document.getElementsByClassName("speach-item-description");
@@ -19,9 +5,9 @@ const screens = document.getElementsByClassName("whatsapp-item");
 let whatsappBlock = document.getElementById("whatsapp-container");
 let overlayScreen = document.getElementById("wos-overlay");
 let speachHeight = 195;
-//let speachHeight = parseInt(peopleSpeachItem[0].style.lineHeight) * 100;
 
-//console.log(document.querySelector(".speach-item-description").style);
+
+//console.log(getComputedStyle(peopleSpeachItem[0].lineHeight));
 let activeBlock = 0;
 
 (function createDots() {
@@ -109,9 +95,67 @@ function movePhotoBlock(activeItem, hiddenItem){
     }, 300);
 }
 
-// (new Swipe(document.getElementById('photo-speach'))).onLeft(function() {
-//     moveLeft();
-// }).run();
-// (new Swipe(document.getElementById('photo-speach'))).onRight(function() {
-//     moveRight();
-// }).run();
+class Swipe {
+    constructor(element) {
+        this.xDown = null;
+        this.yDown = null;
+        this.element = typeof(element) === 'string' ? document.querySelector(element) : element;
+
+        this.element.addEventListener('touchstart', function(evt) {
+            this.xDown = evt.touches[0].clientX;
+            this.yDown = evt.touches[0].clientY;
+        }.bind(this), false);
+    }
+    onLeft(callback) {
+        this.onLeft = callback;
+        return this;
+    }
+    onRight(callback) {
+        this.onRight = callback;
+        return this;
+    }
+    onUp(callback) {
+        this.onUp = callback;
+        return this;
+    }
+    onDown(callback) {
+        this.onDown = callback;
+        return this;
+    }
+    handleTouchMove(e) {
+        if ( ! this.xDown || ! this.yDown ) {
+            return;
+        }
+        var xUp = e.touches[0].clientX;
+        var yUp = e.touches[0].clientY;
+        this.xDiff = this.xDown - xUp;
+        this.yDiff = this.yDown - yUp;
+        if ( Math.abs( this.xDiff ) > Math.abs( this.yDiff ) ) { // Most significant.
+            if ( this.xDiff > 0 ) {
+                this.onLeft();
+            } else {
+                this.onRight();
+            }
+        } else {
+            if ( this.yDiff > 0 ) {
+                this.onUp();
+            } else {
+                this.onDown();
+            }
+        }
+        this.xDown = null;
+        this.yDown = null;
+    }
+    run() {
+        this.element.addEventListener('touchmove', function(e) {
+            this.handleTouchMove(e);
+        }.bind(this), false);
+    }
+}
+
+(new Swipe(document.getElementById('photo-speach'))).onLeft(function() {
+    moveLeft();
+}).run();
+(new Swipe(document.getElementById('photo-speach'))).onRight(function() {
+    moveRight();
+}).run();
