@@ -150,24 +150,23 @@ $(document).ready(function () {
         if (!emailStatus) {
             $('#customer-email').siblings('.mail-input-error').css('opacity', '1');
         } else {
-            const newCustomer = createNewCustomer();
 
-            // $.ajax({
-            //     type: 'POST',
-            //     data: JSON.stringify(newCustomer),
-            //     contentType: 'application/json',
-            //     url: '/post/add'
-            // }).done(function(data){
-            //     console.log(data);
-            //     if (!data.ok) {
-            //
-            //     } else {
-            //         $(location).attr('href', '/');
-            //     }
-            // });
-            // alert(`New customer request is done! Results of the application form: 1.Kyiv been - ${newCustomer.kyivVisit}; 2.Arrive date - ${newCustomer.arriveDate}; 3.Visit days - ${newCustomer.daysNum}; 4.Children - ${newCustomer.children}; 5.Preferences - ${newCustomer.preferences}; 6.Budget - ${newCustomer.budget} 7.Taste - ${newCustomer.taste}; Additional info: ${newCustomer.service} Comment-${newCustomer.comment} Contact info - Name: ${newCustomer.name}; Email: ${newCustomer.email}.`);
-        }
-    };
+            let data = createNewCustomer();
+
+            $.ajax({
+                type: "POST",
+                data: data,
+                url: "../php/form.php",
+                success: function(data) {
+                    console.log(data);
+                    alert('SUCCESS')
+                },
+                error:function () {
+                    alert('ERROR')
+                }
+            });
+            }
+        };
 
     let getUptoDateQuests = () => {
         const quests = {};
@@ -334,8 +333,8 @@ $(document).ready(function () {
     });
 
     arriveDate.click(()=>{
-        arriveDate.preventDefault();
-    })
+        return false;
+    });
 
     $(function () {
         $("#arrive-date").datepicker({
@@ -346,7 +345,7 @@ $(document).ready(function () {
         });
 
     });
-    
+
     arriveDate.change(()=>{
         checkFilledForm();
     });
