@@ -105,6 +105,7 @@ function watch() {
 	gulp.watch('./src/**/*.html', buildhtml);
 }
 
+
 gulp.task('cleandev', cleandev);
 gulp.task('img', img);
 gulp.task('php', php);
