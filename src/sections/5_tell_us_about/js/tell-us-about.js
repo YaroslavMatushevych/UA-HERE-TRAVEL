@@ -150,14 +150,13 @@ $(document).ready(function () {
         if (!emailStatus) {
             $('#customer-email').siblings('.mail-input-error').css('opacity', '1');
         } else {
-            // const customer = createNewCustomer();
 
             let data = createNewCustomer();
 
             $.ajax({
                 type: "POST",
                 data: data,
-                url: "../form.php",
+                url: "../php/form.php",
                 success: function(data) {
                     console.log(data);
                     alert('SUCCESS')

@@ -55,12 +55,37 @@ document.querySelector('.request-route').addEventListener('click',function (e) {
         toggleModal('route-modal-fail');
     }
 
+////ADDED AJAX REQUEST (Misha)/////
     if (target.id === 'route-form-submit') {
+        // if(validateForm(form.elements[0],form.elements[1])){
+        //     toggleModal('route-modal-request');
+        //     document.querySelectorAll('.route-modal-form-inputs')[2].innerText = `${price}`;
+        // }
         if(validateForm(form.elements[0],form.elements[1])){
-            toggleModal('route-modal-request');
-            document.querySelectorAll('.route-modal-form-inputs')[2].innerText = `${price}`;
+            let data = {
+                name: $('#request-route-name').val(),
+                email: $('#request-route-email').val(),
+                price: price,
+                subject: $(".route-form>input[name='email-subject']").val()
+            };
+            console.log(data);
+            $.ajax({
+                type: "POST",
+                data: data,
+                url: "../php/mail.php",
+                success: function(data) {
+                    console.log(data);
+                    toggleModal('route-modal-request');
+                    toggleModal('route-modal-successful');
+                },
+                error:function () {
+                    toggleModal('route-modal-request');
+                    toggleModal('route-modal-fail');
+                }
+            });
         }
     }
+    //////////////
     if (target.classList.contains('route-overlay') || target.classList.contains('close-form')) {
         toggleModal();
     }

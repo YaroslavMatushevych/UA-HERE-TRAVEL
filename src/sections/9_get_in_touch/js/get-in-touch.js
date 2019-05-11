@@ -1,10 +1,33 @@
 $(document).ready(function(){
-    // $('.get-in-touch-btn').click(function (){
-    //     $('.modal-overlay').addClass('modal-active');}
-    // );
+
+    let validFormFlag = false;
     $('.get-in-touch-btn').click(function(){
-    validateForm();
-});
+        validateForm();
+        ////ADDED AJAX REQUEST 'Misha'////
+        if(validFormFlag){
+            let data = {
+                name: $('#get-in-touch-name').val(),
+                email: $('#get-in-touch-email').val(),
+                text: $('.get-in-touch-form').find('textarea').val(),
+                subject: $(".get-in-touch-form>input[name='email-subject']").val()
+            };
+            console.log(data);
+            $.ajax({
+                type: "POST",
+                data: data,
+                url: "../php/mail.php",
+                success: function(data) {
+                    console.log(data);
+                    getModalSuccess();
+                },
+                error:function () {
+                    getModalFail();
+                }
+            });
+        }
+        return false;
+    });
+    ////ADDED FLAGS 'Misha'////
     $('.warning-visible').hide();
     function validateForm(){
         let nameReg = /^[A-Za-z]+$/;
@@ -15,10 +38,16 @@ $(document).ready(function(){
 
         if(inputVal[0] == "" || !nameReg.test(name)){
             $('.name-warning').addClass('warning-visible');
+            validFormFlag=false;
         };
         if(inputVal[1] == "" || !emailReg.test(email)){
             $('.email-warning').addClass('warning-visible');
-        };
+            validFormFlag=false;
+        }else{
+            $('.name-warning').removeClass('warning-visible');
+            $('.email-warning').removeClass('warning-visible');
+            validFormFlag=true;
+        }
     };
 
     const getModalSuccess = function() {
@@ -38,4 +67,5 @@ $(document).ready(function(){
         $('.modal-success').removeClass('modal-active');
         $('.modal-fail').removeClass('modal-active');
     });
+
 });

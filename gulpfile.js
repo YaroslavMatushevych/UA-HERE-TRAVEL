@@ -34,6 +34,11 @@ function img() {											//модуль переноса картинок
         .pipe(gulp.dest('./dist/img'))
 }
 
+function php() {											//модуль переноса php-файлов
+    return gulp.src('./src/php/*.php')
+        .pipe(gulp.dest('./dist/php'))
+}
+
 function buildhtml () {										//Copy index.html to dir "dev"
     return gulp.src('./src/*.html')
             .pipe(nunjucks({                                // Шаблонизатор
@@ -94,18 +99,20 @@ function watch() {
 		}
 	});
 
-	gulp.watch('./src/**/*.scss', forSass);				// ставим watcher для слежения за изменениями в файлах
+	gulp.watch('./src/**/*.scss', forSass);
+    gulp.watch('./src/**/*.php', php);	// ставим watcher для слежения за изменениями в файлах
 	gulp.watch('./src/**/*.js', scripts);
 	gulp.watch('./src/**/*.html', buildhtml);
 }
 
 gulp.task('cleandev', cleandev);
 gulp.task('img', img);
+gulp.task('php', php);
 gulp.task('buildHtml', buildhtml);
 gulp.task('scripts', scripts);
 gulp.task('sass', forSass);
 gulp.task('watch', watch);
 gulp.task('fonts', fonts);
 gulp.task('jq', jq);
-gulp.task('build', gulp.series('cleandev', gulp.series(img, buildhtml, fonts, jq, scripts, forSass)));
+gulp.task('build', gulp.series('cleandev', gulp.series(img, php, buildhtml, fonts, jq, scripts, forSass)));
 gulp.task('dev', gulp.series('build', watch));
