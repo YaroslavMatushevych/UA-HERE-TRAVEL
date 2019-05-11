@@ -11,7 +11,6 @@ $font: "Muli", sans-serif;
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -44,6 +43,7 @@ $font: "Muli", sans-serif;
 
   .container {
     max-width: 100%;
+    padding: 0 20px;
   }
 
 }
