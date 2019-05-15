@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-justify-content: space-around;
+  justify-content: space-around;
 
 
 }
@@ -57,9 +57,11 @@ justify-content: space-around;
 
 .title {
   padding-bottom: 95px;
-height: 35px;
+  height: 35px;
   text-align: left;
   @include text("﻿Muli", rgba(52, 53, 58, 255), 30, 900, auto, auto);
   padding-right: 270px;
 }
+@media screen and (max-width: 993px) {
 
+}
