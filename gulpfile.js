@@ -36,7 +36,7 @@ function img() {											//модуль переноса картинок
 
 function php() {											//модуль переноса php-файлов
     return gulp.src('./src/php/*.php')
-        .pipe(gulp.dest('./dist/php'))
+        .pipe(gulp.dest('./dist'))
 }
 
 function buildhtml () {										//Copy index.html to dir "dev"
