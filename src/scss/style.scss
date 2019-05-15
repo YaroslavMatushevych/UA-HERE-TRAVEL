@@ -11,6 +11,7 @@ $font: "Muli", sans-serif;
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -43,7 +44,6 @@ $font: "Muli", sans-serif;
 
   .container {
     max-width: 100%;
-    padding: 0 20px;
   }
 
 }
@@ -53,9 +53,9 @@ $font: "Muli", sans-serif;
 $fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
 
 @each $name, $value in $fonts {
-    .#{$name} {
-        font-size: $value;
-    }
+  .#{$name} {
+    font-size: $value;
+  }
 }
 
 /*---------------------------- @ F U N C T I O N ----------------------------*/
@@ -63,7 +63,7 @@ $fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
 /* Перевод px to em */
 
 @function px-to-em ($px, $context: 16px) {
-    @return ($px / $context) * 1em;
+  @return ($px / $context) * 1em;
 }
 
 /*---------------------------- @ M I X I N S --------------------------------*/
@@ -71,15 +71,15 @@ $fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
 /* Подключение удаленных шрифтов */
 
 @mixin remote-fonts($name) {
-    @import url(https://fonts.googleapis.com/css?family=#{$name});
+  @import url(https://fonts.googleapis.com/css?family=#{$name});
 }
 
 /* Подключение для разных разрешений */
 
 @mixin large-screen() {
-    @media screen and (max-width: 960px){
-        @content;
-    }
+  @media screen and (max-width: 960px){
+    @content;
+  }
 }
 
 @mixin flex($jc, $ai) {
@@ -163,12 +163,12 @@ $fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
 }
 ///ADDED PX IN FONT-SIZE///
 @mixin text($ff, $co, $fs, $fw, $ta, $tt) {
-	font-family: $ff, sans-serif;
-	color: $co;
-	font-size: $fs+px;
-	font-weight: $fw;
-	text-align: $ta;
-	text-transform: $tt;
+  font-family: $ff, sans-serif;
+  color: $co;
+  font-size: $fs+px;
+  font-weight: $fw;
+  text-align: $ta;
+  text-transform: $tt;
 }
 ///ADDED CURSOR-POINTER///
 @mixin btn {
