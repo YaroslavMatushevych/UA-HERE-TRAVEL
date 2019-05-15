@@ -328,6 +328,7 @@
   }
 
   .slider-nav-top {
+    @include text("Muli Black",#939393,18,400,left,none);
     text-transform: uppercase;
     display: flex;
     justify-content: space-between;
@@ -353,7 +354,6 @@
     cursor: pointer;
     font-size: 18px;
     color: #00b6cc;
-    cursor: pointer;
     margin: 0 8px;
   }
 
@@ -362,7 +362,6 @@
     cursor: pointer;
     font-size: 18px;
     color: #00b6cc;
-    cursor: pointer;
     margin: 0 8px;
   }
 

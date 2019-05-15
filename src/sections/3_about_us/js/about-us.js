@@ -49,7 +49,7 @@ $('.next').click(function() {
         nextSlide = $('.person-container').first();
     }
 
-    if(nextDot.length == 0){
+    if(!nextDot.length){
         nextDot = $('.dot').first()
     }
 
@@ -84,11 +84,11 @@ $('.previous').click(function(){
     let currentDot= $('.active-dot');
     let prevDot= currentDot.prev();
 
-    if(prevSlide.length == 0){
+    if(!prevSlide.length){
         prevSlide = $('.person-container').last();
     }
 
-    if(prevDot.length==0){
+    if(!prevDot.length){
         prevDot = $('.dot').last();
     }
 
@@ -115,8 +115,11 @@ $('.previous').click(function(){
 });
 
 $('.dot').click(function () {
+    let personName = $('.person-desc-name');
     let currentSlide = $('.person-slide_active');
     let currentDot= $('.active-dot');
+    let firstSlideText = $(personName).first().text();
+    let lastSlideText = $(personName).last().text();
     let index = $('.dot').index(this);
 
     currentSlide.fadeOut(0).removeClass('person-slide_active');
@@ -124,7 +127,22 @@ $('.dot').click(function () {
 
     $(this).addClass('active-dot');
     let nextSlide = $('.person-container').eq(index);
-    nextSlide.fadeIn(0).addClass('person-slide_active')
+    nextSlide.fadeIn(0).addClass('person-slide_active');
+
+    let activeSlide = $('.person-slide_active');
+
+    let prevName = $(activeSlide).prev().find(personName).text();
+    let nextName = $(activeSlide).next().find(personName).text();
+
+    $('.prev-name').text(prevName);
+    $('.next-name').text(nextName);
+
+    if($(activeSlide).prev().length == 0){
+        $('.prev-name').text(lastSlideText);
+    }
+    if($(activeSlide).next().length == 0){
+        $('.next-name').text(firstSlideText);
+    }
 
 });
 

@@ -3,7 +3,7 @@
         <h2 class="rr-header-section">Request a Route</h2>
         <div class="route">
             <div class="route-item">
-                <img class="route-item-photo" src="../../img/request-route/route1.png" alt="route1">
+                <img class="route-item-photo" src="img/request-route/route1.png" alt="route1">
                 <div class="in-root-item">
                     <h3 class="route-name">Classic Route</h3>
                     <p class="route-description">Excellent option to explore all the major attractions of the city.
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="route-item">
-                <img class="route-item-photo" src="../../img/request-route/route2.png" alt="route2">
+                <img class="route-item-photo" src="img/request-route/route2.png" alt="route2">
                 <div class="in-root-item">
                     <h3 class="route-name">Cafe and Bars</h3>
                     <p class="route-description">This is a plan for those who in love with a really awesome cocktails
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="route-item">
-                <img class="route-item-photo" src="../../img/request-route/route3.png" alt="route3">
+                <img class="route-item-photo" src="img/request-route/route3.png" alt="route3">
                 <div class="in-root-item">
                     <h3 class="route-name">Non tourist</h3>
                     <p class="route-description">If you want to visit non-tourist places, dive into the Ukrainian
@@ -48,11 +48,12 @@
             <i id="route-modal-close-icon" class="route-modal-close fas fa-times"></i>
             <form id="form" class="route-form" action="#">
                 <h3 class="route-modal-form-header">Request a Classic tour</h3>
-                <input class="route-modal-form-inputs" type="text" placeholder="Your Name" required>
+                <input id="request-route-name" class="route-modal-form-inputs" type="text" placeholder="Your Name" required>
                 <p class="route-warning">Please enter a valid name.</p>
-                <input class="route-modal-form-inputs" type="email" placeholder="your@mail.com" required>
+                <input id="request-route-email" class="route-modal-form-inputs" type="email" placeholder="your@mail.com" required>
                 <p class="route-warning">Please enter a valid e-mail address.</p>
-                <input class="route-modal-form-inputs" type="hidden">
+                <!--<input type="hidden" name="price" value="">-->
+                <input name="email-subject" type="hidden" value="Request tour">
                 <input id ='route-form-submit' class="route-form-button" type="submit" value="request">
                 <button id="route-button-successful-new-form">successful</button>
                 <button id="route-button-fail-new-form">fail</button>
