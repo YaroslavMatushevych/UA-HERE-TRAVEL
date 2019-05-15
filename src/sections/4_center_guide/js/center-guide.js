@@ -121,11 +121,9 @@ function validateCenterForm(){
 // });
 
 $("#get-guide").submit(function (event) {
-    console.log('wow');
     validateCenterForm();
     event.preventDefault();
     if(centerValidFlag){
-        console.log('ein');
         $.ajax({
             type: "POST",
             data: $(this).serializeArray(),
