@@ -1,18 +1,21 @@
 <?php
 if($_POST){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-    $comment = $_POST['text'];
-    $price = $_POST['price'];
 
-    $mainCustomerInfo = ["New contact request: Name: ", $name, ', Email: ', $email, ', Comments: ',$comment, ', Price: ',$price];
+    $mailFieldsTitle = ["email-subject" => "Тема письма", "name" => "Имя", "mail" => "Email", "message" => "Сообщение", "price" => 'Цена тура'];
 
-    $message = implode('',$mainCustomerInfo);
 
+    $headers= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+
+    $message = '';
+    foreach($_POST as $key => $value){
+        if($value) {
+            $message .= $mailFieldsTitle[$key].": ".$value."<br/>";
+        }
+    }
     echo $message;
 
-//    mail("example@mail.com", $subject, $message);
+    echo mail("yelymykh@gmail.com", $_POST['email-subject'], $message, $headers);
 
 }
 

@@ -1,32 +1,57 @@
 $(document).ready(function(){
 
     let validFormFlag = false;
-    $('.get-in-touch-btn').click(function(){
+    // $('.get-in-touch-btn').click(function(){
+    //     validateForm();
+    //     ////ADDED AJAX REQUEST 'Misha'////
+    //     if(validFormFlag){
+    //         let data = {
+    //             name: $('#get-in-touch-name').val(),
+    //             email: $('#get-in-touch-email').val(),
+    //             text: $('.get-in-touch-form').find('textarea').val(),
+    //             subject: $(".get-in-touch-form>input[name='email-subject']").val()
+    //         };
+    //         console.log(data);
+    //         $.ajax({
+    //             type: "POST",
+    //             data: data,
+    //             url: "../php/mail.php",
+    //             success: function(data) {
+    //                 console.log(data);
+    //                 getModalSuccess();
+    //             },
+    //             error:function () {
+    //                 getModalFail();
+    //             }
+    //         });
+    //     }
+    //     return false;
+    // });
+
+    $('#contact-us').submit(function(event){
+        event.preventDefault();
         validateForm();
-        ////ADDED AJAX REQUEST 'Misha'////
         if(validFormFlag){
-            let data = {
-                name: $('#get-in-touch-name').val(),
-                email: $('#get-in-touch-email').val(),
-                text: $('.get-in-touch-form').find('textarea').val(),
-                subject: $(".get-in-touch-form>input[name='email-subject']").val()
-            };
-            console.log(data);
             $.ajax({
                 type: "POST",
-                data: data,
-                url: "../php/mail.php",
-                success: function(data) {
-                    console.log(data);
-                    getModalSuccess();
+                data: $(this).serializeArray(),
+                url: $(this).attr('action'),
+                success: function (answer) {
+                    if (answer) {
+                        console.log(answer);
+                        getModalSuccess();
+                    }
                 },
                 error:function () {
                     getModalFail();
                 }
             });
         }
-        return false;
     });
+
+    console.log('this is new js file!');
+
+
     ////ADDED FLAGS 'Misha'////
     $('.warning-visible').hide();
     function validateForm(){

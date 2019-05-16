@@ -21,7 +21,7 @@ if($_POST){
 
     echo $message;
 
-//    mail("example@mail.com", $message);
+    echo mail("yelymykh@gmail.com", $message);
 }
 
 ?>
