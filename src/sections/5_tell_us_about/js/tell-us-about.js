@@ -158,7 +158,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 data: data,
-                url: "../form.php",
+                url: "./form.php",
                 success: function(data) {
                     console.log(data);
                     alert('SUCCESS')
