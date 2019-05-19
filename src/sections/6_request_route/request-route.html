@@ -46,17 +46,17 @@
         </div>
         <div class="route-modal route-modal-request">
             <i id="route-modal-close-icon" class="route-modal-close fas fa-times"></i>
-            <form id="form" class="route-form" action="#">
+            <form id="route" class="route-form" action="mail.php">
                 <h3 class="route-modal-form-header">Request a Classic tour</h3>
-                <input id="request-route-name" class="route-modal-form-inputs" type="text" placeholder="Your Name" required>
+                <input name="name" id="request-route-name" class="route-modal-form-inputs" type="text" placeholder="Your Name">
                 <p class="route-warning">Please enter a valid name.</p>
-                <input id="request-route-email" class="route-modal-form-inputs" type="email" placeholder="your@mail.com" required>
+                <input name="mail" id="request-route-email" class="route-modal-form-inputs" type="email" placeholder="your@mail.com">
                 <p class="route-warning">Please enter a valid e-mail address.</p>
-                <!--<input type="hidden" name="price" value="">-->
+                <input id="route-price" type="hidden" name="price" value="">
                 <input name="email-subject" type="hidden" value="Request tour">
                 <input id ='route-form-submit' class="route-form-button" type="submit" value="request">
-                <button id="route-button-successful-new-form">successful</button>
-                <button id="route-button-fail-new-form">fail</button>
+                <!--<button id="route-button-successful-new-form">successful</button>-->
+                <!--<button id="route-button-fail-new-form">fail</button>-->
             </form>
         </div>
         <div class="route-modal route-modal-successful">
