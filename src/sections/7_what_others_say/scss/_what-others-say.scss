@@ -82,7 +82,7 @@
 .whatsapp-btn span{
     color: #128c7e;
 }
-.whatsapp-container {
+.whatsapp-item {
     margin: 0 auto;
     position: fixed;
     z-index: 999;
@@ -226,5 +226,8 @@
     }
     .speach-item-description-over {
         max-height: calc(22px * 4);
+    }
+    .whatsapp-item {
+        max-width: 300px;
     }
 }

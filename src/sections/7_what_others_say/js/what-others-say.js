@@ -4,10 +4,11 @@ const peopleSpeachItem = document.getElementsByClassName("speach-item-descriptio
 const screens = document.getElementsByClassName("whatsapp-item");
 let whatsappBlock = document.getElementById("whatsapp-container");
 let overlayScreen = document.getElementById("wos-overlay");
-let speachHeight = 195;
 
 
-//console.log(getComputedStyle(peopleSpeachItem[0].lineHeight));
+
+//console.log(parseInt(getComputedStyle(document.querySelector('.speach-item-description')).lineHeight));
+let speachHeight = parseInt(getComputedStyle(document.querySelector('.speach-item-description')).lineHeight) * 5;
 let activeBlock = 0;
 
 (function createDots() {
@@ -157,5 +158,11 @@ class Swipe {
     moveLeft();
 }).run();
 (new Swipe(document.getElementById('photo-speach'))).onRight(function() {
+    moveRight();
+}).run();
+(new Swipe(document.getElementById('whatsapp-container'))).onLeft(function() {
+    moveLeft();
+}).run();
+(new Swipe(document.getElementById('whatsapp-container'))).onRight(function() {
     moveRight();
 }).run();
