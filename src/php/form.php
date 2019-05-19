@@ -15,13 +15,13 @@ if($_POST){
     $service = implode(';',$serviceArray);
     $comment = $_POST['comment'];
 
-    $mainCustomerInfo = ["New customer is created: Name: ", $name, ', Email: ', $email, ", Kyiv visited: ", $kyivVisit, ' Arrive date: ',$arriveDate,', Number of days: ',$daysNum,', Children: ',$children,', Budget: ',$budget,', Taste: ',$taste,', Preferences: ',$preferences,', Additional service: ',$service,', Comments: ',$comment];
+    $mainCustomerInfo = ["New customer application form is created: Name: ", $name, ', Email: ', $email, ", Kyiv visited: ", $kyivVisit, ' Arrive date: ',$arriveDate,', Number of days: ',$daysNum,', Children: ',$children,', Budget: ',$budget,', Taste: ',$taste,', Preferences: ',$preferences,', Additional service: ',$service,', Comments: ',$comment];
 
     $message = implode('',$mainCustomerInfo);
 
     echo $message;
 
-    echo mail("yelymykh@gmail.com", $message);
+    echo mail("yelymykh@gmail.com",'New Customer!', $message);
 }
 
 ?>
