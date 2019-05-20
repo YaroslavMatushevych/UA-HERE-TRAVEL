@@ -174,7 +174,7 @@ $fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
 @mixin btn {
   box-sizing: border-box;
   border: none;
-  border-radius: 25px;
+  border-radius: 9999px;
   padding: 0 25px;
   height: 60px;
   min-width: 180px;
@@ -183,21 +183,29 @@ $fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
   font-weight: 700;
   text-align: center;
   background-image: linear-gradient(0deg, #3da3bf 0%, #90dbed 100%);
-  box-shadow: inset 0px -3px 0px 0px rgba(60,160,188,1);
+  box-shadow: 0 3px rgba(60,160,188,1);
   color: white;
   outline: none;
   text-transform: capitalize;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  transform-origin: bottom;
 }
 ///ADDED HOVER-STATE MIXIN ON BTN///
 @mixin btn-active{
   background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
-  box-shadow: inset 0px -2px 0px 0px rgba(60,160,188,1);
+  box-shadow: 0 2px rgba(60,160,188,1);
+  top: 1px;
 }
 ///ADDED ONCLICK-STATE MIXIN ON BTN///
 @mixin btn-hover{
   background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
-  box-shadow: inset 0px -6px 0px 0px rgba(60,160,188,1);
+  box-shadow: 0 6px rgba(60,160,188,1);
+  top: -3px;
 }
 
 @mixin header ($fz: 5) {
