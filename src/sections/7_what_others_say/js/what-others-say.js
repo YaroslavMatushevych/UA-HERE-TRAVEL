@@ -5,9 +5,6 @@ const screens = document.getElementsByClassName("whatsapp-item");
 let whatsappBlock = document.getElementById("whatsapp-container");
 let overlayScreen = document.getElementById("wos-overlay");
 
-
-
-//console.log(parseInt(getComputedStyle(document.querySelector('.speach-item-description')).lineHeight));
 let speachHeight = parseInt(getComputedStyle(document.querySelector('.speach-item-description')).lineHeight) * 5;
 let activeBlock = 0;
 
@@ -86,7 +83,6 @@ function movePhotoBlock(activeItem, hiddenItem){
         if(peopleSpeachItem[activeItem].scrollHeight > speachHeight){
             peopleSpeachItem[activeItem].classList.add("speach-item-description-over");
         }
-
         screens[activeItem].hidden = false;
     }, 200);
     setTimeout(function(){

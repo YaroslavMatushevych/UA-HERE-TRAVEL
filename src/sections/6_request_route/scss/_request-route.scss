@@ -46,7 +46,6 @@
 .route-description{
     @include text(Muli, #34353a, 20, 400, left, none);
     padding-right: 5px;
-    //overflow: hidden;
     line-height: 24px;
     height: calc(24px * 7);
     margin-bottom: 20px ;
