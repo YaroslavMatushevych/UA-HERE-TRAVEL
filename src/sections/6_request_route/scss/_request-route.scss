@@ -46,7 +46,6 @@
 .route-description{
     @include text(Muli, #34353a, 20, 400, left, none);
     padding-right: 5px;
-    overflow: hidden;
     line-height: 24px;
     height: calc(24px * 7);
     margin-bottom: 20px ;
@@ -228,6 +227,7 @@
     .route-item-photo{
         max-width: 320px;
         max-height: 320px;
+        height: 320px;
         margin-right: 23px;
     }
 }
@@ -261,9 +261,10 @@
     }
     .route-item-photo{
         margin: 0 auto 60px;
+        height: auto;
     }
     .route-description{
-        height: 100%;
+        height: calc(24px * 8);
     }
     .route-modal {
         width: 100%;

@@ -93,13 +93,16 @@
 .whatsapp-container-flex{
     @include flex(c, c);
 }
+.whatsapp-item {
+    max-height: calc(100vh - 70px);
+}
 .arrow-icon-whatsapp {
     color: #fff;
 }
 .close-icon {
-    position: relative;
-    bottom: 360px;
-    left: 470px;
+    position: absolute;
+    right: 20px;
+    top: -40px;
     font-size: 42px;
     color: #fff;
     cursor: pointer;
@@ -176,8 +179,7 @@
         display: none;
     }
     .close-icon {
-        bottom: 360px;
-        left: 410px;
+        right: -30px;
     }
     .whatsapp-btn{
         margin-top: 35px;
@@ -198,7 +200,6 @@
         flex-direction: column;
     }
     .photo-item {
-        //margin-bottom: 60px;
         margin: 0 auto 60px;
     }
     .whatsapp-btn {
@@ -226,5 +227,11 @@
     }
     .speach-item-description-over {
         max-height: calc(22px * 4);
+    }
+    .whatsapp-item {
+        max-width: 280px;
+    }
+    .close-icon {
+        right: -20px;
     }
 }
