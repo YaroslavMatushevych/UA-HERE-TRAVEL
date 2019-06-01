@@ -89,8 +89,6 @@ document.querySelector('.request-route').addEventListener('click',function (e) {
 //     }
     //////////////
     if (target.classList.contains('route-overlay') || target.classList.contains('close-form')) {
-        toggleModal('route-modal-request');
-        toggleModal('route-modal-fail');
         const modals = Array.prototype.slice.call(document.querySelectorAll('.route-modal'));
         const openedModal = modals.filter(function (modal) {
             return modal.classList.contains('opened');
