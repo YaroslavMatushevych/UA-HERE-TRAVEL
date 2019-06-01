@@ -21,7 +21,8 @@ const fontsFiles = [										//составляем массив перемен
 
 const imgFiles = [
     './src/img/**/**.jpg',
-    './src/img/**/**.png'
+    './src/img/**/**.png',
+		'./src/img/**/**.mp4'
 ];
 
 function cleandev() {										//модуль отчистки папки перед каждой расспаковкой
@@ -54,7 +55,7 @@ function fonts () {											//Copy fonts to dir "dev"
         .pipe(gulp.dest('./dist/fonts'))
 }
 
-function jq () {											
+function jq () {
     return gulp.src('./src/js/*.js')
         .on('data', function(file) {                     //Прослушка файлов проходящих через задачу
             console.log(file)

@@ -1,4 +1,3 @@
-
 .block {
   display: flex;
   justify-content: center;
@@ -13,13 +12,10 @@
   overflow: hidden;
   z-index: 12;
   align-items: center;
-
   position: fixed;
   top: 0;
-  padding: 0 30px;
+  padding: 0 83px;
   box-sizing: border-box;
-
-
 }
 
 .back_to_top {
@@ -34,28 +30,27 @@
   background: #f0d456;
   color: #444;
   cursor: pointer;
-  display: none;
+  display: block;
   border-radius: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all linear 0.3s;
 }
-
-
 .back_to_top:hover {
   background: #ffd008;
 }
-
 .back_to_top-show {
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 .nav-wrapper {
   display: flex;
 }
 
 .logo {
-
   width: 52px;
   height: 48px;
   justify-self: flex-start;
-
 }
 
 .social-media {
@@ -116,9 +111,32 @@
   align-items: center;
   margin: 0 auto;
   display: flex;
-  background-size: cover;
-  background-image: url("../../../img/header/Heroshot_1920px.png");
-  background-position: center;
+  overflow: hidden;
+  position: relative;
+  // background-size: cover;
+  // background-image: url("../../../img/header/Heroshot_1920px.png");
+  // background-position: center;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+#header-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  z-index: -2;
 }
 
 .headline-block {
@@ -128,6 +146,7 @@
   width: 734px;
   padding-bottom: 223px;
   padding-top: 207px;
+  z-index: 99;
 }
 
 .headline {
@@ -215,6 +234,14 @@
 
 
 @media screen and (max-width: 993px) {
+  .header-back {
+    background-size: cover;
+    background-image: url("../../../img/header/Heroshot_1920px.png");
+    background-position: center;
+  }
+  #header-video {
+    display: none;
+  }
   .navbar {
     display: flex;
     flex-wrap: wrap;

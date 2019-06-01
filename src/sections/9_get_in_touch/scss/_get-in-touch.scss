@@ -211,6 +211,9 @@
         width: 100%;
         padding: 58px 110px
     }
+    .get-in-touch-warning{
+      font-size: 16px;
+    }
 }
 @media screen and (max-width: 578px){
     .get-in-touch-form{
@@ -227,9 +230,9 @@
         margin-top: 28px;
     }
     .get-in-touch-form input:nth-child(-n+3){
-        width: 288px;
+        max-width: 280px;
     }
     .get-in-touch-form textarea{
-        width: 288px;
+        max-width: 280px;
     }
 }
