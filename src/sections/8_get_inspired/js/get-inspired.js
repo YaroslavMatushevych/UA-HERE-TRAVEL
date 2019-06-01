@@ -7,7 +7,7 @@ let obj = {
     changedMediaSecond : 0,
     carousel : document.getElementById('slider-track'),
     slider : document.getElementById('slider'),
-    slides : [...document.getElementsByClassName('get-inspired-slider-item')],
+    slides : Array.prototype.slice.call(document.getElementsByClassName('get-inspired-slider-item')),
     src : ['img/get-inspired/photo-zoom-1.png','img/get-inspired/photo-zoom-2.png','img/get-inspired/photo-zoom-3.png','img/get-inspired/photo-zoom-4.png','img/get-inspired/photo-zoom-2.png','img/get-inspired/photo-zoom-3.png','img/get-inspired/photo-zoom-1.png','img/get-inspired/photo-zoom-4.png','img/get-inspired/photo-zoom-3.png','img/get-inspired/photo-zoom-1.png','img/get-inspired/photo-zoom-4.png','img/get-inspired/photo-zoom-2.png']
 };
 
@@ -15,14 +15,14 @@ chooseMedia();
 
 let slideWidth = document.querySelector('.get-inspired-slider-item').offsetWidth;
 const margin = parseInt(getComputedStyle(obj.slides[0]).marginRight);
-obj.carousel.style.width = `${slideWidth*obj.quantitySlides-margin}px`;
+obj.carousel.style.width = `${(parseInt(slideWidth)+margin)*(12 + obj.quantitySlides*2)}px`;
 
 const sliderInit= (slider) => {
-    const slides =[...document.getElementsByClassName('get-inspired-slider-item')];
+    const slides =Array.prototype.slice.call(document.getElementsByClassName('get-inspired-slider-item'));
     slides.forEach((slide) => {
         if (slide.classList.contains('slide-active')) slide.classList.remove('slide-active');
     });
-    const dots = [...document.getElementsByClassName("get-inspired-dots-dot")];
+    const dots = Array.prototype.slice.call(document.getElementsByClassName("get-inspired-dots-dot"));
     dots.forEach((dot) => {
         if (dot.classList.contains('dot-active')) dot.classList.remove('dot-active');
     });
@@ -114,7 +114,7 @@ function previousSlide() {
 }
 
 function toggleActiveDot(direction) {
-    const dots = [...document.getElementsByClassName("get-inspired-dots-dot")];
+    const dots = Array.prototype.slice.call(document.getElementsByClassName("get-inspired-dots-dot"));
     const dotsPrevActive = document.getElementsByClassName("dot-active")[0];
     if (direction === 'next' && dotsPrevActive.nextElementSibling) {
         dotsPrevActive.classList.remove('dot-active');
@@ -135,7 +135,7 @@ function toggleActiveDot(direction) {
 }
 
 function getNodeIndex(elm){
-    let attr =[...document.getElementsByClassName('get-inspired-slider-item-image')].map(function (image) {
+    let attr =Array.prototype.slice.call(document.getElementsByClassName('get-inspired-slider-item-image')).map(function (image) {
         return image.getAttribute('src');
     });
     let attrFinal = attr.slice(obj.quantitySlides, obj.slides.length + obj.quantitySlides);
@@ -152,7 +152,7 @@ function toggleFadeInOut() {
 }
 
 function removeClones(quantity) {
-    let slides =[...document.getElementsByClassName('get-inspired-slider-item')];
+    let slides =Array.prototype.slice.call(document.getElementsByClassName('get-inspired-slider-item'));
     for (let i = slides.length -1; i > slides.length - quantity -1; i--){
         obj.carousel.removeChild(slides[i]);
     }
@@ -195,14 +195,19 @@ function chooseMedia() {
         obj.changedMediaSecond = false;
     }
     obj.biggestHeight = 0;
-    document.querySelectorAll('.get-inspired-slider-item').forEach(function (slide) {
+    let items = Array.prototype.slice.call(document.querySelectorAll('.get-inspired-slider-item'));
+    items.forEach(function (slide) {
         slide.style.width = `${window.innerWidth/obj.quantitySlides}px`;
         setTimeout(()=> {
-            if (parseInt(getComputedStyle(slide).height) > obj.biggestHeight) obj.biggestHeight = parseInt(getComputedStyle(slide).height);
+            if (parseInt(getComputedStyle(slide).height) > obj.biggestHeight) {
+                obj.biggestHeight = parseInt(getComputedStyle(slide).height);
+            }
         },500);
         setTimeout(()=> {
             obj.slider.style.height = `${obj.biggestHeight}px`;
         },500);
+        slideWidth =slide.style.width;
+        obj.carousel.style.width = `${(parseInt(slideWidth)+margin)*(12 + obj.quantitySlides*2)}px`;
     });
 }
 
@@ -275,7 +280,7 @@ document.addEventListener('click' ,function (e) {
         toggleActiveDot('previous');
     }
     if (target.classList.contains('get-inspired-dots-dot')) {
-        const dots = [...document.getElementsByClassName("get-inspired-dots-dot")];
+        const dots = Array.prototype.slice.call(document.getElementsByClassName("get-inspired-dots-dot"));
         const dotsPrevActive = document.querySelector(".dot-active");
         let step = Math.abs(dots.indexOf(dotsPrevActive) - dots.indexOf(target));
         if (dots.indexOf(dotsPrevActive) - dots.indexOf(target) < 0) {
@@ -328,7 +333,7 @@ document.addEventListener('click' ,function (e) {
 });
 
 window.addEventListener('resize', () => {
-    let slides = [...document.getElementsByClassName('get-inspired-slider-item')];
+    let slides = Array.prototype.slice.call(document.getElementsByClassName('get-inspired-slider-item'));
     if (window.innerWidth >= 768) {
         if (obj.quantitySlides === 3 && slides.length < 19) {
             setTimeout(() => {
@@ -367,7 +372,7 @@ window.addEventListener('resize', () => {
         }
     }
     if (window.innerWidth <= 578) {
-        let slides = [...document.getElementsByClassName('get-inspired-slider-item')];
+        let slides = Array.prototype.slice.call(document.getElementsByClassName('get-inspired-slider-item'));
         if (obj.quantitySlides === 3 && slides.length > 14){
             setTimeout(()=> {
                 removeClones(3);
@@ -384,7 +389,7 @@ window.addEventListener('resize', () => {
     }
     chooseMedia();
     slideWidth = window.innerWidth/obj.quantitySlides;
-    obj.carousel.style.width = slideWidth * (document.querySelectorAll('.get-inspired-slider-item').length) + margin + 'px';
+    obj.carousel.style.width = `${(parseInt(slideWidth)+margin)*(12 + obj.quantitySlides*2)}px`;
     obj.carousel.style.transform = `translateX(${-slideWidth*obj.quantitySlides}px)`;
     setTimeout(()=> {
         obj.slider.style.height = obj.biggestHeight;

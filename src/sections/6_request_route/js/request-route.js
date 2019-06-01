@@ -89,7 +89,21 @@ document.querySelector('.request-route').addEventListener('click',function (e) {
 //     }
     //////////////
     if (target.classList.contains('route-overlay') || target.classList.contains('close-form')) {
-        toggleModal();
+        toggleModal('route-modal-request');
+        toggleModal('route-modal-fail');
+        const modals = Array.prototype.slice.call(document.querySelectorAll('.route-modal'));
+        const openedModal = modals.filter(function (modal) {
+            return modal.classList.contains('opened');
+        });
+        const index = modals.indexOf(openedModal[0]);
+        switch (index) {
+            case 0:  toggleModal('route-modal-request');
+                break;
+            case 1:  toggleModal('route-modal-successful');
+                break;
+            case 2:  toggleModal('route-modal-fail');
+                break;
+        }
     }
     if (target.id === 'route-button-successful-new-form'){
         toggleModal('route-modal-request');
