@@ -116,31 +116,6 @@ window.addEventListener("resize", function () {
     goTopBtn.addEventListener('click', backToTop);
 })();
 
-// ***smooth scroll test
-// let mainNavLinks = document.querySelectorAll(".anchors-a,  .anchors-a-active");
-// let mainSections = document.querySelector("section");
-//
-// let lastId;
-// let cur = [];
-//
-// window.addEventListener("scroll", event => {
-//   let fromTop = window.scrollY;
-//
-//   mainNavLinks.forEach(link => {
-//     let section = document.querySelector(link.hash);
-//
-//     if (
-//       section.offsetTop <= fromTop &&
-//       section.offsetTop + section.offsetHeight > fromTop
-//     ) {
-//       link.classList.add("current");
-//     } else {
-//       link.classList.remove("current");
-//     }
-//   });
-// });
-//****
-
 $('.burger-items>a').click((e) => {
     let clicked = $(e.target).index();
     switch (clicked) {
@@ -184,4 +159,10 @@ $('.burger-items>a').click((e) => {
                 scrollTop: $(document.body).offset().top
             }, 1000);
     }
+});
+
+$('.free-guide-btn').click(function() {
+  $(document.documentElement).animate({
+      scrollTop: $('#free-guide').offset().top - 60
+  }, 1000);
 });

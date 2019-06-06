@@ -156,17 +156,17 @@
   @include text('Muli', rgba(255, 255, 255, 255), 60, 900, auto, auto);
 }
 
-.classic {
+.free-guide-btn {
   @include btn;
   width: 260px;
   margin-top: 87px;
 }
 
-.classic:hover {
+.free-guide-btn:hover {
   @include btn-hover;
 }
 
-.classic:active {
+.free-guide-btn:active {
   @include btn-active;
 }
 
@@ -309,7 +309,7 @@
     padding-bottom: 23px;
 
   }
-  .classic {
+  .free-guide-btn {
     width: 270px;
     line-height: 60px;
   }
@@ -365,7 +365,7 @@
     padding-top: 260px;
     padding-bottom: 310px;
   }
-  .classic{
+  .free-guide-btn{
     margin-top: 150px;
   }
   // .anchors-a-active {
@@ -528,7 +528,7 @@
     margin-top: 20px;
     line-height: 40px;
   }
-  .classic{
+  .free-guide-btn{
     margin-top: 35px;
   }
 }
