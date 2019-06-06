@@ -62,7 +62,7 @@
 //cjc
 .photos-text {
   flex: 0 1 50%;
-
+  width: 445px;
 }
 .text {
   @include text("﻿Muli", rgba(52, 53, 58, 255), 20, 400, auto, auto);
@@ -106,9 +106,6 @@
     padding-left: 20px;
     height: 2870px;
   }
-  .photos-text {
-    width: 445px;
-  }
   .photos-text:nth-child(2){
     top: 138px;
     left: 30px;
@@ -133,7 +130,6 @@
     right: 30px;
     top: 2445px;
   }
-
 }
 
 @media screen and (max-width: 767px) {
