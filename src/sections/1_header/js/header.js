@@ -64,13 +64,13 @@ burger.addEventListener('click',function () {
     let bItems = document.getElementById('burgerItems');
     let children = document.querySelectorAll(" div.navbar, a.anchors-a, a.anchors-a-active, img.logo, div.nav-wrapper, div.block a.s-anchors, div.social-media");
 
-    if (!toursExist) {
-        newNavElement.innerHTML = 'Tours';
-        newNavElement.className += ' anchors-a ';
-        bItems.appendChild(newNavElement);
-
-        toursExist = true;
-    }
+    // if (!toursExist) {
+    //     newNavElement.innerHTML = 'Tours';
+    //     newNavElement.className += ' anchors-a ';
+    //     bItems.appendChild(newNavElement);
+    //
+    //     toursExist = true;
+    // }
     for ( let i = 0; i<children.length; i++){
         let child = children[i];
         // let freeGuide = children[i=2];
@@ -115,3 +115,54 @@ window.addEventListener("resize", function () {
     window.addEventListener('scroll', trackScroll);
     goTopBtn.addEventListener('click', backToTop);
 })();
+
+$('.burger-items>a').click((e) => {
+    let clicked = $(e.target).index();
+    switch (clicked) {
+        case 0:
+            $(document.documentElement).animate({
+                scrollTop: $('#about-us').offset().top - 60
+            }, 1000);
+            break;
+        case 1:
+            $(document.documentElement).animate({
+                scrollTop: $('#free-guide').offset().top - 60
+            }, 1000);
+            break;
+        case 2:
+            $(document.documentElement).animate({
+                scrollTop: $('#routes').offset().top - 60
+            }, 1000);
+            break;
+        case 3:
+            $(document.documentElement).animate({
+                scrollTop: $('#others-say').offset().top - 60
+            }, 1000);
+            break;
+        case 4:
+            $(document.documentElement).animate({
+                scrollTop: $('#slider').offset().top - 60
+            }, 1000);
+            break;
+        case 5:
+            $(document.documentElement).animate({
+                scrollTop: $('#get-in-touch').offset().top - 60
+            }, 1000);
+            break;
+        case 6:
+            $(document.documentElement).animate({
+                scrollTop: $('#individual-tour').offset().top - 60
+            }, 1000);
+            break;
+        default:
+            $(document.documentElement).animate({
+                scrollTop: $(document.body).offset().top
+            }, 1000);
+    }
+});
+
+$('.free-guide-btn').click(function() {
+  $(document.documentElement).animate({
+      scrollTop: $('#free-guide').offset().top - 60
+  }, 1000);
+});
