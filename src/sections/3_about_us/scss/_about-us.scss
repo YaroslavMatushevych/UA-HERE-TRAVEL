@@ -3,6 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .about-us-container {
@@ -173,6 +174,7 @@
 
 @media screen and (max-width: 1200px) {
   .about-us {
+    padding: 110px 20px 0;
     max-width: 1140px;
   }
 
@@ -190,10 +192,6 @@
 }
 
 @media screen and (max-width: 993px){
-
-  .about-us {
-    margin: 0 30px;
-  }
 
   .sidebar {
     flex-basis: 34%;
@@ -246,7 +244,7 @@
 @media screen and (max-width: 768px) {
 
   .about-us {
-    margin: 0 15px;
+    padding: 110px 15px 0;
   }
 
   .about-us-container {
@@ -425,7 +423,6 @@
 
   .about-us {
     max-width: 100%;
-    margin: 0 15px;
   }
 
   .next, .previous {
@@ -461,6 +458,7 @@
 
   .about-us {
     margin: 0 auto;
+    padding: 110px 0 0;
   }
 
   .sidebar {
