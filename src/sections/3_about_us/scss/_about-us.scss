@@ -2,6 +2,7 @@
   padding-top:110px;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .about-us-container {
@@ -127,7 +128,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   flex-basis: 65%;
-  padding: 15px 10px;
+  padding: 25px 15px;
   box-sizing: border-box;
   font-family: "Muli", sans-serif;
   font-size: 20px;
@@ -172,7 +173,7 @@
 
 @media screen and (max-width: 1200px) {
   .about-us {
-    max-width: 960px;
+    max-width: 1140px;
   }
 
   .person-desc-name {
@@ -238,7 +239,7 @@
 
   .person-desc-expert, .person-desc-speech {
     line-height: 24px;
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -323,8 +324,8 @@
   }
 
   .person-desc-speech {
-    font-size: 17px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 28px;
   }
 
   .slider-nav-top {
@@ -340,19 +341,19 @@
   .prev-name {
     display: inline-block;
     color: #939393;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .next-name {
     display: inline-block;
     color: #939393;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .previous{
     display: inline-block;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     color: #00b6cc;
     margin: 0 8px;
   }
@@ -360,7 +361,7 @@
   .next{
     display: inline-block;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     color: #00b6cc;
     margin: 0 8px;
   }
@@ -402,10 +403,8 @@
     color: #fff;
     border: 2px solid #f0d456;
     border-radius: 50%;
-    display: inline;
-    font-size: 3px;
-    margin-right: 4px;
-    padding: 5px;
+    display: inline-block;
+    padding: 6px;
   }
 
   .slider-dots li.active-dot {
@@ -430,12 +429,12 @@
   }
 
   .next, .previous {
-    font-size: 15px;
+    font-size: 16px;
     margin: 0 5px;
   }
 
   .next-name, .prev-name {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .person-desc {
@@ -474,6 +473,8 @@
     justify-content: flex-end;
     margin: 0;
     padding-right: 30px;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   .top-prev {
@@ -498,9 +499,13 @@
     flex-wrap: wrap;
   }
 
+  .person-photo-container {
+    text-align: right;
+  }
+
   .person-photo{
     flex-basis: 100%;
-    width: 100%;
+    width: 70%;
     height: 100%;
     top: 0;
   }
@@ -508,17 +513,21 @@
   .person-desc {
     border-top: 20px solid #f0d456;
     flex-basis: 100%;
-    padding: 20px 20px 10px;
+    padding: 20px 20px 20px;
   }
 
-  .person-desc-speech {
-    font-size: 17px;
-    line-height: 28px;
+  .person-desc-name {
+    font-size: 30px;
   }
 
   .person-desc-expert {
-    margin: 15px 0;
-    font-size: 17px;
+    margin: 15px 0 10px;
+    font-size: 18px;
+  }
+
+  .person-desc-speech {
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .arrow-prev {
@@ -532,6 +541,7 @@
     display: flex;
     flex-direction: column-reverse;
     order: 4;
+    margin-top: 15px;
   }
 
   .slider-dots {
