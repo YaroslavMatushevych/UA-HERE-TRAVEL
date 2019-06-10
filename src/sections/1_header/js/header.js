@@ -49,7 +49,7 @@ bItems.addEventListener('click',function () {
 
 
 let menuHeight = $('.navbar').height();
-let scrollOffsetTop = 0;
+let scrollOffsetTop = menuHeight;
 $('.burger-items>a').click((e) => {
   if (($(window).width()) < 767){
     let scrollOffsetTop = 0;
