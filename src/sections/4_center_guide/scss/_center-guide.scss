@@ -222,13 +222,17 @@
 @media screen and (max-width: 768px) {
 
   .center-guide {
-    height: 520px;
-    margin-top: 230px;
+      height: 480px;
+      margin-top: 150px;
   }
 
+    .hand-trim {
+        max-height: 90%;
+    }
+
   .center-guide-triangle {
-    border-width: 400px 0 400px 500px;
-    top: -250px;
+      border-width: 375px 0 375px 460px;
+      top: -225px;
   }
     .center-guide-heading {
         font-family: "Muli Black", sans-serif;
