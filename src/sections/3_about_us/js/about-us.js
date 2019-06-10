@@ -148,20 +148,20 @@ $('.dot').click(function () {
 
 window.addEventListener('resize', function(){
     if ($(window).width() < 481) {
-        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko768full.png");
+        $(".person-photo").attr("src", "img/about-us/TeamKlimenko768full.png");
     }
     if ($(window).width() >= 481 && $(window).width() <= 993) {
-        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko768.png");
+        $(".person-photo").attr("src", "img/about-us/TeamKlimenko768.png");
     }
     if ($(window).width() >= 994) {
-        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko1366.png");
+        $(".person-photo").attr("src", "img/about-us/TeamKlimenko1366.png");
     }
 });
 
     if ($(window).width() < 481) {
-        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko768full.png");
+        $(".person-photo").attr("src", "img/about-us/TeamKlimenko768full.png");
     }
     if ($(window).width() >= 481 && $(window).width() <= 993) {
-        $(".person-photo").attr("src", "../../img/about-us/TeamKlimenko768.png");
+        $(".person-photo").attr("src", "img/about-us/TeamKlimenko768.png");
     }
 
