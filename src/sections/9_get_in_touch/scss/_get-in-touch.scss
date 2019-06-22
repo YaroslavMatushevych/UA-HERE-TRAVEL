@@ -177,10 +177,14 @@
     .get-in-touch-square{
         display: none;
     }
+    .get-in-touch-form-wrapper{
+      border: 26px solid $yellow;
+      box-sizing: border-box;
+      display: block;
+    }
     .get-in-touch-form{
         @include flex(c,c);
-        border: 26px solid $yellow;
-        box-sizing: border-box;
+        max-width: 400px;
     }
     .get-in-touch-title{
         display: none;
@@ -191,6 +195,7 @@
     }
     .get-in-touch-form{
         padding: 49px 130px 34px 130px;
+        margin: 0 auto;
     }
     .get-in-touch-form input:nth-child(-n+3){
         outline-style: none;
@@ -217,8 +222,24 @@
 }
 @media screen and (max-width: 578px){
     .get-in-touch-form{
+      width: 355px;
+    }
+    .get-in-touch input:nth-child(-n+3){
+      width: calc(100% - 14px);
+    }
+    .get-in-touch-form textarea{
+      width: calc(100% - 30px);
+    }
+  }
+
+@media screen and (max-width: 479px){
+    .get-in-touch-form-wrapper{
         border: none;
-        margin: 0;
+        width: 100%;
+    }
+    .get-in-touch-form{
+      width: 100%;
+      padding: 35px 0;
     }
     .get-in-touch-modal{
         width: 100%;
@@ -228,11 +249,5 @@
         display: block;
         line-height: 1px;
         margin-top: 28px;
-    }
-    .get-in-touch-form input:nth-child(-n+3){
-        max-width: 280px;
-    }
-    .get-in-touch-form textarea{
-        max-width: 280px;
     }
 }

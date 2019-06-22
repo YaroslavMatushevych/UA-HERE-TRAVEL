@@ -8,7 +8,7 @@ let centerValidFlag = false;
 
 if (window.innerWidth >= 481) {
     if (windowScroll > centerGuideY) {
-        triangle.style.transform = `translateX(0)`;
+        triangle.style.transform = `translateX(-20px)`;
         alreadyPlayed = true;
     }
 }
@@ -36,7 +36,7 @@ window.addEventListener('resize', function(){
     }
 
     if (window.innerWidth >= 481 && alreadyPlayed) {
-        triangle.style.transform = `translateX(0)`;
+        triangle.style.transform = `translateX(-20px)`;
     }
 
     if (window.innerWidth < 481) {

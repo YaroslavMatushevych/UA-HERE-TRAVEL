@@ -14,6 +14,13 @@
     transform: translateX(-100%);
 }
 
+.hand-trim {
+    position: absolute;
+    bottom: 25px;
+    right: 15%;
+    max-height: 100%;
+}
+
 .played {
     transform: translateX(0%);
     transition: transform 0.9s linear;
@@ -24,6 +31,7 @@
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .center-guide-heading {
@@ -169,39 +177,63 @@
 }
 
 @media screen and (max-width: 1200px) {
+
+    .center-guide {
+        height: 660px;
+        margin-top: 270px;
+    }
+
     .center-guide-container {
-        max-width: 960px;
+        max-width: 1140px;
+        padding: 0 20px;
+    }
+
+    .hand-trim {
+        right: 10%;
+        max-height: 100%;
+    }
+
+    .center-guide-triangle {
+        border-width: 500px 0 500px 650px;
+        top: -270px;
     }
 }
 
 @media screen and (max-width: 993px) {
-
-    .center-guide-container {
-        margin: 0 30px;
+    .center-guide {
+        height: 600px;
     }
 
     .alert-success, .alert-fail {
         width: 700px;
         height: 420px;
     }
+
+    .hand-trim {
+        right: 1%;
+        max-height: 100%;
+    }
+
+    .center-guide-triangle {
+        border-width: 450px 0 450px 540px;
+    }
 }
 
 @media screen and (max-width: 768px) {
 
   .center-guide {
-    height: 520px;
-    margin-top: 230px;
+      height: 480px;
+      margin-top: 150px;
   }
 
-  .center-guide-triangle {
-    border-width: 400px 0 400px 500px;
-    top: -250px;
-  }
-
-    .center-guide-container {
-        margin: 0 15px;
+    .hand-trim {
+        max-height: 90%;
     }
 
+  .center-guide-triangle {
+      border-width: 370px 0 370px 440px;
+      top: -225px;
+  }
     .center-guide-heading {
         font-family: "Muli Black", sans-serif;
         font-size: 30px;
@@ -236,16 +268,36 @@
     }
 }
 
+@media screen and (max-width: 578px) {
+
+    .center-guide {
+        height: 460px;
+        margin-top: 100px;
+    }
+
+    .hand-trim {
+        max-height: 90%;
+    }
+
+    .center-guide-triangle {
+        border-width: 310px 0 310px 350px;
+        top: -140px;
+    }
+}
+
+
 @media screen and (max-width: 480px) {
 
     .center-guide {
-        margin-bottom: 250px;
+        padding-bottom: 260px;
         height: 720px;
         overflow-x: hidden;
     }
 
-    .center-guide-container {
-        margin: 0 20px;
+    .hand-trim {
+        right: 50%;
+        max-height: 30%;
+        transform: translateX(38%);
     }
 
     .center-guide-triangle {
@@ -253,7 +305,7 @@
         left: 50%;
         transform: translate(-50%, 0%);
         overflow-x: hidden;
-        border-width: 650px 520px 0;
+        border-width: 630px 500px 0;
         border-color: #f0d456 transparent transparent transparent;
     }
 

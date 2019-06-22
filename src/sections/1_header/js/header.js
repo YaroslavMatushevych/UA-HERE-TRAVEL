@@ -1,94 +1,25 @@
-// let navMenu = document.getElementsByClassName("anchors");
-// for(let i= 0; i <= navMenu.length-1; i++) {
-//     navMenu[i].addEventListener("click",function () {
-//         for(let i = 0;i <= navMenu.length-1; i++) {
-//             navMenu[i].classList.remove("active")
-//         }
-//         this.classList.add("active");
-//     })
-// }
-/*document.body.addEventListener("click", function (e) {
-    var elem = e.target;
-    for (let i = 0; i <= document.getElementsByClassName('anchors').length -1; i++ ) {
-       // console.log(document.getElementsByClassName('anchors'));
-        document.getElementsByClassName('anchors')[i].classList.remove("active")
-    }
-    if (elem.classList.contains("anchors"))
-        elem.classList.add('active');
+const burgerButton = document.getElementById('burgerIcon');
+const bItems = document.getElementById('burgerItems');
+const children = document.querySelectorAll('div.navbar, a.anchors-a, a.anchors-a-active, img.logo, div.nav-wrapper, div.block a.s-anchors, div.social-media');
 
-});*/
-/*
-for (var i= 0; i< document.getElementsByClassName('anchors').length; i++){
-    document.getElementsByClassName('anchors')[i].addEventListener('click', function () {
-        this.classList.toggle('active')
-    })
-}*/
-
-
-// let navMenu = document.getElementsByClassName("anchors");
-// for(let i= 0; i <= navMenu.length-1; i++) {
-//     navMenu[i].addEventListener("click",function () {
-//         for(let i = 0;i <= navMenu.length-1; i++) {
-//             navMenu[i].classList.remove("active")
-//         }
-//         this.classList.add("active");
-//     })
-// }
-/*document.body.addEventListener("click", function (e) {
-    var elem = e.target;
-    for (let i = 0; i <= document.getElementsByClassName('anchors').length -1; i++ ) {
-       // console.log(document.getElementsByClassName('anchors'));
-        document.getElementsByClassName('anchors')[i].classList.remove("active")
-    }
-    if (elem.classList.contains("anchors"))
-        elem.classList.add('active');
-
-});*/
-/*
-for (var i= 0; i< document.getElementsByClassName('anchors').length; i++){
-    document.getElementsByClassName('anchors')[i].addEventListener('click', function () {
-        this.classList.toggle('active')
-    })
-}*/
-// function myFunction(x) {
-//     x.classList.toggle("change");
-//
-// }
-const burger = document.getElementById('burgerIcon');
-let newNavElement = document.createElement("a");
-let toursExist = false;
-
-
-burger.addEventListener('click',function () {
-
-    let bItems = document.getElementById('burgerItems');
-    let children = document.querySelectorAll(" div.navbar, a.anchors-a, a.anchors-a-active, img.logo, div.nav-wrapper, div.block a.s-anchors, div.social-media");
-
-    if (!toursExist) {
-        newNavElement.innerHTML = 'Tours';
-        newNavElement.className += ' anchors-a ';
-        bItems.appendChild(newNavElement);
-
-        toursExist = true;
-    }
+burgerButton.addEventListener('click',function () {
     for ( let i = 0; i<children.length; i++){
         let child = children[i];
-        // let freeGuide = children[i=2];
-        // freeGuide.innerHTML = 'Get Free Guide';
         child.classList.toggle('opened');
-
     }
-    burger.classList.toggle("change");
+    burgerButton.classList.toggle('change');
     bItems.classList.toggle('opened');
-
-
 });
 
-window.addEventListener("resize", function () {
-    if (window.innerWidth > 768 && newNavElement) {
-        newNavElement.parentNode.removeChild(newNavElement);
+bItems.addEventListener('click',function () {
+    for ( let i = 0; i<children.length; i++){
+        let child = children[i];
+        child.classList.toggle('opened');
     }
+    burgerButton.classList.toggle('change');
+    bItems.classList.toggle('opened');
 });
+
 (function() {
     'use strict';
 
@@ -115,3 +46,63 @@ window.addEventListener("resize", function () {
     window.addEventListener('scroll', trackScroll);
     goTopBtn.addEventListener('click', backToTop);
 })();
+
+
+let menuHeight = $('.navbar').height();
+let scrollOffsetTop = menuHeight;
+$('.burger-items>a').click((e) => {
+  if (($(window).width()) < 767){
+    let scrollOffsetTop = 0;
+  }
+    let clicked = $(e.target).index();
+    switch (clicked) {
+        case 0:
+            $(document.documentElement).animate({
+                scrollTop: $('#about-us').offset().top - scrollOffsetTop
+            }, 1000);
+            break;
+        case 1:
+            $(document.documentElement).animate({
+                scrollTop: $('#free-guide').offset().top - scrollOffsetTop
+            }, 1000);
+            break;
+        case 2:
+            $(document.documentElement).animate({
+                scrollTop: $('#routes').offset().top - scrollOffsetTop
+            }, 1000);
+            break;
+        case 3:
+            $(document.documentElement).animate({
+                scrollTop: $('#others-say').offset().top - scrollOffsetTop
+            }, 1000);
+            break;
+        case 4:
+            $(document.documentElement).animate({
+                scrollTop: $('#slider').offset().top - scrollOffsetTop
+            }, 1000);
+            break;
+        case 5:
+            $(document.documentElement).animate({
+                scrollTop: $('#get-in-touch').offset().top - scrollOffsetTop
+            }, 1000);
+            break;
+        case 6:
+            $(document.documentElement).animate({
+                scrollTop: $('#individual-tour').offset().top - scrollOffsetTop
+            }, 1000);
+            break;
+        default:
+            $(document.documentElement).animate({
+                scrollTop: $(document.body).offset().top
+            }, 1000);
+    }
+});
+
+$('.free-guide-btn').click(function() {
+  if (($(window).width()) < 767){
+    let scrollOffsetTop = 0;
+  };
+  $(document.documentElement).animate({
+      scrollTop: $('#free-guide').offset().top - scrollOffsetTop
+  }, 1000);
+});

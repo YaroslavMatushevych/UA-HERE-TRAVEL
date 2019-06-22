@@ -34,9 +34,6 @@
 }
 .speach {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 .speach-item-name {
     @include text(Muli, #34353a, 26, 700, left, uppercase);
