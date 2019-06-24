@@ -1,3 +1,285 @@
-.test6 {
-    color: red;
+.request-route{
+    margin-top: 140px;
+    position: relative;
+}
+.header-section{
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    min-height: 1010px;
+}
+.rr-header-section{
+    @include header(30);
+    font-weight: 900;
+    position: relative;
+    margin: 75px 0 60px;
+    text-align: left;
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 100px;
+        width: 107px;
+        height: 3px;
+        background-color: rgb(131, 132, 134);
+    }
+}
+.route{
+    margin-bottom: 85px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 725px;
+}
+.route-item{
+    width: calc(100% / 3 - 15px);
+    display: flex;
+    flex-direction: column;
+}
+.route-item-photo{
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 50px;
+}
+.route-name{
+    @include text(Muli, #34353a, 22, 700, left, none);
+    margin-bottom: 38px ;
+}
+.route-description{
+    @include text(Muli, #34353a, 20, 400, left, none);
+    padding-right: 5px;
+    line-height: 24px;
+    height: calc(24px * 7);
+    margin-bottom: 20px ;
+}
+.route-price-button{
+    padding: 15px 0;
+    @include flex(sa, c);
+    background-color: #fbfbfb;
+}
+.route-price{
+    @include text(Muli, #7b7b7c, 30, 400, center, none);
+}
+.route-button{
+    @include btn;
+    height: 50px;
+}
+.route-button:hover{
+    @include btn-hover;
+}
+.route-button:active{
+    @include btn-active;
+}
+.route-overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.5);
+    transition: all .4s linear;
+}
+.route-overlay-fade {
+    opacity: 1;
+    visibility: visible;
+    transition: all .4s linear;
+}
+.route-modal {
+    margin: 20px auto;
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    width: 630px;
+    box-sizing: border-box;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all .4s linear;
+    color: #34353a;
+    background-color: rgb(255, 255, 255);
+}
+.route-modal-request {
+    padding: 47px 112px 29px 116px;
+    text-align: left;
+}
+.opened {
+    visibility: visible;
+    opacity: 1;
+    transition: all .4s linear;
+}
+.route-modal-close, .route-modal-successful-close,.route-modal-fail-close {
+    position: absolute;
+    top: -29px;
+    right: -22px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+.route-modal-form-header {
+    @include text("Muli",#34353a,30,700,left,none);
+    padding-bottom: 50px;
+}
+.route-form {
+    display: block;
+}
+.route-modal-form-inputs {
+    @include text("Muli",#34353a,20,400,left,none);
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid rgb(0,0,0);
+    outline: none;
+}
+.route-form-button {
+    @include btn;
+    margin-top: 35px;
+    width: 230px;
+    float: right;
+    font-size: 26px;
+    font-weight: 400;
+}
+.route-form-button:hover{
+    @include btn-hover;
+}
+.route-form-button:active{
+    @include btn-active;
+}
+.warning{
+    border-bottom: 2px solid #c92533;
+}
+.route-warning {
+  @include text("Muli",#34353a,16,400,left,none);
+    visibility: hidden;
+    opacity: 0;
+    color: #c92533;
+}
+.route-warning.warning-text{
+    opacity: 1;
+    visibility: visible;
+}
+.route-modal-successful {
+    padding: 41px 143px 45px 136px;
+    text-align: right;
+}
+.route-modal-fail {
+    padding: 75px 10px 25px;
+    text-align: right;
+}
+.route-modal-check {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 120px;
+    color: #3aaa35;
+}
+.route-modal-successful-form-header, .route-modal-fail-form-header {
+    @include text("Muli",#34353a,26,700,center,none);
+    line-height: 35px;
+}
+.route-modal-successful-form-header {
+    padding: 33px 0 15px;
+}
+.route-modal-successful-form-subheader {
+    @include text("Muli",#34353a,18,700,center,none);
+}
+.route-modal-successful-form-subheader-time {
+    @include text("Muli",#34353a,18,400,right,none);
+}
+.route-button-successful, .route-button-fail {
+    @include text("Muli",#34353a,20,400,right,none);
+    text-decoration: underline;
+}
+.route-button-successful{
+    margin: 18px -106px 0 0;
+}
+.route-button-fail {
+    padding-right: 34px;
+    margin-top: 49px;
+}
+.route-modal-warning {
+    display: block;
+    padding-bottom: 30px;
+    font-size: 105px;
+    color: #ec0000;
+    text-align: center;
+}
+.route-modal-fail-form-header {
+    line-height: 35px;
+}
+
+@media screen and (max-width: 993px) {
+    .request-route{
+        margin-top: 100px;
+    }
+    .route{
+        flex-direction: column;
+    }
+    .route-description{
+        height: calc(24px * 6);
+    }
+    .route-item{
+        flex-direction: row;
+        width: 100%;
+    }
+    .route-item-photo{
+        max-width: 320px;
+        max-height: 320px;
+        height: 320px;
+        margin-right: 23px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .rr-header-section{
+        margin: 50px 0;
+        &:before{
+            bottom: 75px;
+        }
+    }
+    .route{
+        display: block;
+    }
+    .route-item{
+        margin: 0 auto 60px;
+        flex-direction: column;
+    }
+    .route-item-photo{
+        margin: 0 auto 60px;
+        height: auto;
+    }
+    .route-description{
+        height: calc(24px * 8);
+    }
+    .route-modal {
+        width: 100%;
+    }
+    .route-modal-close, .route-modal-successful-close,.route-modal-fail-close {
+        top: -40px;
+        right: 20px;
+    }
+    .route-modal-request {
+        padding: 37px 40px 29px 45px;
+        text-align: left;
+    }
+    .route-modal-successful {
+        padding: 35px 5px 33px;
+    }
+    .route-modal-successful-form-subheader-time {
+        display: block;
+        text-align: center;
+    }
+    .route-button-successful{
+        margin: 18px 15px 0 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .route-price{
+        font-size: 25px;
+    }
+    .route-item-photo{
+        max-width: 290px;
+    }
 }

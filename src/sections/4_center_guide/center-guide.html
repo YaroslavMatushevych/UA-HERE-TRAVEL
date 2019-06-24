@@ -1,1 +1,37 @@
-<section class="test4">center-guide</section>
+<section id="free-guide" class="center-guide">
+    <img class="hand-trim" src="img/center-guide/handTrim.png" alt="Trim">
+    <div class="center-guide-triangle"></div>
+    <div class="center-guide-container">
+            <h2 class="center-guide-heading">Get your free Kyiv Center guide</h2>
+            <form class="center-guide-form" id="get-guide" action="mail.php">
+                <input id="input-name" name="name" type="text" placeholder="Your Name">
+                <p class="valid-name"></p>
+
+                <input id="input-email" name="mail" type="email" placeholder="Your Email">
+                <p class="valid-email"></p>
+
+                <input class="form-button" type="submit" value="Send Me">
+                <p class="form-file-description"><i class="far fa-file-pdf"></i> PDF, 8 pages, 35 MB</p>
+            </form>
+    </div>
+    <div class="center-guide-alert">
+        <div class="alert-success">
+            <a href="#" class="saltire">&#10006;</a>
+            <span class="check">&#10004;</span>
+            <div class="alert-message">
+                <p class="message-text">We have already sent you an amazing</p>
+                <p class="message-text">Kyiv Center tour guide</p>
+                <a href="#" class="close">close</a>
+            </div>
+        </div>
+        <div class="alert-fail">
+            <a href="#" class="saltire">&#10006;</a>
+            <span class="cross">&cross;</span>
+            <div class="alert-message">
+                <p class="message-text">Something went wrong;(</p>
+                <p class="message-text">Please try again!</p>
+                <a href="#" class="close">close</a>
+            </div>
+        </div>
+    </div>
+</section>

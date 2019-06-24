@@ -41,3 +41,18 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+button{
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    outline: none;
+}

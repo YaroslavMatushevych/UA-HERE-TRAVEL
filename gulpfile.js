@@ -10,6 +10,7 @@ const terser = require('gulp-terser');						//minify for js
 const autoprefixer = require('gulp-autoprefixer');			//cross-browser compatibility css
 const babel = require('gulp-babel');						//cross-browser compatibility js
 const nunjucks = require('gulp-nunjucks-render');           //template engine
+const debug = require('gulp-debug');                        //module debug
 
 const fontsFiles = [										//составляем массив переменних с все файлов шрифтов, для переноса в папку разработки
 	'./src/fonts/**.eot',
@@ -20,11 +21,12 @@ const fontsFiles = [										//составляем массив перемен
 
 const imgFiles = [
     './src/img/**/**.jpg',
-    './src/img/**/**.png'
+    './src/img/**/**.png',
+		'./src/img/**/**.mp4'
 ];
 
 function cleandev() {										//модуль отчистки папки перед каждой расспаковкой
-    return gulp.src('./dist', {read: false})
+    return gulp.src('./dist', {read: false})                //аргумент запрета чтения, ускоряет процесс сборки, например для картинок
         .pipe(clean())
 }
 
@@ -33,11 +35,17 @@ function img() {											//модуль переноса картинок
         .pipe(gulp.dest('./dist/img'))
 }
 
+function php() {											//модуль переноса php-файлов
+    return gulp.src('./src/php/*.php')
+        .pipe(gulp.dest('./dist'))
+}
+
 function buildhtml () {										//Copy index.html to dir "dev"
     return gulp.src('./src/*.html')
             .pipe(nunjucks({                                // Шаблонизатор
                 path: 'src/'
             }))
+            .pipe(debug({title: 'nunjucks'}))               //Дебаг для шага сборки шаблонизатором
             .pipe(gulp.dest('dist'))
             .pipe(browserSync.stream());
 }
@@ -47,8 +55,11 @@ function fonts () {											//Copy fonts to dir "dev"
         .pipe(gulp.dest('./dist/fonts'))
 }
 
-function jq () {											
+function jq () {
     return gulp.src('./src/js/*.js')
+        .on('data', function(file) {                     //Прослушка файлов проходящих через задачу
+            console.log(file)
+        })
         .pipe(gulp.dest('./dist/js'))
 }
 
@@ -57,9 +68,7 @@ function scripts () {
 		.pipe(babel({											//babel
             presets: ['@babel/env']
         }))
-        .pipe(terser({											//terser
-			toplevel: true
-		}))														//minify js
+        .pipe(terser())											//minify js
         .pipe(concat('all.js'))									//concat all js files
 		.pipe(rename(function (path) {							// function of rename extname for .css
             path.extname = ".min.js";
@@ -73,9 +82,8 @@ function forSass() {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cleanCSS({level: 2}))								// minifyCSS after sourcemaps and sass
-        .pipe(autoprefixer({
-            browsers: ['> 0.1%'],								// для браузеров которые использует 0.1%
-			cascade: false
+        .pipe(autoprefixer(['last 15 versions', '>1%', 'ie 8', 'ie 7'], {
+            cascade: true
         }))
         .pipe(rename(function (path) {							// function of rename extname for .css
             path.extname = ".min.css";
@@ -92,18 +100,21 @@ function watch() {
 		}
 	});
 
-	gulp.watch('./src/**/*.scss', forSass);				// ставим watcher для слежения за изменениями в файлах
+	gulp.watch('./src/**/*.scss', forSass);
+    gulp.watch('./src/**/*.php', php);	// ставим watcher для слежения за изменениями в файлах
 	gulp.watch('./src/**/*.js', scripts);
 	gulp.watch('./src/**/*.html', buildhtml);
 }
 
+
 gulp.task('cleandev', cleandev);
 gulp.task('img', img);
+gulp.task('php', php);
 gulp.task('buildHtml', buildhtml);
 gulp.task('scripts', scripts);
 gulp.task('sass', forSass);
 gulp.task('watch', watch);
 gulp.task('fonts', fonts);
 gulp.task('jq', jq);
-gulp.task('build', gulp.series('cleandev', gulp.series(img, buildhtml, fonts, jq, scripts, forSass)));
+gulp.task('build', gulp.series('cleandev', gulp.series(img, php, buildhtml, fonts, jq, scripts, forSass)));
 gulp.task('dev', gulp.series('build', watch));

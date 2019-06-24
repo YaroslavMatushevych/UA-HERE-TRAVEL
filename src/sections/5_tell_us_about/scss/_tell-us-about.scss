@@ -1,3 +1,698 @@
-.test5 {
-    color: blue;
+///////////////////////BASIC SLIDER PROP/////////////////////////
+
+.tell-us-about {
+  max-width: 100%;
+  background-color: #efefef;
+  position: relative;
+  top: -30px;
+}
+
+.main-form {
+  display: flex;
+  padding: 85px 0;
+  min-height: 800px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  transition: 0.4s;
+}
+
+.form-slide {
+  @include flex(sb, sb);
+  box-sizing: border-box;
+  min-height: 610px;
+  width: 100%;
+  transition: 0.4s;
+  position: absolute;
+  transform: translateX(150%);
+
+  &-footer {
+    @include flex(sb, c);
+    align-self: flex-end;
+    width: max-content;
+    flex-direction: column;
+  }
+
+  &_active {
+    transform: translateX(0);
+  }
+
+  &_left {
+    transform: translateX(-150%);
+  }
+}
+
+.hidden-slide{
+  display: none;
+}
+
+.form-btn {
+  @include btn;
+  text-transform: none;
+
+  &:hover {
+    @include btn-hover;
+  }
+
+  &:active {
+    @include btn-active;
+  }
+
+}
+
+.prev-btn {
+  @include text($font, #a3a2a2, 22, 700, center, capitalize);
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-300%, 50%);
+  margin-right: 47px;
+  line-height: 60px;
+
+  &:hover {
+    transition: 0.4s;
+    text-decoration: underline;
+  }
+
+  &_left {
+    position: absolute;
+    transform: translate(-430%, 50%);
+  }
+}
+
+.header-txt {
+  @include header(48);
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.sub-txt {
+  @include text($font, #34353a, 28, 500, center, none);
+}
+
+.pagination {
+  @include text($font, #34353a, 20, 700, center, none);
+  margin-bottom: 11px;
+  color: #34353a;
+  position: relative;
+}
+
+.form-column {
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form-card {
+  min-width: 50%;
+  @include flex(fs, fs);
+  padding: 45px 45px 45px 65px;
+  background-color: $white;
+  min-height: 541px;
+  flex-direction: column;
+  border: 25px solid #f0d456;
+  box-sizing: border-box;
+  box-shadow: -45px 45px 0px 0px rgba(183, 183, 183, 1);
+  position: relative;
+  left: 14px;
+
+  &-header {
+    @include text($font, #34353a, 60, 900, left, none);
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+  }
+
+  &-sub-header {
+    @include text($font, #34353a, 30, 400, left, none);
+    line-height: 45px;
+  }
+
+  &-working-hours {
+    @include text($font, #34353a, 15, 400, left, none);
+    height: 100%;
+    position: absolute;
+    right: calc(0% + 65px);
+    top: calc(100% - 60px);
+
+    & span {
+      font-weight: 700;
+    }
+  }
+}
+
+///////////////////////COMMON QUEST PROP/////////////////////////
+
+.form-quest {
+  @include flex(fs, fs);
+  flex-direction: column;
+  margin-bottom: 55px;
+  position: relative;
+}
+
+.quest-header-txt {
+  @include text($font, #34353a, 20, 700, left, none);
+  margin-bottom: 13px;
+}
+
+.form-picker {
+  @include text($font, #a3a2a2, 18, 400, left, capitalize);
+  @include flex(sa, c);
+  height: 55px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #a3a2a2;
+  overflow: hidden;
+}
+
+.form-tab {
+  display: inline-block;
+  line-height: 55px;
+  padding: 0 30px;
+  cursor: pointer;
+  border-right: 1px solid #a3a2a2;
+  background-color: $white;
+  transition: 0.4s;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover {
+    background-color: $yellow;
+    color: #303030;
+  }
+}
+
+.form-multi-picker {
+  @include text($font, #a3a2a2, 20, 400, left, none);
+  @include flex(fs, sb);
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  height: 100%;
+  transition: 0.4s;
+  position: relative;
+}
+
+.form-multi-tab {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #a3a2a2;
+  height: 54px;
+  line-height: 54px;
+  padding: 0 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  box-sizing: border-box;
+  z-index: 1;
+
+  &:hover {
+    background-color: $yellow;
+    color: #303030;
+  }
+}
+
+.multi-quest {
+  margin-bottom: 0;
+
+  & textarea {
+    @include text($font, #34353a, 20, 400, left, none);
+    width: 100%;
+    height: 250px;
+    outline-style: none;
+    padding: 25px;
+    border-radius: 5px;
+    border: 1px solid #a3a2a2;
+    box-sizing: border-box;
+    resize: none;
+  }
+}
+.budget-picker{
+  width: 100%;
+
+  & li{
+    padding: 0;
+    flex: 1 0 25%;
+    text-align: center
+  }
+}
+
+.left-moved-quest {
+  margin-left: 115px;
+}
+
+.left-moved-quest-2 {
+  margin-left: 30px;
+}
+
+.downed-quest {
+  margin-top: 150px;
+}
+
+///////////////////UNIQ QUEST PROP/////////////////////////
+
+.form-calendar {
+  @include flex(c, fs);
+  box-sizing: border-box;
+  margin-top: 20px;
+  width: 220px;
+  padding-bottom: 21px;
+  border-bottom: 1px solid #34353a;
+  position: relative;
+
+  & input {
+    @include text($font, #34353a, 18, 400, left, uppercase);
+    border: none;
+    outline: 0;
+    outline-offset: 0;
+    background-color: transparent;
+    cursor: pointer;
+    padding-left: 50px;
+  }
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
+::-webkit-clear-button {
+  display: none;
+}
+
+::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: relative;
+  left: -5px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.form-calendar-icon {
+  position: relative;
+  left: -70px;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #a3a2a2;
+  z-index: -1;
+  line-height: 27px;
+  transition: 0.4s;
+}
+
+.form-contact-info {
+  @include flex(fs, fs);
+  flex-direction: column;
+  margin: 320px 0 0 195px;
+}
+
+.form-contact-info input {
+  padding: 0 0 23px 14px;
+  border: none;
+  border-bottom: 1px solid #34353a;
+  margin-bottom: 27px;
+  @include text($font, #34353a, 20, 400, left, none);
+  background-color: inherit;
+  box-sizing: border-box;
+  outline-style: none;
+  width: 100%;
+}
+
+.form-plus-icon {
+  position: relative;
+  transition: 0.4s;
+  z-index: -2;
+
+  &-turned {
+    transform: rotateZ(45deg);
+  }
+}
+
+///////////////////TAB STATES/////////////////////////
+
+.active-form-tab {
+  background-color: $yellow;
+  border-color: transparent;
+  color: #303030;
+}
+
+.no-left-border-tab {
+  border-color: transparent;
+}
+
+.form-error {
+  opacity: 0;
+  transition: 0.4s;
+  width: max-content;
+  @include text($font, #c92533, 20, 400, left, none);
+  position: absolute;
+  bottom: calc(-100% + 10px);
+  left: 0;
+}
+
+.form-quest .form-error {
+  top: calc(100% + 10px);
+}
+
+.form-multi-picker .form-error {
+  bottom: calc(0% - 12px);
+}
+
+.form-input-error {
+  opacity: 0;
+  transition: 0.4s;
+  width: max-content;
+  @include text($font, #c92533, 20, 400, left, none);
+  position: relative;
+  top: -20px;
+}
+
+.hidden-form-card{
+  display: none;
+}
+
+///////////////////UI CALENDAR/////////////////////////
+
+.ui-datepicker{
+  display: flex;
+  flex-direction: column;
+  @include text('Muli',#34353a,20,800,center,capitalize);
+  width: 320px;
+  box-sizing: border-box;
+  box-shadow: 2.5px 4.33px 5px rgba(181,181,181,0.75);
+  background-color: #ffffff;
+  position: absolute;
+}
+.ui-datepicker table{
+  padding: 0 40px 40px 40px;
+}
+
+.ui-datepicker-calendar{
+  background-color: $white;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px 40px 40px;
+}
+.datepicker:hover + .form-calendar-icon{
+  color: $yellow;
+}
+.ui-datepicker-calendar thead{
+  width: 100%;
+  color: #afaeae;
+}
+.ui-datepicker-calendar thead tr{
+  display: flex;
+}
+.ui-datepicker-calendar thead tr th{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+}
+.ui-datepicker-header{
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 35px;
+  margin-top: 25px;
+  padding: 0 40px;
+}
+.ui-datepicker-prev, .ui-datepicker-next{
+  display: inline-block;
+  border-right: 4px solid #34353a;
+  border-bottom: 4px solid #34353a;
+  width: 20px;
+  height: 20px;
+  text-indent: 9999px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: 0.4s;
+}
+.ui-datepicker-prev{
+  float: left;
+  transform: rotate(-225deg);
+  &:hover{
+    border-color: #ffd508;
+  }
+}
+.ui-datepicker-next{
+  float: right;
+  transform: rotate(-45deg);
+  &:hover{
+    border-color: #ffd508;
+  }
+}
+.ui-state-default {
+  display: block;
+  width: 34px;
+  height: 34px;
+  text-decoration: none;
+  color: #34353a;
+  line-height: 35px;
+  &:hover {
+    background-color: #ffd508;
+  }
+}
+
+.ui-state-highlight {
+  color: #00b6cc;
+}
+.ui-state-active {
+  color: #afaeae;
+  background-color: #ffd508;
+}
+.ui-datepicker-unselectable .ui-state-default{
+  color: #afaeae;
+}
+
+///////////////////MEDIA QUERIES/////////////////////////
+
+@media screen and (max-width:1200px ) {
+  .main-form{
+    width: calc(100% - 40px);
+  }
+  .form-tab{
+    padding: 0 20px;
+  }
+  .form-card{
+    padding: 35px;
+    &-header{
+      font-size: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 993px) {
+  .form-tab{
+    padding: 0 30px;
+  }
+  .main-form{
+    min-height: 894px;
+    padding: 60px 0;
+  }
+  .form-slide{
+    flex-direction: column;
+    min-height: calc(894px - 120px);
+    justify-content: flex-start;
+    &-footer{
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  .form-card{
+    min-height: 360px;
+    box-shadow: none;
+    left: 0;
+    padding: 30px 35px;
+    margin: 0 70px 43px 70px;
+    &-header{
+      font-size: 40px;
+      margin-bottom: 30px;
+      padding-right: 90px;
+    }
+  }
+  .left-moved-quest, .left-moved-quest-2, .downed-quest {
+    margin: 0;
+  }
+  .form-column{
+    justify-content: flex-start;
+    flex: 1 0 50%;
+  }
+  .form-quest{
+    flex: 1 0 50%;
+  }
+  .multi-quest{
+    margin-bottom: 55px;
+    & textarea{
+      height: 130px;
+    }
+  }
+  .centered-quest{
+    align-items: center;
+    & .form-error{
+      position: initial;
+      margin-top: 10px;
+    }
+  }
+  .form-contact-info{
+    margin: 40px auto 0 auto;
+    width: 400px;
+  }
+  .left-moved-quest{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .form-multi-tab{
+    font-size: 18px;
+  }
+  .form-tab{
+    font-size: 18px;
+  }
+  .form-media-hidden{
+    display: none;
+  }
+
+}
+@media screen and (max-width: 767px){
+  .main-form{
+    min-height: 1100px;
+  }
+  .form-card{
+    padding: 20px;
+    margin: 0 0 48px 0;
+  }
+  .form-quest{
+    flex: 1 0 100%;
+  }
+  .form-slide{
+    min-height: calc(1100px - 120px);
+  }
+  .centered-quest{
+    align-items: flex-start;
+  }
+  .hidden-form-card{
+    display: block;
+  }
+  .quest-container:nth-child(2){
+    margin-top: 270px;
+  }
+  .form-picker{
+    height: 50px;
+    line-height: 50px;
+  }
+  .form-multi-tab{
+    height: 50px;
+    line-height: 50px;
+    margin-right: 15px;
+  }
+  .form-contact-info{
+    margin-top: 130px;
+  }
+  .form-media-hidden{
+    display: none;
+  }
+}
+@media screen and (max-width: 480px){
+  .main-form{
+    min-height: 930px;
+    width: 100vw;
+    padding: 0;
+    justify-content: flex-start;
+  }
+  .form-slide{
+    min-height: 840px;
+    justify-content: flex-start;
+  }
+  .form-column {
+    justify-content: center;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    flex: 0 0 auto;
+  }
+  .form-quest{
+    flex: 1 0 100%;
+  }
+  .form-card{
+    position: initial;
+    border: none;
+    padding: 40px;
+    background-color: $yellow;
+    min-height: 250px;
+    &-header{
+      font-size: 30px;
+      line-height: 35px;
+      padding: 0;
+    }
+    &-sub-header{
+      font-size: 20px;
+      line-height: 25px;
+    }
+    &-working-hours{
+      position: initial;
+      align-self: flex-end;
+      margin-top: 20px;
+    }
+  }
+  .form-tab{
+    padding: 0 25px;
+    font-size: 14px;
+  }
+  .form-multi-tab{
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .form-picker{
+    height: 40px;
+    line-height: 40px;
+  }
+  .pagination{
+    opacity: 0;
+  }
+  .prev-btn_left{
+    transform: translate(-0%,150%);
+  }
+  .budget-picker{
+    width: 100%;
+    & li{
+      flex: 1 0 15%;
+      padding: 0;
+      text-align: center;
+      &:nth-child(3){
+        flex-grow: 2;
+      }
+      &:nth-child(2){
+        flex-grow: 2;
+      }
+    }
+  }
+  .ui-datepicker{
+    width:320px;
+  }
+  .form-error{
+    font-size: 15px;
+  }
+  .form-submit-footer{
+    align-self: center;
+  }
+  .form-contact-info input{
+    width: 90vw;
+  }
+  .form-multi-picker .form-error {
+    top: 100%;
+  }
+  .multi-quest textarea{
+    font-size: 14px;
+  }
+  .form-mobile-downed-quest{
+    margin-top: 100px;
+  }
+  .quest-header-txt{
+    font-size: 18px;
+  }
 }

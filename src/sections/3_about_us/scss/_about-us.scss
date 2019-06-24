@@ -1,3 +1,548 @@
-.test3 {
-    color: blue;
+.about-us{
+  padding-top:110px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.about-us-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.sidebar {
+  flex-basis: 26%;
+  background-color: #fff;
+}
+
+.sidebar-title {
+  @include text("Muli Black",#34353a,30,700,left,none);
+  position: relative;
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: -76px;
+    width: 107px;
+    height: 3px;
+    background-color: #838486;
+  }
+}
+
+.sidebar-nav {
+  margin-top: 125px;
+  color: #939393;
+  font-size: 22px;
+  z-index: 4;
+  position: relative;
+}
+
+.sidebar-nav-item {
+  @include text("Muli",#939393,18,600,left,uppercase);
+  padding: 15px 0;
+  cursor: pointer;
+
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f0da";
+    display: inline-block;
+    padding-right: 3px;
+    font-weight: 900;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    transition: opacity 0.1s linear;
+  }
+}
+
+.sidebar-nav-item_active {
+  color: #00b6cc;
+
+  &:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f0da";
+    display: inline-block;
+    padding-right: 3px;
+    font-weight: 900;
+    color: #f0d456;
+    opacity: 1;
+  }
+}
+
+.slider-nav-top {
+  display: none;
+}
+
+.person {
+  flex-basis: 67%;
+  border: 20px solid #f0d456;
+  box-sizing: border-box;
+  margin-left: 10px;
+  z-index: 3;
+}
+
+.person-container {
+  display: none;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+
+  &:before{
+    content: '';
+    width: 14px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    box-shadow: -34px 0 0 0 rgba(233, 233, 233, 1);
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -34px;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 50px 0 0 rgba(233, 233, 233, 1);
+  }
+}
+
+.person-photo {
+  width: 100%;
+  height: 106%;
+  position: relative;
+  z-index: 2;
+  top: -6%;
+  right: 0;
+  object-fit: cover;
+}
+
+.person-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-basis: 65%;
+  padding: 25px 15px;
+  box-sizing: border-box;
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+  color: #34353a;
+}
+
+.person-desc-name {
+  font-family: "Muli Black", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  color: #34353a;
+}
+
+.person-desc-name span{
+  display: block;
+}
+
+.person-desc-expert, .person-desc-speech {
+  line-height: 34px;
+}
+
+.person-desc-expert {
+  margin: 15px 0;
+}
+
+.person-slide_active {
+  display: flex !important;
+}
+
+.yellow-back {
+  background-color: #f0d456;
+  padding: 0 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.slider-nav {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .about-us {
+    padding: 110px 20px 0;
+    max-width: 1140px;
+  }
+
+  .person-desc-name {
+    font-size: 45px;
+  }
+
+  .person-desc-expert {
+    margin: 20px 0;
+  }
+
+  .person-desc-expert, .person-desc-speech {
+    line-height: 27px;
+  }
+}
+
+@media screen and (max-width: 993px){
+
+  .sidebar {
+    flex-basis: 34%;
+    padding-right: 0;
+  }
+
+  .sidebar-nav {
+    margin-top: 90px;
+  }
+
+  .sidebar-nav-item {
+    font-size: 17px;
+    padding: 10px 0;
+  }
+
+  .person-container {
+
+    &:before{
+      width: 10px;
+      bottom: -20px;
+      box-shadow: -30px 0 0 0 rgba(233, 233, 233, 1);
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: -30px;
+      width: 100%;
+      height: 35px;
+      box-shadow: 0 35px 0 0 rgba(233, 233, 233, 1);
+    }
+  }
+
+  .person-desc {
+    padding: 15px 10px;
+    flex-basis: 95%;
+  }
+
+  .person-desc-name {
+    font-size: 32px;
+  }
+
+  .person-desc-expert, .person-desc-speech {
+    line-height: 24px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .about-us {
+    padding: 110px 15px 0;
+  }
+
+  .about-us-container {
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+
+  .sidebar {
+    flex-basis: 100%;
+  }
+
+  .sidebar-title {
+
+    &:before {
+      top: -60px;
+    }
+  }
+
+  .sidebar-nav {
+    display: none;
+  }
+
+  .person {
+    flex-basis: 100%;
+    border: 20px solid #f0d456;
+    box-sizing: border-box;
+    margin-left: 0;
+    z-index: 3;
+    position: relative;
+  }
+
+  .person-container {
+    display: none;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+
+    &:before{
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      box-shadow: 0 0 0 0 rgba(233, 233, 233, 1);
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      box-shadow: 0 0 0 0 rgba(233, 233, 233, 1);
+    }
+  }
+
+  .person-desc-name span {
+    display: inline-block;
+  }
+
+  .person-desc {
+    flex-basis: 70%;
+  }
+
+  .person-desc-name {
+    font-size: 40px;
+  }
+
+  .person-desc-expert {
+    font-size: 18px;
+  }
+
+  .person-desc-speech {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .slider-nav-top {
+    @include text("Muli Black",#939393,18,400,left,none);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100vw;
+    margin: 30px 0;
+  }
+
+  .prev-name {
+    display: inline-block;
+    color: #939393;
+    font-size: 16px;
+  }
+
+  .next-name {
+    display: inline-block;
+    color: #939393;
+    font-size: 16px;
+  }
+
+  .previous{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    color: #00b6cc;
+    margin: 0 8px;
+  }
+
+  .next{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    color: #00b6cc;
+    margin: 0 8px;
+  }
+
+  .slider-nav {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    flex-basis: 100%;
+    z-index: 4;
+  }
+
+  .arrow-prev {
+    margin-right: 25px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 35px;
+    color: #f0d456;
+  }
+
+  .arrow-next {
+    margin-left: 15px;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 35px;
+    color: #f0d456;
+  }
+
+  .slider-dots {
+    list-style: none;
+    display: inline-block;
+    padding-left: 0;
+    margin-bottom: 0;
+    position: relative;
+    top: -6px;
+  }
+
+  .slider-dots li {
+    color: #fff;
+    border: 2px solid #f0d456;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 6px;
+  }
+
+  .slider-dots li.active-dot {
+    background-color: #f0d456;
+  }
+}
+
+.person-slide_active {
+  display: flex !important;
+}
+
+
+.dot {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 578px) {
+
+  .about-us {
+    max-width: 100%;
+  }
+
+  .next, .previous {
+    font-size: 16px;
+    margin: 0 5px;
+  }
+
+  .next-name, .prev-name {
+    font-size: 16px;
+  }
+
+  .person-desc {
+    flex-basis: 106%;
+    padding: 10px 8px;
+  }
+
+  .person-desc-name {
+    font-size: 28px;
+  }
+
+  .person-desc-expert {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .person-desc-speech {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .about-us {
+    margin: 0 auto;
+    padding: 110px 0 0;
+  }
+
+  .sidebar {
+    order: 1;
+    padding: 0 20px;
+  }
+
+  .slider-nav-top {
+    order: 3;
+    justify-content: flex-end;
+    margin: 0;
+    padding-right: 30px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .top-prev {
+    display: none;
+  }
+
+  .next, .previous {
+    font-size: 18px;
+    margin: 0 5px;
+  }
+
+  .next-name, .prev-name {
+    font-size: 18px;
+  }
+
+  .person {
+    border: 0;
+    order: 2;
+  }
+
+  .person-container {
+    flex-wrap: wrap;
+  }
+
+  .person-photo-container {
+    text-align: right;
+  }
+
+  .person-photo{
+    flex-basis: 100%;
+    width: 70%;
+    height: 100%;
+    top: 0;
+  }
+
+  .person-desc {
+    border-top: 20px solid #f0d456;
+    flex-basis: 100%;
+    padding: 20px 20px 20px;
+  }
+
+  .person-desc-name {
+    font-size: 30px;
+  }
+
+  .person-desc-expert {
+    margin: 15px 0 10px;
+    font-size: 18px;
+  }
+
+  .person-desc-speech {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .arrow-prev {
+    display: none;
+  }
+  .arrow-next {
+    display: none;
+  }
+
+  .slider-nav {
+    display: flex;
+    flex-direction: column-reverse;
+    order: 4;
+    margin-top: 15px;
+  }
+
+  .slider-dots {
+    top: 0;
+  }
 }

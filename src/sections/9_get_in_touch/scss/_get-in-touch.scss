@@ -1,3 +1,253 @@
-.test9 {
-    color: blue;
+// ***MODAL WINDOW***
+.get-in-touch-content{
+    display: flex;
+}
+.modal{
+    width: 633px;
+    height: 386px;
+    padding: 58px 135px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    @include text("Muli",#34353A,26,bold,center,none);
+    line-height: 35px;
+    display: none;
+}
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(57,57,57,0.5);
+    z-index: 9;
+    display: none;
+}
+.modal-active{
+    display: block;
+}
+.modal-text{
+    @include text("Muli",#34353A,26,bold,center,none);
+    line-height: 35px;
+}
+.modal-check{
+    font-size: 120px;
+    color: #3aaa35;
+}
+.modal-cross{
+    font-size: 120px;
+    color: #ec0000;
+}
+.modal-button-cross{
+    color: #fff;
+    position: absolute;
+    top: -30px;
+    right: -21px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.modal p:nth-child(3){
+    @include text("Muli",#34353a,26,700,center,none);
+    margin-top: 34px;
+}
+.modal p:nth-child(5){
+    @include text("Muli",#34353a,18,400,center,none);
+    margin-bottom: 10px;
+}
+.modal span{
+  font-weight: 700;
+}
+.modal button{
+    @include text("Muli",#34353a,20,400,right,none);
+    border-bottom: 1px solid #34353a;
+    line-height: 22px;
+    position: absolute;
+    right: 35px;
+    bottom: 27px;
+    cursor: pointer;
+}
+
+// ***SECTION GET-IN-TOUCH***
+.get-in-touch-title{
+    @include text("Muli Black",#34353a,30,700,left,none);
+    margin: 45px 0;
+    padding-top: 10px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -69px;
+        width: 107px;
+        height: 4px;
+        background-color: #838486;
+    }
+}
+.get-in-touch{
+    &-form{
+        display: flex;
+        flex-direction: column;
+  }
+    input:nth-child(-n+3){
+        @include text("Muli",black,20,400,left,none);
+        border: 0;
+        border-bottom: 1px solid #34353a;
+        padding: 0 0 23px 14px;
+        display: block;
+        width: 390px;
+        height: 20px;
+        outline-style: none;
+    }
+    textarea{
+        @include text("Muli",black,20,400,left,none);
+        width: 370px;
+        height: 107px;
+        resize: none;
+        padding: 19px 15px;
+        margin: 42px 0 52px;
+        border: 1px solid #303030;
+        border-radius: 5px;
+        outline-style: none;
+    }
+}
+.get-in-touch{
+    position: relative;
+}
+.get-in-touch-btn{
+    @include btn;
+    margin-bottom: 152px;
+    width: 226px;
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: none;
+}
+.get-in-touch-btn:hover{
+    @include btn-hover;
+}
+.get-in-touch-btn:active{
+    @include btn-active;
+}
+.get-in-touch-square{
+    max-width: 587px;
+    height: 540px;
+    border: 26px solid $yellow;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: calc(50% + 14px);
+    padding: 209px 141px;
+    line-height: 80px;
+    @include flex(c,c);
+    @include text("Muli Black",#34353a,60,700,left,none);
+    &:before{
+        content: '';
+        position: absolute;
+        width: 557px;
+        height: 540px;
+        box-shadow: -14px 46px 0 0 #b7b7b7;
+        left: -26px;
+        top: -26px;
+    }
+}
+.get-in-touch-title-media768{
+    display: none;
+}
+.get-in-touch-warning{
+    @include text($font, #c92533, 20, 400, left, none);
+    opacity: 0;
+    transition: 0.4s;
+    align-self: flex-start;
+}
+.warning-visible{
+    opacity: 1;
+}
+
+@media screen and (max-width: 1200px){
+    .get-in-touch-square{
+      padding: 209px 121px;
+      width: calc(50% - 34px);
+      &::before{
+          width: 100%;
+      }
+    }
+}
+@media screen and (max-width: 993px){
+    .get-in-touch-square{
+        display: none;
+    }
+    .get-in-touch-form-wrapper{
+      border: 26px solid $yellow;
+      box-sizing: border-box;
+      display: block;
+    }
+    .get-in-touch-form{
+        @include flex(c,c);
+        max-width: 400px;
+    }
+    .get-in-touch-title{
+        display: none;
+    }
+    .get-in-touch-title-media768{
+        display: block;
+        margin: 69px 0 45px;
+    }
+    .get-in-touch-form{
+        padding: 49px 130px 34px 130px;
+        margin: 0 auto;
+    }
+    .get-in-touch-form input:nth-child(-n+3){
+        outline-style: none;
+    }
+    .get-in-touch-form textarea{
+        outline-style: none;
+        margin-bottom: 34px;
+    }
+    .get-in-touch-btn{
+        margin: 0;
+    }
+}
+@media screen and (max-width: 768px){
+    .get-in-touch-form{
+        padding: 35px 14px;
+    }
+    .get-in-touch-modal{
+        width: 100%;
+        padding: 58px 110px
+    }
+    .get-in-touch-warning{
+      font-size: 16px;
+    }
+}
+@media screen and (max-width: 578px){
+    .get-in-touch-form{
+      width: 355px;
+    }
+    .get-in-touch input:nth-child(-n+3){
+      width: calc(100% - 14px);
+    }
+    .get-in-touch-form textarea{
+      width: calc(100% - 30px);
+    }
+  }
+
+@media screen and (max-width: 479px){
+    .get-in-touch-form-wrapper{
+        border: none;
+        width: 100%;
+    }
+    .get-in-touch-form{
+      width: 100%;
+      padding: 35px 0;
+    }
+    .get-in-touch-modal{
+        width: 100%;
+        padding: 22px 0;
+    }
+    .get-in-touch-modal span{
+        display: block;
+        line-height: 1px;
+        margin-top: 28px;
+    }
 }

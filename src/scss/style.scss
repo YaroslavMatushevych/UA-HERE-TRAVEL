@@ -3,44 +3,84 @@
 
 $white: #ffffff;
 $blue: #0366a2;
-$yellow: #f6d671;
-$font: Montserrat, sans-serif;
+$yellow: #f0d456;
+$font: "Muli", sans-serif;
 
 /*-------------------------- C O N T A I N E R S------------------------------*/
 
 .container {
-  max-width: 1360px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 @media screen and (max-width: 1200px) {
   .container {
-    max-width: 960px;
+    max-width: 1140px;
   }
 }
 
 @media screen and (max-width: 993px) {
   .container {
-    max-width: 728px;
+    max-width: 960px;
   }
 }
 
 @media screen and (max-width: 768px) {
 
   .container {
-    max-width: 576px;
+    max-width: 720px;
   }
 }
 
 @media screen and (max-width: 578px) {
 
-  .main-container {
-    max-width: 100%;
-    padding: 0 15px;
+  .container {
+    max-width: 540px;
   }
 }
 
+@media screen and (max-width: 480px) {
+
+  .container {
+    max-width: 100%;
+  }
+
+}
+
+/*----------------------------- @ L O O P S ---------------------------------*/
+
+$fonts: (tiny: 8px, medium: 10px, large: 13px, extra-large: 20px);
+
+@each $name, $value in $fonts {
+  .#{$name} {
+    font-size: $value;
+  }
+}
+
+/*---------------------------- @ F U N C T I O N ----------------------------*/
+
+/* Перевод px to em */
+
+@function px-to-em ($px, $context: 16px) {
+  @return ($px / $context) * 1em;
+}
+
 /*---------------------------- @ M I X I N S --------------------------------*/
+
+/* Подключение удаленных шрифтов */
+
+@mixin remote-fonts($name) {
+  @import url(https://fonts.googleapis.com/css?family=#{$name});
+}
+
+/* Подключение для разных разрешений */
+
+@mixin large-screen() {
+  @media screen and (max-width: 960px){
+    @content;
+  }
+}
 
 @mixin flex($jc, $ai) {
   display: flex;
@@ -123,40 +163,57 @@ $font: Montserrat, sans-serif;
 }
 ///ADDED PX IN FONT-SIZE///
 @mixin text($ff, $co, $fs, $fw, $ta, $tt) {
-	font-family: $ff, sans-serif;
-	color: $co;
-	font-size: $fs+px;
-	font-weight: $fw;
-	text-align: $ta;
-	text-transform: $tt;
+  font-family: $ff, sans-serif;
+  color: $co;
+  font-size: $fs+px;
+  font-weight: $fw;
+  text-align: $ta;
+  text-transform: $tt;
 }
 ///ADDED CURSOR-POINTER///
 @mixin btn {
   box-sizing: border-box;
   border: none;
-  border-radius: 33px;
-  padding: 27px 88px 25px 85px; 
-  font-family: Montserrat, sans-serif;
-  font-size: 20px;
+  border-radius: 9999px;
+  padding: 0 25px;
+  height: 60px;
+  min-width: 180px;
+  font-family: "Muli", sans-serif;
+  font-size: 21px;
   font-weight: 700;
   text-align: center;
-  background-color: #0082d1;
+  background-image: linear-gradient(0deg, #3da3bf 0%, #90dbed 100%);
+  box-shadow: 0 3px rgba(60,160,188,1);
   color: white;
   outline: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  transform-origin: bottom;
 }
 ///ADDED HOVER-STATE MIXIN ON BTN///
+@mixin btn-active{
+  background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
+  box-shadow: 0 2px rgba(60,160,188,1);
+  top: 1px;
+}
+///ADDED ONCLICK-STATE MIXIN ON BTN///
 @mixin btn-hover{
-  background-color: #0366a2;
+  background: linear-gradient(to bottom, #7ce7ff 0%, #2aa8cc 100%);
+  box-shadow: 0 6px rgba(60,160,188,1);
+  top: -3px;
 }
 
-@mixin header ($fz) {
-  font-family: Montserrat, sans-serif;
+@mixin header ($fz: 5) {
+  font-family: "Muli", sans-serif;
   font-size: $fz + px;
   font-weight: 700;
   text-align: center;
-  color: #3c4458;
+  color: #34353a;
 }
 
 /*---------------------------- @ E X T E N D --------------------------------*/
