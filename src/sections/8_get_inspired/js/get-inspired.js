@@ -389,7 +389,7 @@ window.addEventListener('resize', () => {
     }
     chooseMedia();
     slideWidth = window.innerWidth/obj.quantitySlides;
-    obj.carousel.style.width = `${(parseInt(slideWidth)+margin)*(12 + obj.quantitySlides*2)}px`;
+    obj.carousel.style.width = slideWidth * (document.querySelectorAll('.get-inspired-slider-item').length) + margin + 'px';
     obj.carousel.style.transform = `translateX(${-slideWidth*obj.quantitySlides}px)`;
     setTimeout(()=> {
         obj.slider.style.height = obj.biggestHeight;
