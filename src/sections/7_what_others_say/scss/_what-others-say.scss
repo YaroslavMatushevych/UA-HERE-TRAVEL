@@ -1,3 +1,234 @@
-.test7 {
-    color: blue;
+.what-others-say{
+    margin: 140px 0 65px;
+}
+.wos-header-section{
+    @include header(30);
+    font-weight: 900;
+    margin: 67px 0;
+    position: relative;
+    text-align: left;
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 100px;
+        width: 107px;
+        height: 3px;
+        background-color: rgb(131, 132, 134);
+    }
+}
+.photo-speach-container{
+    display: flex;
+    justify-content: space-between;
+}
+.photo-item{
+    position: relative;
+    margin-left: 40px;
+    width: 400px;
+    height: 300px;
+    box-shadow: -40px 32px 0px 0px #f0d456;
+}
+.speach-container {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+}
+.speach {
+    position: relative;
+}
+.speach-item-name {
+    @include text(Muli, #34353a, 26, 700, left, uppercase);
+    margin-bottom: 60px;
+}
+.speach-item-country {
+    text-transform: capitalize;
+}
+.speach-item-description {
+    @include text(Muli, #34353a, 20, 400, left, none);
+    line-height: 39px;
+}
+.speach-item-description-over {
+    overflow: hidden;
+    max-height: calc(39px * 5);
+    &:after {
+        content: '...';
+        position: absolute;
+        bottom: 55px;
+        left: 0;
+        font-size: 25px;
+        cursor: pointer;
+    }
+}
+.arrow-icon{
+    visibility: visible;
+    margin: 154px 0;
+    font-size: 42px;
+    cursor: pointer;
+    color: #ffd008;
+}
+.arrow-icon.fa-chevron-left{
+    margin-right: 32px;
+}
+.arrow-icon.fa-chevron-right{
+    margin-left: 32px;
+}
+.whatsapp-btn{
+    @include text(Muli, #00b6cc, 16, 700, left, uppercase);
+    margin-top: 65px;
+    cursor: pointer;
+}
+.whatsapp-btn span{
+    color: #128c7e;
+}
+.whatsapp-container {
+    margin: 0 auto;
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.whatsapp-container-flex{
+    @include flex(c, c);
+}
+.whatsapp-item {
+    max-height: calc(100vh - 70px);
+}
+.arrow-icon-whatsapp {
+    color: #fff;
+}
+.close-icon {
+    position: absolute;
+    right: 20px;
+    top: -40px;
+    font-size: 42px;
+    color: #fff;
+    cursor: pointer;
+}
+.wos-dot{
+    @include flex(c, c);
+    margin: 0;
+    visibility: hidden;
+}
+.wos-dot-item {
+    margin: 1px;
+    padding: 8px;
+    border: 1px solid #ffd008;
+    border-radius: 50%;
+}
+.wos-dot-item-active {
+    @include flex(c, c);
+    background-color: rgb(255, 208, 8);
+}
+.wos-overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+}
+.photo-item, .speach-item, .whatsapp-item{
+    opacity: 1;
+    transition: opacity 1s;
+}
+.photo-item.photo-item-fade, .speach-item.speach-item-fade, .whatsapp-item.whatsapp-item-fade {
+    opacity: 0;
+}
+
+@media screen and (max-width: 993px) {
+    .what-others-say{
+        margin-top: 100px;
+    }
+    .wos-header-section{
+        margin: 70px 0 40px;
+    }
+    .photo-item{
+        width: 320px;
+        height: 240px;
+        margin-right: 23px;
+        margin-left: 0;
+        box-shadow: none;
+    }
+    .speach-container{
+        width: 100%;
+    }
+    .speach-item{
+        line-height: 30px;
+    }
+    .speach-item-name{
+        margin-bottom: 35px;
+    }
+    .speach-item-description{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .speach-item-description-over {
+        max-height: calc(30px * 5);
+        margin-bottom: 15px;
+        &:after{
+            bottom: 40px;
+        }
+    }
+    .arrow-icon{
+        display: none;
+    }
+    .close-icon {
+        right: -30px;
+    }
+    .whatsapp-btn{
+        margin-top: 35px;
+    }
+    .wos-dot{
+        visibility: visible;
+        margin: 30px 0 45px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .wos-header-section{
+        margin: 50px 0;
+        &:before{
+            bottom: 75px;
+        }
+    }
+    .photo-speach-container {
+        flex-direction: column;
+    }
+    .photo-item {
+        margin: 0 auto 60px;
+    }
+    .whatsapp-btn {
+        margin-top: 30px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .photo-speach-container {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .photo-item {
+        margin-bottom: 55px;
+        max-width: 290px;
+        max-height: 240px;
+        width: 100%;
+        height: auto;
+    }
+    .speach-item-country{
+        display: block;
+    }
+    .speach-item-description{
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .speach-item-description-over {
+        max-height: calc(22px * 4);
+    }
+    .whatsapp-item {
+        max-width: 280px;
+    }
+    .close-icon {
+        right: -20px;
+    }
 }

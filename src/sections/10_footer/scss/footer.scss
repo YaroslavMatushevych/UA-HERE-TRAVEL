@@ -1,3 +1,57 @@
-.test10 {
-    color: red;
+.footer{
+    background-color: #505050;
+    min-height: 338px;
+}
+.footer>.container{
+    display: flex;
+    justify-content: flex-end;
+}
+.footer__menu-wrapper{
+  width: 50%;
+  margin-top: 68px;
+}
+.footer__menu{
+    display: flex;
+    justify-content: space-between;
+}
+.footer__list-block{
+    flex-basis: 314px;
+}
+.footer__list-item{
+    @include text("Muli",#F5F5F5,16,400,left,none);
+    display: block;
+    margin-bottom: 21px;
+    text-decoration: none;
+}
+.footer__list>.footer__list-item:last-child{
+    margin-bottom: 0;
+}
+.footer__copy{
+    margin-top: 77px;
+    padding-right: 15px;
+    @include text("Muli",#7E7F81,12,700,left,none);
+}
+@media screen and (max-width: 993px){
+    .footer>.container{
+        justify-content: center;
+        padding: 0 140px 0 140px;
+    }
+    .footer__menu-wrapper{
+        width: auto;
+    }
+    // .footer__list-block{
+    // }
+}
+@media screen and (max-width: 768px){
+    .footer>.container{
+        padding: 0 35px 0 35px;
+    }
+    .footer__menu{
+        padding-left: 28px;
+    }
+}
+@media screen and (max-width: 578px){
+    .footer__menu{
+      padding-left: 0;
+    }
 }

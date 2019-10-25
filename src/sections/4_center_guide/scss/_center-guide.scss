@@ -1,3 +1,352 @@
-.test4 {
+.center-guide {
+    position: relative;
+    height: 720px;
+    margin-top: 330px;
+}
+
+.center-guide-triangle {
+    border-style: solid;
+    border-width: 550px 0 550px 720px;
+    border-color: transparent transparent transparent #f0d456;
+    position: absolute;
+    top: -330px;
+    z-index: 1;
+    transform: translateX(-100%);
+}
+
+.hand-trim {
+    position: absolute;
+    bottom: 25px;
+    right: 15%;
+    max-height: 100%;
+}
+
+.played {
+    transform: translateX(0%);
+    transition: transform 0.9s linear;
+}
+
+.center-guide-container {
+    z-index: 2;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.center-guide-heading {
+    @include text("Muli Black",#34353a,30,700,left,none);
+    margin: 45px 0;
+    padding-top: 10px;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: -76px;
+        width: 107px;
+        height: 3px;
+        background-color: #838486;
+    }
+}
+
+.center-guide-form {
+    color: #a3a2a2;
+    font-family: "Muli", sans-serif;
+}
+
+#input-name, #input-email {
+    font-family: "Muli", sans-serif;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #34353a;
+    padding: 15px;
+    font-size: 20px;
+    width: 380px;
+    font-weight: 300;
+    display: block;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.form-button {
+    @include btn;
+    margin-top: 80px;
+    min-width: 225px;
+    height: 60px;
+    font-weight: 700;
+    border-radius: 25px;
+    font-size: 22px;
+
+    &:hover{
+        @include btn-hover;
+    }
+    &:active{
+        @include btn-active;
+    }
+}
+
+.form-file-description {
+    font-family: "Muli", sans-serif;
+    font-weight: 300;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+.valid-email, .valid-name {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.center-guide-alert {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: -1;
+    opacity: 0;
+
+    &.visible {
+        opacity: 1;
+        transition: all 0.3s linear;
+        z-index: 10;
+    }
+}
+
+.alert-success, .alert-fail {
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    width: 800px;
+    height: 500px;
+    padding: 60px 100px;
+    box-sizing: border-box;
+    background: $white;
+    display: none;
+    flex-direction: column;
+    border-radius: 30px;
+}
+
+.saltire {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    text-decoration: none;
+    color: $white;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.check {
+    flex-basis: 75%;
+    font-size: 200px;
+    text-align: center;
+    color: #3aaa35;
+}
+
+.cross {
+    flex-basis: 75%;
+    font-size: 200px;
+    text-align: center;
     color: red;
+}
+
+.alert-message {
+    text-align: right;
+}
+
+.message-text {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    flex-basis: 25%;
+    line-height: 45px;
+}
+
+.close {
+    color: #34353a;
+    font-size: 20px;
+
+    &:hover {
+        color: #54555a;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .center-guide {
+        height: 660px;
+        margin-top: 270px;
+    }
+
+    .center-guide-container {
+        max-width: 1140px;
+        padding: 0 20px;
+    }
+
+    .hand-trim {
+        right: 10%;
+        max-height: 100%;
+    }
+
+    .center-guide-triangle {
+        border-width: 500px 0 500px 650px;
+        top: -270px;
+    }
+}
+
+@media screen and (max-width: 993px) {
+    .center-guide {
+        height: 600px;
+    }
+
+    .alert-success, .alert-fail {
+        width: 700px;
+        height: 420px;
+    }
+
+    .hand-trim {
+        right: 1%;
+        max-height: 100%;
+    }
+
+    .center-guide-triangle {
+        border-width: 450px 0 450px 540px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+  .center-guide {
+      height: 480px;
+      margin-top: 150px;
+  }
+
+    .hand-trim {
+        max-height: 90%;
+    }
+
+  .center-guide-triangle {
+      border-width: 370px 0 370px 440px;
+      top: -225px;
+  }
+    .center-guide-heading {
+        font-family: "Muli Black", sans-serif;
+        font-size: 30px;
+        color: #34353a;
+        font-weight: 700;
+        margin-bottom: 45px;
+
+        &:before{
+            top: -60px;
+        }
+    }
+
+    .alert-success, .alert-fail {
+        width: 450px;
+        height: 290px;
+        padding: 20px 30px;
+        border-radius: 20px;
+    }
+
+    .saltire {
+        top: -30px;
+        right: -12px;
+        font-size: 30px;
+    }
+
+    .check, .cross {
+        font-size: 130px;
+    }
+
+    .message-text {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 578px) {
+
+    .center-guide {
+        height: 460px;
+        margin-top: 100px;
+    }
+
+    .hand-trim {
+        max-height: 90%;
+    }
+
+    .center-guide-triangle {
+        border-width: 310px 0 310px 350px;
+        top: -140px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+
+    .center-guide {
+        padding-bottom: 260px;
+        height: 720px;
+        overflow-x: hidden;
+    }
+
+    .hand-trim {
+        right: 50%;
+        max-height: 30%;
+        transform: translateX(38%);
+    }
+
+    .center-guide-triangle {
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        overflow-x: hidden;
+        border-width: 630px 500px 0;
+        border-color: #f0d456 transparent transparent transparent;
+    }
+
+    .center-guide-heading {
+        padding-top: 130px;
+        text-align: left;
+
+        &:before{
+            top: 50px;
+        }
+    }
+
+    .center-guide-form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #input-email, #input-name {
+        width: 250px;
+    }
+
+    .form-file-description {
+        display: none;
+    }
+
+    .alert-success, .alert-fail {
+        width: 350px;
+        height: 250px;
+        padding: 20px 12px;
+    }
+
+    .check, .cross {
+        font-size: 100px;
+    }
+
+    .message-text {
+        font-size: 20px;
+    }
+
+    .close {
+        font-size: 14px;
+    }
 }

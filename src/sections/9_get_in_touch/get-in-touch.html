@@ -1,1 +1,40 @@
-<section class="test9">get in touch</section>
+<section class="get-in-touch" id="get-in-touch">
+    <div class="container">
+        <div class="modal-overlay"></div>
+        <div class="modal modal-success">
+            <i class="modal-button-cross fas fa-times"></i>
+            <i class="modal-check fa fa-check" aria-hidden="true"></i>
+            <p class="modal-text">We will contact you within</p>
+            <p class="modal-text">2 business hours</p>
+            <p class="modal-text"><span>We work:</span> Mo - Fr 10am - 8pm (GMT +2)</p>
+            <button class="modal-button-close">Close</button>
+        </div>
+        <div class="modal modal-fail">
+            <i class="modal-button-cross fas fa-times"></i>
+            <i class="modal-cross fa fa-times" aria-hidden="true"></i>
+            <p class="modal-text">Something went wrong;(</p>
+            <p class="modal-text">Please try again!</p>
+            <button class="modal-button-close">Close</button>
+        </div>
+        <h2 class="get-in-touch-title">We will contact you soon</h2>
+        <h2 class="get-in-touch-title get-in-touch-title-media768">Let’s get in touch</h2>
+        <div class="get-in-touch-form-wrapper">
+          <form id="contact-us" action="mail.php" class="get-in-touch-form">
+            <input type="text" name="name" id="get-in-touch-name" placeholder="Your Name">
+            <p class="get-in-touch-warning name-warning">Please enter a valid name.</p>
+            <input type="email" name="mail" id="get-in-touch-email" placeholder="your@mail.com">
+            <p class="get-in-touch-warning email-warning">Please enter a valid e-mail address.</p>
+            <textarea name="message" placeholder="Your message"></textarea>
+            <input name="email-subject" type="hidden" value="Feedback request">
+            <!--<div>-->
+              <!--<button id="success">success</button>-->
+              <!--<button id="fail">fail</button>-->
+              <!--</div>-->
+              <input type="submit" class="get-in-touch-btn" value="Get in touch">
+            </form>
+        </div>
+        <div class="get-in-touch-square">
+            <p>Let's get in touch</p>
+        </div>
+    </div>
+</section>
